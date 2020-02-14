@@ -1,4 +1,5 @@
 import React from "react"
+import Lanedetaljer from "./Lanedetaljer"
 import { ThemeProvider } from "styled-components"
 import { Button, CheckBox } from "@staccx/bento"
 import baseTheme from "@staccx/bento/lib/theming/baseTheme"
@@ -7,8 +8,7 @@ import baseTheme from "@staccx/bento/lib/theming/baseTheme"
 function App () {
   return (
     <ThemeProvider theme={baseTheme}>
-      <Button onClick={() => console.log("Something")}>This is a button</Button>
-      <CheckBox id={"test"}>Tester</CheckBox>
+      <Lanedetaljer/>
     </ThemeProvider>
   )
 }
