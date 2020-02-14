@@ -1,44 +1,33 @@
-import React, { Component } from "react";
-import { Slider, Breadcrumb, CurrencyInput } from "@staccx/bento";
+import React, { useState } from "react";
+import { Slider, Breadcrumb, CurrencyInput, Expand } from "@staccx/bento";
 
-export class VerdiLaneSum extends Component {
-  
-    state = {
-        sum: null,
-        max: 1000000,
-        min: 100000,
-        step: 10000
-    }
-  
-    sliderValue = e => {
-    const verdi = e.target.value;
-    console.log(verdi);
-
-    this.setState({
-        sum: verdi
-    })
-
-    console.log(verdi)
-
-  };
-
+export const VerdiLaneSum = () => {
+    const  [ BoligVerdi, setBoligVerdi ] = useState(0)  
+    const [ LaneSum, setLaneSum ] = useState(0)
   
 
-  render() {
     return (
       <div>
-        <CurrencyInput label={"Boligverdi"} value={this.state.sum} />
-        <CurrencyInput label={"Lånesum"} />
+        <CurrencyInput label={"Boligverdi"} value={BoligVerdi || 0} onChange={e => setBoligVerdi(e.target.value)}/>
+        <CurrencyInput label={"Lånesum"} value={LaneSum || 0} />
+
         <Slider
-          name="Disabled"
-          onChange={e => this.sliderValue(e)}
-          min={this.state.min}
-          max={this.state.max}
-          step={this.state.step}
+          name={"Disabled"}
+          onChange={e => setBoligVerdi(e.target.value)}
+          min={0}
+          max={10000}
+          step={1000}
         />
+        <Slider
+          name={"wsddfs"}
+          onChange={e => setLaneSum(e.target.value)}
+          min={0}
+          max={10000}
+          step={1000}
+        />
+
+        
       </div>
     );
-  }
 }
 
-export default VerdiLaneSum;

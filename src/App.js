@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import Lanedetaljer from "./Lanedetaljer";
 import Lanetakere from "./Lanetakere";
 import Husstanden from "./Husstanden";
+import Legitimering from "./Legitimering";
+import Estimat from "./Estimat";
 import { ThemeProvider } from "styled-components";
 import baseTheme from "@staccx/bento/lib/theming/baseTheme";
+import { Breadcrumb } from "@staccx/bento";
 
 const Step = ({ currentStep, onNext, onPrev }) => {
   switch (currentStep) {
@@ -13,22 +16,44 @@ const Step = ({ currentStep, onNext, onPrev }) => {
     case 2:
       return <Lanetakere onNext={onNext} />;
 
-      case 3:
-        return <Husstanden onNext ={onNext}/>;
+    case 3:
+      return <Husstanden onNext={onNext} />;
+
+    case 4:
+      return <Legitimering onNext={onNext} />;
+
+    case 5:
+      return <Estimat onNext={onNext} />;
 
     default:
       return <div>Ukjent steg</div>;
   }
 };
 
-
-
-function App () {
+function App() {
   const [step, setStep] = useState(1);
   return (
     <div className="laneflyt">
       <ThemeProvider theme={baseTheme}>
-        {" "}
+        <Breadcrumb
+          path={[
+            {
+              name: "First page",
+              to: "/"
+            },
+            {
+              name: "Second page",
+              to: "/level-2"
+            },
+            {
+              name: "Third page",
+              to: "/level-3"
+            },
+            {
+              name: "Fourth page"
+            }
+          ]}
+        />{" "}
         <Step
           currentStep={step}
           onNext={() => setStep(step + 1)}
