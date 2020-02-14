@@ -20,10 +20,11 @@ const Step = ({ currentStep, onNext, onPrev }) => {
       return <div>Ukjent steg</div>;
   }
 };
-function App() {
-  const [step, setStep] = useState(1);
+
+
 
 function App () {
+  const [step, setStep] = useState(1);
   return (
     <div className="laneflyt">
       <ThemeProvider theme={baseTheme}>
