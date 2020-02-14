@@ -5,7 +5,6 @@ import Husstanden from "./Husstanden";
 import { ThemeProvider } from "styled-components";
 import baseTheme from "@staccx/bento/lib/theming/baseTheme";
 
-<<<<<<< Updated upstream
 const Step = ({ currentStep, onNext, onPrev }) => {
   switch (currentStep) {
     case 1:
@@ -24,9 +23,7 @@ const Step = ({ currentStep, onNext, onPrev }) => {
 function App() {
   const [step, setStep] = useState(1);
 
-=======
 function App () {
->>>>>>> Stashed changes
   return (
     <div className="laneflyt">
       <ThemeProvider theme={baseTheme}>

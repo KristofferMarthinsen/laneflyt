@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import Nedbetaling from "./components/Nedbetaling";
 import VidereKnapp from "./components/VidereKnapp";
-<<<<<<< Updated upstream
 import { Slider, Breadcrumb, CurrencyInput } from "@staccx/bento";
-=======
 import VerdiLaneSum from "./components/VerdiLaneSum";
-import { Breadcrumb } from "@staccx/bento";
->>>>>>> Stashed changes
+
 
 export class Lanedetaljer extends Component {  
   render() {
@@ -33,23 +30,10 @@ export class Lanedetaljer extends Component {
             }
           ]}
         />
-<<<<<<< Updated upstream
-        <CurrencyInput label={"Boligverdi"} />
-        <CurrencyInput label={"Lånesum"} />
-        <Slider
-          name="Disabled"
-          onChange={e => console.log("Sliiiiide", e.target.value)}
-          min={500000}
-          max={20000000}
-        />
-        <Nedbetaling />
-        <VidereKnapp onClick={this.props.onNext} />
-=======
         <VerdiLaneSum/>
         <Nedbetaling/> 
-        <VidereKnapp/>
+        <VidereKnapp onClick={this.props.onNext} />
         
->>>>>>> Stashed changes
       </div>
     );
   }
