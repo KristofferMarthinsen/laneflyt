@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Nedbetaling from "./components/Nedbetaling";
-import VidereKnapp from "./components/VidereKnapp"
+import VidereKnapp from "./components/VidereKnapp";
 import { Slider, Breadcrumb, CurrencyInput } from "@staccx/bento";
 
 export class Lanedetaljer extends Component {
@@ -30,10 +30,14 @@ export class Lanedetaljer extends Component {
         />
         <CurrencyInput label={"Boligverdi"} />
         <CurrencyInput label={"Lånesum"} />
-        <Slider name="Disabled" onChange={e => console.log("Sliiiiide", e.target.value)} min={0} max={100} disabled />
-        <Nedbetaling/> 
-        <VidereKnapp/>
-        
+        <Slider
+          name="Disabled"
+          onChange={e => console.log("Sliiiiide", e.target.value)}
+          min={500000}
+          max={20000000}
+        />
+        <Nedbetaling />
+        <VidereKnapp onClick={this.props.onNext} />
       </div>
     );
   }
