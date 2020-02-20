@@ -6,6 +6,7 @@ import SikkerhetLeggTil from "./SikkerhetLeggTil";
 import { CheckBox, Button, Heading } from "@staccx/bento";
 import { useHistory } from "react-router-dom";
 import {Link} from "react-router-dom";
+import Header from "./components/Header";
 
 const Sikkerhet = () => {
   
@@ -13,7 +14,7 @@ const Sikkerhet = () => {
         
       <div>
       
-        <Heading>Sikkerhet</Heading>
+        <Header title="Lånesum" id={6}/>
         <p>søtt bilde av et hus</p>
         <p>Har du en eiendom som kan brukes til sikkerhet for lånet?</p>
         <p>

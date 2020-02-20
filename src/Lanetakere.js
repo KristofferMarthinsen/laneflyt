@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import VidereKnapp from "./components/VidereKnapp";
+import Header from "./components/Header";
 import { Button,Heading } from "@staccx/bento";
 import { Link } from "react-router-dom";
 export class Lanetakere extends Component {
   render() {
     return (
       <div>
-        <Heading>Lånetakere</Heading>
+        <Header title="Lånetakere" id={2}/>
         <p>2 stk griser i bilde form</p>
        <h3> Skal du låne sammen med noen?</h3>
         <p>En medlåntaker låner sammen med deg for eksempel

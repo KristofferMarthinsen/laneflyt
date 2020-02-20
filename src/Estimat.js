@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Button,Heading } from "@staccx/bento";
+import Header from "./components/Header";
 
 export class Estimat extends Component {
   render() {
     return (
       <div>
-        <Heading>Estimat</Heading>
+        <Header title="Estimat" id={5}/>
         <p>kult bilde</p>
         <p>
           Basert på informasjonen vi har så langt, tror vi du kan betjene dette
