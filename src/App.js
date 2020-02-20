@@ -8,8 +8,8 @@ import Sikkerhet from "./Sikkerhet";
 import Heading from "./components/Heading"
 import SikkerhetLeggTil from "./SikkerhetLeggTil";
 import { ThemeProvider } from "styled-components";
-import baseTheme from "@staccx/bento/lib/theming/baseTheme";
-import { Breadcrumb, Button } from "@staccx/bento";
+import theme from "./theme/theme";
+import { WebFonts, GlobalStyle } from "@staccx/bento"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 
@@ -41,7 +41,9 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 function App() {
   //const [step, setStep] = useState(1);
   return (
-    <ThemeProvider theme={baseTheme}>
+    <ThemeProvider theme={theme}>
+    <GlobalStyle/>
+    <WebFonts/>
       <Heading/>
       <Router>
         <div className="laneflyt">
@@ -63,6 +65,9 @@ function App() {
             </Route>
             <Route path="/Sikkerhet">
               <Sikkerhet/>
+            </Route>
+            <Route path="/SikkerhetLeggTil">
+              <SikkerhetLeggTil/>
             </Route>
             <Route path="/SikkerhetLeggTil">
               <SikkerhetLeggTil/>

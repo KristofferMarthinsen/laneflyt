@@ -1,4 +1,6 @@
 import React from "react";
+import  styled  from "styled-components"
+import { theming } from "@staccx/bento"
 import VidereKnapp from "./components/VidereKnapp";
 import SikkerhetLeggTil from "./SikkerhetLeggTil";
 import { CheckBox, Button } from "@staccx/bento";
@@ -8,7 +10,9 @@ import {Link} from "react-router-dom";
 const Sikkerhet = () => {
   
     return (
+        
       <div>
+      <Button variant = "test">hei</Button>
         <h1>Sikkerhet</h1>
         <p>søtt bilde av et hus</p>
         <p>Har du en eiendom som kan brukes til sikkerhet for lånet?</p>

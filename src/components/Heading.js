@@ -29,6 +29,7 @@ export default Heading;
 
 const Headline = styled.div`
     display: flex;
+    flex-direction: column;
 `
 
 const Title = styled.h1`

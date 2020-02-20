@@ -10,8 +10,8 @@ export class Legitimering extends Component {
                 <p>Bilde for å vise at det er et seriøst dokument</p>
                 <h4>For å hente opplysninger fra deg automatisk trenger vi ditt samtykke</h4>
                 <p>Du vil bli videresendt til Altinn sine nettsider for å hente informasjon om din lønn, gjeld og formue</p>
-                <Button>Ta meg til Altinn</Button>
-                <Link to = "/Estimat"><Button>Videre</Button></Link>
+                <Link to = "/Alltin"><Button>Ta meg til Altinn</Button></Link>
+                <Link to = "/Estimat"><Button> Gå videre uten samtykke</Button></Link>
             </div>
         )
     }
