@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Header from "./components/Header";
 import {
   Button,
   Input,
@@ -47,7 +48,7 @@ export class Husstanden extends React.Component {
   render() {
     return (
       <div>
-        <Heading>Husstanden</Heading>
+        <Header title="Husstanden" id={2}/>
         <Button variant= "">Hovedlåntaker</Button>
         <Button variant ="">Medlåntaker</Button>
         <Input label={"Fornavn"} autoFocus />

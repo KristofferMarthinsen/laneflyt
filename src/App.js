@@ -5,7 +5,6 @@ import Husstanden from "./Husstanden";
 import Legitimering from "./Legitimering";
 import Estimat from "./Estimat";
 import Sikkerhet from "./Sikkerhet";
-import Heading from "./components/Heading"
 import SikkerhetLeggTil from "./SikkerhetLeggTil";
 import { ThemeProvider } from "styled-components";
 import theme from "./theme/theme";
@@ -45,7 +44,6 @@ function App() {
     <ThemeProvider theme={theme}>
     <GlobalStyle/>
     <WebFonts/>
-    <Heading/>
       <Router>
         <div className="laneflyt">
           <Switch>
