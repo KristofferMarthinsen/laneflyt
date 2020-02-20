@@ -45,7 +45,7 @@ function App() {
     <ThemeProvider theme={theme}>
     <GlobalStyle/>
     <WebFonts/>
-      <Heading/>
+    <Heading/>
       <Router>
         <div className="laneflyt">
           <Switch>
@@ -74,7 +74,6 @@ function App() {
               <NedbetalingsPlan/>
             </Route>
           </Switch>
-
           
         </div>
       </Router>

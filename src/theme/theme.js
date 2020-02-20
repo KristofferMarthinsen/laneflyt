@@ -1,6 +1,7 @@
 import { css } from "styled-components"
 import { theming } from "@staccx/bento"
 import {buttonVariants} from "./variants/button.variants"
+import {h1Variants} from "./variants/h1.variants"
 
 const reset = theming.createGlobal({
   baseReset: theming.cssResets
@@ -98,6 +99,6 @@ const theme = new theming.Theme(
     }
   )
   .add(reset)
-  .add([buttonVariants])
+  .add([buttonVariants,h1Variants])
 
 export default theme

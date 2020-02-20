@@ -3,7 +3,7 @@ import  styled  from "styled-components"
 import { theming } from "@staccx/bento"
 import VidereKnapp from "./components/VidereKnapp";
 import SikkerhetLeggTil from "./SikkerhetLeggTil";
-import { CheckBox, Button } from "@staccx/bento";
+import { CheckBox, Button, Heading } from "@staccx/bento";
 import { useHistory } from "react-router-dom";
 import {Link} from "react-router-dom";
 
@@ -12,8 +12,8 @@ const Sikkerhet = () => {
     return (
         
       <div>
-      <Button variant = "test">hei</Button>
-        <h1>Sikkerhet</h1>
+      
+        <Heading>Sikkerhet</Heading>
         <p>søtt bilde av et hus</p>
         <p>Har du en eiendom som kan brukes til sikkerhet for lånet?</p>
         <p>
@@ -27,11 +27,14 @@ const Sikkerhet = () => {
         <CheckBox id="2ID" group="test">
           Checkbox 2{" "}
         </CheckBox>
-        <Link to = "/SikkerhetLeggTil"><Button variant = "test">Legg til</Button></Link>
-        <Link to = "/Okonomi"><Button variant = "test">Videre</Button></Link>
+        <Link to = "/SikkerhetLeggTil"><Button variant = "testi">Legg til</Button></Link>
+        <Link to = "/Okonomi"><Button>Videre</Button></Link>
 
       </div>
     );
   }
 
 export default Sikkerhet;
+
+
+    

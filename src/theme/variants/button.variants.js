@@ -4,11 +4,6 @@ import { Button, theming } from "@staccx/bento"
 export const buttonVariants = theming.createVariants(
   {
     [theming.VARIANT_DEFAULT]: css`
-      background-color: ${theming.color.secondary
-      }
-    `
-    ,
-    test: css`
       position: absolute;
 
 left: 30px;
@@ -17,9 +12,10 @@ top: 713px;
 background: #146670;
 border-radius: 3px;
 button:hover
-  
     `
+    
     ,
+    
     testi:css`
     position: absolute;
 left: 197px;
