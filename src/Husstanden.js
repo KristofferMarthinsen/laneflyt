@@ -84,7 +84,7 @@ export class Husstanden extends React.Component {
                    </RadioPill>
        
 
-                   <Link to = "/Legitimering"><Button>Videre</Button></Link>
+                   <Link to = "/Legitimering"><Button variant = "test">Videre</Button></Link>
       </div>
     );
   }

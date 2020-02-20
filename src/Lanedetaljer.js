@@ -13,8 +13,8 @@ export class Lanedetaljer extends Component {
         <Header> Lånedetaljer</Header>
         <VerdiLaneSum/>
         <Nedbetaling/> 
-       <Link to = "/Lanetakere"><Button>Videre</Button></Link>
-        
+       <Link to = "/Lanetakere"><Button variant = "test">Videre</Button></Link>
+       <Link to = "/NedbetalingsPlan"><Button variant ="testi">Nedbetalingsplan</Button></Link>
       </Wrapper>
     );
   }

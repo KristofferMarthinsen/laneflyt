@@ -11,7 +11,7 @@ export class Lanetakere extends Component {
         <Button>Ja</Button>
         <Button>Nei</Button>
 
-        <Link to = "/Husstanden"><Button>Videre</Button></Link>
+        <Link to = "/Husstanden"><Button variant = "test">Videre</Button></Link>
       </div>
     );
   }

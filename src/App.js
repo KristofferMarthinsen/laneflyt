@@ -11,6 +11,7 @@ import { ThemeProvider } from "styled-components";
 import theme from "./theme/theme";
 import { WebFonts, GlobalStyle } from "@staccx/bento"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import NedbetalingsPlan from "./components/NedbetalingsPlan";
 
 
 //const Step = ({ currentStep, onNext, onPrev }) => {
@@ -69,8 +70,8 @@ function App() {
             <Route path="/SikkerhetLeggTil">
               <SikkerhetLeggTil/>
             </Route>
-            <Route path="/SikkerhetLeggTil">
-              <SikkerhetLeggTil/>
+            <Route path="/NedbetalingsPlan">
+              <NedbetalingsPlan/>
             </Route>
           </Switch>
 

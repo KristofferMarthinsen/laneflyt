@@ -38,7 +38,7 @@ const color = {
   bg: "#F4F2F1",
   primary: "#0000A0",
   primaryLight: "#DCEDFF",
-  secondary: "#FDECE4",
+  secondary: "#146670",
   gray: "#646464",
   text: "#000040",
   white: "#fff",
