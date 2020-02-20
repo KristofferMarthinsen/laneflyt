@@ -5,6 +5,7 @@ import Husstanden from "./Husstanden";
 import Legitimering from "./Legitimering";
 import Estimat from "./Estimat";
 import Sikkerhet from "./Sikkerhet";
+import Heading from "./components/Heading"
 import SikkerhetLeggTil from "./SikkerhetLeggTil";
 import { ThemeProvider } from "styled-components";
 import baseTheme from "@staccx/bento/lib/theming/baseTheme";
@@ -41,25 +42,7 @@ function App() {
   //const [step, setStep] = useState(1);
   return (
     <ThemeProvider theme={baseTheme}>
-    <Breadcrumb
-            path={[
-              {
-                name: "First page",
-                to: "/"
-              },
-              {
-                name: "Second page",
-                to: "/level-2"
-              },
-              {
-                name: "Third page",
-                to: "/level-3"
-              },
-              {
-                name: "Fourth page"
-              }
-            ]}
-          />{" "}
+      <Heading/>
       <Router>
         <div className="laneflyt">
           <Switch>
