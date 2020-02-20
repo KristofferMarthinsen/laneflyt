@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import VidereKnapp from "./components/VidereKnapp";
 import { Button } from "@staccx/bento";
-
+import {Link} from "react-router-dom";
 export class Lanetakere extends Component {
   render() {
     return (
@@ -10,7 +10,8 @@ export class Lanetakere extends Component {
         <p>2 stk griser i bilde form</p>
         <Button>Ja</Button>
         <Button>Nei</Button>
-        <VidereKnapp onClick={this.props.onNext} />
+
+        <Link to = "/Husstanden"><Button>Videre</Button></Link>
       </div>
     );
   }

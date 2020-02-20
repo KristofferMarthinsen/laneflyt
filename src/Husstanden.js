@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import {
   Button,
   Input,
@@ -83,7 +84,7 @@ export class Husstanden extends React.Component {
                    </RadioPill>
        
 
-        <VidereKnapp onClick={this.props.onNext} />
+                   <Link to = "/Legitimering"><Button>Videre</Button></Link>
       </div>
     );
   }

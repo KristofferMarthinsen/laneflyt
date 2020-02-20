@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import VidereKnapp from "./components/VidereKnapp"
+import {Link} from "react-router-dom"
 import {Button} from  "@staccx/bento"
 
 export class Estimat extends Component {
@@ -11,7 +11,7 @@ export class Estimat extends Component {
                 <p>Basert på informasjonen vi har så langt, tror vi du kan betjene dette lånet</p>
                 <p>500 000 000 000 </p>
                 <Button>lånedetaljer</Button>
-                <VidereKnapp onClick={this.props.onNext} />
+                <Link to = "/Sikkerhet"><Button>Videre</Button></Link>
             </div>
         )
     }

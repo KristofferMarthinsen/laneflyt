@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Button} from "@staccx/bento"
-import VidereKnapp from "./components/VidereKnapp";
+import {Link} from "react-router-dom";
 
 export class Legitimering extends Component {
     render() {
@@ -11,7 +11,7 @@ export class Legitimering extends Component {
                 <h4>For å hente opplysninger fra deg automatisk trenger vi ditt samtykke</h4>
                 <p>Du vil bli videresendt til Altinn sine nettsider for å hente informasjon om din lønn, gjeld og formue</p>
                 <Button>Ta meg til Altinn</Button>
-                <VidereKnapp onClick={this.props.onNext} />
+                <Link to = "/Estimat"><Button>Videre</Button></Link>
             </div>
         )
     }

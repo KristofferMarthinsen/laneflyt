@@ -4,63 +4,92 @@ import Lanetakere from "./Lanetakere";
 import Husstanden from "./Husstanden";
 import Legitimering from "./Legitimering";
 import Estimat from "./Estimat";
+import Sikkerhet from "./Sikkerhet";
+import SikkerhetLeggTil from "./SikkerhetLeggTil";
 import { ThemeProvider } from "styled-components";
 import baseTheme from "@staccx/bento/lib/theming/baseTheme";
-import { Breadcrumb } from "@staccx/bento";
+import { Breadcrumb, Button } from "@staccx/bento";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-const Step = ({ currentStep, onNext, onPrev }) => {
-  switch (currentStep) {
-    case 1:
-      return <Lanedetaljer onNext={onNext} />;
 
-    case 2:
-      return <Lanetakere onNext={onNext} />;
+//const Step = ({ currentStep, onNext, onPrev }) => {
+//switch (currentStep) {
+//case 1:
+//return <Lanedetaljer onNext={onNext} />;
 
-    case 3:
-      return <Husstanden onNext={onNext} />;
+//case 2:
+//return <Lanetakere onNext={onNext} />;
 
-    case 4:
-      return <Legitimering onNext={onNext} />;
+//case 3:
+//return <Husstanden onNext={onNext} />;
 
-    case 5:
-      return <Estimat onNext={onNext} />;
+//case 4:
+//return <Legitimering onNext={onNext} />;
 
-    default:
-      return <div>Ukjent steg</div>;
-  }
-};
+//case 5:
+//return <Estimat onNext={onNext} />;
+
+//case 6:
+//return <Sikkerhet onNext= {onNext}/>;
+
+//default:
+//return <div>Ukjent steg</div>;
+//}
+//};
 
 function App() {
-  const [step, setStep] = useState(1);
+  //const [step, setStep] = useState(1);
   return (
-    <div className="laneflyt">
-      <ThemeProvider theme={baseTheme}>
-        <Breadcrumb
-          path={[
-            {
-              name: "First page",
-              to: "/"
-            },
-            {
-              name: "Second page",
-              to: "/level-2"
-            },
-            {
-              name: "Third page",
-              to: "/level-3"
-            },
-            {
-              name: "Fourth page"
-            }
-          ]}
-        />{" "}
-        <Step
-          currentStep={step}
-          onNext={() => setStep(step + 1)}
-          onPrev={() => setStep(step - 1)}
-        />
-      </ThemeProvider>
-    </div>
+    <ThemeProvider theme={baseTheme}>
+    <Breadcrumb
+            path={[
+              {
+                name: "First page",
+                to: "/"
+              },
+              {
+                name: "Second page",
+                to: "/level-2"
+              },
+              {
+                name: "Third page",
+                to: "/level-3"
+              },
+              {
+                name: "Fourth page"
+              }
+            ]}
+          />{" "}
+      <Router>
+        <div className="laneflyt">
+          <Switch>
+          <Route exact path="/">
+              <Lanedetaljer/>
+            </Route>
+            <Route path="/Lanetakere">
+              <Lanetakere />
+            </Route>
+            <Route path="/Husstanden">
+              <Husstanden/>
+            </Route>
+            <Route path="/Legitimering">
+              <Legitimering/>
+            </Route>
+            <Route path="/Estimat">
+              <Estimat/>
+            </Route>
+            <Route path="/Sikkerhet">
+              <Sikkerhet/>
+            </Route>
+            <Route path="/SikkerhetLeggTil">
+              <SikkerhetLeggTil/>
+            </Route>
+          </Switch>
+
+          
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 

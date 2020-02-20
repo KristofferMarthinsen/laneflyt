@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import styled from "styled-components"
 import Nedbetaling from "./components/Nedbetaling";
-import VidereKnapp from "./components/VidereKnapp";
-import {VerdiLaneSum} from "./components/VerdiLaneSum";
 
+import {VerdiLaneSum} from "./components/VerdiLaneSum";
+import {Button} from "@staccx/bento";
+import {Link} from "react-router-dom";
 
 export class Lanedetaljer extends Component {  
   render() {
@@ -12,7 +13,7 @@ export class Lanedetaljer extends Component {
         <Header> Lånedetaljer</Header>
         <VerdiLaneSum/>
         <Nedbetaling/> 
-        <VidereKnapp onClick={this.props.onNext} />
+       <Link to = "/Lanetakere"><Button>Videre</Button></Link>
         
       </Wrapper>
     );
@@ -22,10 +23,10 @@ export class Lanedetaljer extends Component {
 export default Lanedetaljer;
 
 const Header = styled.h1`
-    color: red;
+    color: ;
     `
 const Wrapper = styled.div`
-    background-color: red;
+    background-color: ;
 
 
 
