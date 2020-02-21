@@ -8,11 +8,8 @@ export class Legitimering extends Component {
     render() {
         return (
             <div>
-<<<<<<< Updated upstream
             <Testi>
                 <Header title="Legitimering" id={4}/>
-=======
->>>>>>> Stashed changes
                 <p>Bilde for å vise at det er et seriøst dokument</p>
                 <h4>For å hente opplysninger fra deg automatisk trenger vi ditt samtykke</h4>
                 <p>Du vil bli videresendt til Altinn sine nettsider for å hente informasjon om din lønn, gjeld og formue</p>
