@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Heading, Button, Input, CurrencyInput, Slider } from "@staccx/bento";
 import { Link } from "react-router-dom";
+import {SikkerhetLeggTilSVG} from "./svg/SikkerhetLeggTilSVG"
 const SikkerhetLegTil = () => {
   const [BoligVerdi, setBoligVerdi] = useState(0);
   const [KjopeSum, setKjopeSum] = useState(0);
   return (
     <div>
       <Heading>Legg til Sikkerheit</Heading>
+      {SikkerhetLeggTilSVG}
       <p>test</p>
       <Input label={"Adresse"} />
       <Link to="Sikkerhet">

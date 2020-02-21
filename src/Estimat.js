@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Button,Heading } from "@staccx/bento";
 import Header from "./components/Header";
-
+import {EstimatSVG} from "./svg/EstimatSVG"
 export class Estimat extends Component {
     render() {
         return (
             <div>
               <Header title="Estimat" id={5}/>
+              {EstimatSVG}
                 <p>kult bilde</p>
                 <p>Basert på informasjonen vi har så langt, tror vi du kan betjene dette lånet</p>
                 <p>500 000 000 000 </p>

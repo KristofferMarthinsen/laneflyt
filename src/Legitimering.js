@@ -3,12 +3,14 @@ import { Button, Heading } from "@staccx/bento";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Header from "./components/Header";
+import { DokApp } from "./svg/DokApp";
 
 export class Legitimering extends Component {
   render() {
     return (
       <div>
         <Header title="Legitimering" id={4} />
+        {DokApp}
         <p>Bilde for å vise at det er et seriøst dokument</p>
         <h4>
           For å hente opplysninger fra deg automatisk trenger vi ditt samtykke

@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {Button, CurrencyInput, Slider,RadioPill,RadioPillItem} from "@staccx/bento";
 import {Link} from "react-router-dom";
 import Header from "./components/Header";
+import {OkonomiSVG} from "./svg/OkonomiSVG"
 export const bil = [
     {
       myUniqueId: "1bil",
@@ -73,6 +74,7 @@ const Okonomi = () => {
   return (
     <div>
     <Header title="Økonomi" id={7}/>
+      {OkonomiSVG}
       <p>Legg inn samlet økonomi</p>
       <CurrencyInput label={"Sum inntekt"} value={SamletOkonomi|| 0} onChange={e => setSamletOkonomi(e.target.value)}/>
       <Slider
