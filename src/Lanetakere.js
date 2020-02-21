@@ -3,13 +3,7 @@ import VidereKnapp from "./components/VidereKnapp";
 import Header from "./components/Header";
 import { Button, Heading } from "@staccx/bento";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
 import { Gris } from "./svg/Gris";
-=======
-import {Gris} from "./svg/Gris"
-import theme from "./theme/theme";
-
->>>>>>> fd4cb20fa99595922b7015cae122075bc0daa715
 export class Lanetakere extends Component {
   render() {
     return (
