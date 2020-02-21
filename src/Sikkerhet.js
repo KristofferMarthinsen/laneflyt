@@ -23,7 +23,7 @@ const Sikkerhet = () => {
         En{" "}
       </CheckBox>
       <CheckBox id="2ID" group="test">
-        Checkbox 2{" "}
+       To{" "}
       </CheckBox>
       <Link to="/SikkerhetLeggTil">
         <Button variant="unstyledButton">Legg til</Button>
