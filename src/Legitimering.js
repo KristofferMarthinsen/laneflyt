@@ -8,12 +8,14 @@ export class Legitimering extends Component {
     render() {
         return (
             <div>
+            <Testi>
                 <Header title="Legitimering" id={4}/>
                 <p>Bilde for å vise at det er et seriøst dokument</p>
                 <h4>For å hente opplysninger fra deg automatisk trenger vi ditt samtykke</h4>
                 <p>Du vil bli videresendt til Altinn sine nettsider for å hente informasjon om din lønn, gjeld og formue</p>
                 <Link to = "/Alltin"><Button>Ta meg til Altinn</Button></Link>
                 <Link to = "/Estimat"><Button variant = "unstyledButton"> Gå videre uten samtykke</Button></Link>
+                </Testi>
             </div>
         )
     }
@@ -21,4 +23,9 @@ export class Legitimering extends Component {
 
 export default Legitimering;
 
-
+const Testi = styled.span`
+display:flex;
+flex-direction: column;
+background-color: pink;
+justify-content: space-between;
+`

@@ -7,10 +7,12 @@ import Estimat from "./Estimat";
 import Sikkerhet from "./Sikkerhet";
 import SikkerhetLeggTil from "./SikkerhetLeggTil";
 import { ThemeProvider } from "styled-components";
+import NedbetalingsPlan from "./components/NedbetalingsPlan";
+import Okonomi from "./Okonomi";
 import theme from "./theme/theme";
 import { WebFonts, GlobalStyle } from "@staccx/bento"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import NedbetalingsPlan from "./components/NedbetalingsPlan";
+
 import styled from "styled-components";
 
 
@@ -73,6 +75,9 @@ function App() {
             </Route>
             <Route path="/NedbetalingsPlan">
               <NedbetalingsPlan/>
+            </Route>
+            <Route path="/Okonomi">
+              <Okonomi/>
             </Route>
           </Switch>
           
