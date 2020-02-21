@@ -28,7 +28,7 @@ const Sikkerhet = () => {
         <CheckBox id="2ID" group="test">
           Checkbox 2{" "}
         </CheckBox>
-        <Link to = "/SikkerhetLeggTil"><Button variant = "testi">Legg til</Button></Link>
+        <Link to = "/SikkerhetLeggTil"><Button variant = "unstyledButton">Legg til</Button></Link>
         <Link to = "/Okonomi"><Button>Videre</Button></Link>
 
       </div>

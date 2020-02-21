@@ -14,7 +14,7 @@ export class Lanedetaljer extends Component {
         <VerdiLaneSum/>
         <Nedbetaling/> 
        <Link to = "/Lanetakere"><Button>Videre</Button></Link>
-        <Link to ="/Nedbetalingsplan"><Button variant="testi">Nedbetalingsplan</Button></Link>
+        <Link to ="/Nedbetalingsplan"><Button variant="unstyledButton">Nedbetalingsplan</Button></Link>
         </div>
     );
   }

@@ -14,7 +14,7 @@ export class Estimat extends Component {
           lånet
         </p>
         <p>500 000 000 000 </p>
-        <Button variant="testi">lånedetaljer</Button>
+        <Button variant="unstyledButton">lånedetaljer</Button>
         <Link to="/Sikkerhet">
           <Button>Videre</Button>
         </Link>
