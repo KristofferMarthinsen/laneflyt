@@ -94,8 +94,11 @@ export default App;
 
 const Laneflyt = styled.body`
 background: #E5E5E5;
+display: flex;
+justify-content: center;
 
 `
+
 
 
 
