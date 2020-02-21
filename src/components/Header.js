@@ -1,14 +1,22 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
+const pageId = [1, 2, 3, 4, 5, 6, 7];
+
+
 export class Heading extends React.Component { 
-render() {
+    render() {
+    
+    const title = this.props.title;
+    const id = this.props.id;
+
     return (
       <div>
         <Headline>
-            <Title>{this.props.title}</Title>
-                <Progress>
+            <Title>{title}</Title>
+                <Progress size={id}>
                         <div className="bar"></div>
+                        <div></div>
                         <div></div>
                         <div></div>
                         <div></div>
@@ -18,6 +26,7 @@ render() {
                 </Progress>
         </Headline>
       </div>
+      
     );
   }
 }
@@ -42,11 +51,11 @@ const Title = styled.h1`
 const Progress = styled.span`
     display: flex;
     justify-content: space-between;
-    width: 140px;
+    width: 10%;
     position: relative;
     div{
-        width: 13px;
-        height: 13px;
+        width: 10px;
+        height: 10px;
         background-color: #E0E0E0;
         border-radius: 50%;
        
@@ -56,7 +65,9 @@ const Progress = styled.span`
     }
     div.bar{
         background-color: #5C306B;
-        width: 40px; 
+        width: ${props => 
+            props.size*14
+        }%; 
         border-radius: 20px;
         position: absolute;
         

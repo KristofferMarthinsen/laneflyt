@@ -48,7 +48,7 @@ export class Husstanden extends React.Component {
   render() {
     return (
       <div>
-        <Header title="Husstanden" id={2}/>
+        <Header title="Husstanden" id={3}/>
         <Button variant= "">Hovedlåntaker</Button>
         <Button variant ="">Medlåntaker</Button>
         <Input label={"Fornavn"} autoFocus />

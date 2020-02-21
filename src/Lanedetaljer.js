@@ -10,7 +10,7 @@ export class Lanedetaljer extends Component {
   render() {
     return (
         <div>
-        <Header title="Lånesum" id={1}/>
+        <Header title="Lånesum" id={0.5}/>
         <VerdiLaneSum/>
         <Nedbetaling/> 
        <Link to = "/Lanetakere"><Button>Videre</Button></Link>
