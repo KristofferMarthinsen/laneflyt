@@ -94,15 +94,12 @@ function App() {
 
 export default App;
 
-const Laneflyt = styled.body`
+const Laneflyt = styled.div`
   background: #F4F4F4;
-  display: flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:row;
-  width: 375px;
+  max-width: 375px;
   background-image: url(${background});
-
+  margin: 0 auto;
+  padding: 24px;
 `
 
 
