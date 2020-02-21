@@ -7,10 +7,13 @@ import Estimat from "./Estimat";
 import Sikkerhet from "./Sikkerhet";
 import SikkerhetLeggTil from "./SikkerhetLeggTil";
 import { ThemeProvider } from "styled-components";
+import NedbetalingsPlan from "./components/NedbetalingsPlan";
+import Okonomi from "./Okonomi";
 import theme from "./theme/theme";
 import { WebFonts, GlobalStyle } from "@staccx/bento"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import NedbetalingsPlan from "./components/NedbetalingsPlan";
+
+import styled from "styled-components";
 
 
 //const Step = ({ currentStep, onNext, onPrev }) => {
@@ -41,10 +44,12 @@ import NedbetalingsPlan from "./components/NedbetalingsPlan";
 function App() {
   //const [step, setStep] = useState(1);
   return (
+    <Laneflyt>
     <ThemeProvider theme={theme}>
     <GlobalStyle/>
     <WebFonts/>
       <Router>
+      
         <div className="laneflyt">
           <Switch>
           <Route exact path="/">
@@ -71,12 +76,26 @@ function App() {
             <Route path="/NedbetalingsPlan">
               <NedbetalingsPlan/>
             </Route>
+            <Route path="/Okonomi">
+              <Okonomi/>
+            </Route>
           </Switch>
           
         </div>
+        
       </Router>
     </ThemeProvider>
+    </Laneflyt>
   );
 }
 
 export default App;
+
+const Laneflyt = styled.body`
+background: #E5E5E5;
+
+`
+
+
+
+

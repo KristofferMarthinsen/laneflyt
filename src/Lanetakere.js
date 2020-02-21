@@ -9,8 +9,12 @@ export class Lanetakere extends Component {
       <div>
         <Header title="Lånetakere" id={2}/>
         <p>2 stk griser i bilde form</p>
-        <Button>Ja</Button>
-        <Button>Nei</Button>
+       <h3> Skal du låne sammen med noen?</h3>
+        <p>En medlåntaker låner sammen med deg for eksempel
+        en samboer kan låne sammen med deg og er
+         f.eksempel 50% ansvarlig for lånet</p>
+        <Button variant = "">Ja</Button>
+        <Button variant = "">Nei</Button>
 
         <Link to="/Husstanden">
           <Button>Videre</Button>
