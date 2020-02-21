@@ -34,10 +34,8 @@ export class Heading extends React.Component {
 export default Heading;
 
 const Headline = styled.div`
-    background-color: lightyellow;
     font-family: Raleway;
     font-weight: 300;
-    padding-left: 15px;
     display: flex;
     flex-direction: column;
 `
@@ -49,19 +47,17 @@ const Title = styled.h1`
 `
 
 const Progress = styled.span`
+    padding-top: 0.6rem;
+    padding-left: 0.1rem;
     display: flex;
     justify-content: space-between;
-    width: 10%;
+    width: 40%;
     position: relative;
     div{
-        width: 10px;
-        height: 10px;
+        width: 6px;
+        height: 6px;
         background-color: #E0E0E0;
         border-radius: 50%;
-       
-    }
-    div:hover{
-        background-color: #5C306B;
     }
     div.bar{
         background-color: #5C306B;

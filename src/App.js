@@ -10,6 +10,7 @@ import { ThemeProvider } from "styled-components";
 import NedbetalingsPlan from "./components/NedbetalingsPlan";
 import Okonomi from "./Okonomi";
 import theme from "./theme/theme";
+import background from "./theme/header-background.png";
 import { WebFonts, GlobalStyle } from "@staccx/bento"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -94,12 +95,14 @@ function App() {
 export default App;
 
 const Laneflyt = styled.body`
-  background: #E5E5E5;
+  background: #F4F4F4;
   display: flex;
   align-items:center;
   justify-content:center;
   flex-direction:row;
   width: 375px;
+  background-image: url(${background});
+
 `
 
 
