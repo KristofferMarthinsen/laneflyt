@@ -48,15 +48,16 @@ function App() {
     <ThemeProvider theme={theme}>
     <GlobalStyle/>
     <WebFonts/>
+      
       <Router>
       
         <div className="laneflyt">
           <Switch>
           <Route exact path="/">
-              <Lanedetaljer/>
+              <Lanedetaljer title={"Lånedetaljer"}/>
             </Route>
             <Route path="/Lanetakere">
-              <Lanetakere />
+              <Lanetakere title="Lånetakere"/>
             </Route>
             <Route path="/Husstanden">
               <Husstanden/>

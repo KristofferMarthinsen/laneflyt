@@ -7,7 +7,10 @@ export class Lanetakere extends Component {
   render() {
     return (
       <div>
+<<<<<<< Updated upstream
         <Header title="Lånetakere" id={2}/>
+=======
+>>>>>>> Stashed changes
         <p>2 stk griser i bilde form</p>
        <h3> Skal du låne sammen med noen?</h3>
         <p>En medlåntaker låner sammen med deg for eksempel

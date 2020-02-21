@@ -13,8 +13,12 @@ const Sikkerhet = () => {
     return (
         
       <div>
+<<<<<<< Updated upstream
       
         <Header title="Lånesum" id={6}/>
+=======
+      <Button variant = "test">hei</Button>
+>>>>>>> Stashed changes
         <p>søtt bilde av et hus</p>
         <p>Har du en eiendom som kan brukes til sikkerhet for lånet?</p>
         <p>
