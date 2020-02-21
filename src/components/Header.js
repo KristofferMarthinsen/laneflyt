@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
+
 const pageId = [1, 2, 3, 4, 5, 6, 7];
 
 
@@ -34,7 +35,6 @@ export class Heading extends React.Component {
 export default Heading;
 
 const Headline = styled.div`
-    font-family: Raleway;
     font-weight: 300;
     display: flex;
     flex-direction: column;
