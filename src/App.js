@@ -44,14 +44,15 @@ import styled from "styled-components";
 function App() {
   //const [step, setStep] = useState(1);
   return (
-    <Laneflyt>
+    
     <ThemeProvider theme={theme}>
     <GlobalStyle/>
     <WebFonts/>
       
       <Router>
-      
-        <div className="laneflyt">
+        
+       
+        <Laneflyt>
           <Switch>
           <Route exact path="/">
               <Lanedetaljer title={"Lånedetaljer"}/>
@@ -81,22 +82,24 @@ function App() {
               <Okonomi/>
             </Route>
           </Switch>
-          
-        </div>
+          </Laneflyt>
+       
         
       </Router>
     </ThemeProvider>
-    </Laneflyt>
+    
   );
 }
 
 export default App;
 
 const Laneflyt = styled.body`
-background: #E5E5E5;
-display: flex;
-justify-content: center;
-
+  background: #E5E5E5;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:row;
+  width: 375px;
 `
 
 
