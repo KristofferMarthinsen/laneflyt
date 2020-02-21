@@ -4,6 +4,8 @@ import Header from "./components/Header";
 import { Button,Heading } from "@staccx/bento";
 import { Link } from "react-router-dom";
 import {Gris} from "./svg/Gris"
+import theme from "./theme/theme";
+
 export class Lanetakere extends Component {
   render() {
     return (
@@ -28,3 +30,5 @@ export class Lanetakere extends Component {
 }
 
 export default Lanetakere;
+
+

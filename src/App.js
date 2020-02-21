@@ -95,6 +95,8 @@ function App() {
 export default App;
 
 const Laneflyt = styled.div`
+  font-family: ${theme.body};
+  font-weight: 200;
   background: #F4F4F4;
   max-width: 375px;
   background-image: url(${background});

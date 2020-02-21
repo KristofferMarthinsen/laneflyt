@@ -72,14 +72,14 @@ const fontWeight = {
 const webfonts = {
   google: {
     families: [
-      "Montserrat:400,500,600,700"
+      "IBM Plex Sans:200,300,500,600"
     ]
   }
 }
 
 const fontFamily = {
-  heading: "Montserrat",
-  body: "Montserrat"
+  heading: "IBM Plex Sans",
+  body: "IBM Plex Sans"
 }
 
 const theme = new theming.Theme(
