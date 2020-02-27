@@ -9,6 +9,8 @@ import SikkerhetLeggTil from "./SikkerhetLeggTil";
 import { ThemeProvider } from "styled-components";
 import NedbetalingsPlan from "./components/NedbetalingsPlan";
 import Okonomi from "./Okonomi";
+import Gjeld from "./Gjeld"
+import GjeldLeggTil from "./GjeldLeggTil"
 import theme from "./theme/theme";
 import background from "./theme/header-background.png";
 import { WebFonts, GlobalStyle } from "@staccx/bento"
@@ -81,6 +83,12 @@ function App() {
             </Route>
             <Route path="/Okonomi">
               <Okonomi/>
+            </Route>
+            <Route path="/Gjeld">
+              <Gjeld/>
+            </Route>
+            <Route path="/GjeldLeggTil">
+              <GjeldLeggTil/>
             </Route>
           </Switch>
           </Laneflyt>
