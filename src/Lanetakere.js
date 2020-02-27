@@ -12,26 +12,29 @@ export class Lanetakere extends Component {
     return (
       <div>
         <Wrapper>
-        <Header title="Lånetakere" id={2} />
-        
-        <Icon>{Gris}</Icon>
-        
-        <Tekst>
-            <h3> Skal du låne sammen med noen?</h3>
-            <p>En medlåntaker låner sammen med deg for eksempel en samboer kan låne sammen med deg og er f.eksempel 50% ansvarlig for lånet</p>
-        </Tekst>
+          <HeaderElement>
+              <Header title="Lånetakere" id={2} />
+          </HeaderElement>
+          <Icon>{Gris}</Icon>
+          
+          <Tekst>
+              <h3> Skal du låne sammen med noen?</h3>
+              <p>En medlåntaker låner sammen med deg for eksempel en samboer kan låne sammen med deg og er f.eksempel 50% ansvarlig for lånet</p>
+          </Tekst>
 
-        <Svar>
-        <Button variant="">Ja</Button>
-        <Button variant="">Nei</Button>
-        </Svar>
+          <Svar>
+          <Button variant="">Ja</Button>
+          <Button variant="">Nei</Button>
+          </Svar>
 
-        <Videre>
-        <Link to="/Husstanden">
-          <Button>Videre</Button>
-          <Link to ="/Nedbetalingsplan"><Button variant="unstyledButton">Nedbetalingsplan</Button></Link>
-        </Link>
-        </Videre>
+          <Videre>
+            <Link to="/Husstanden">
+              <Button>Videre</Button>
+            </Link>
+            <Link to ="/Nedbetalingsplan">
+              <Button variant="unstyledButton">Nedbetalingsplan ></Button>
+            </Link>
+          </Videre>
       </Wrapper>
       </div>
     );
@@ -46,6 +49,11 @@ const Wrapper = styled.div`
     align-items: center;
     min-height: 800px;
     padding-top: 150px;
+`
+
+const HeaderElement = styled.div`
+    align-self: flex-start;
+    padding-left: 7px;
 `
 
 const Icon = styled.div`
@@ -66,6 +74,7 @@ const Tekst = styled.div`
         p{
           padding-top: 2px;
           font-size: 11px;
+          font-weight: normal;
           color: #626271;
         }
 `
@@ -86,4 +95,7 @@ const Videre = styled.div`
     padding-top: 174px;
     min-width: 300px;
     justify-content: space-around;
+          button{
+            width: 144px;
+          }
 `

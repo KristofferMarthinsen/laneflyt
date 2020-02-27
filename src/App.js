@@ -100,6 +100,7 @@ const Laneflyt = styled.div`
   background: #F4F4F4;
   max-width: 375px;
   background-image: url(${background});
+  background-repeat: no-repeat;
   margin: 0 auto;
   padding: 24px;
 `
