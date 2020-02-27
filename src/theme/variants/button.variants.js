@@ -15,11 +15,26 @@ export const buttonVariants = theming.createVariants(
         background: #146670;
       }
     `,
+    topButton: css`
+    background-color:white;
+    color:#146670;
+    margin-top:24px;
 
+    :active {
+      background-color: #146670;
+      color:white;
+    }
+
+    :hover {
+      background-color: #146670;
+      color:white;
+    }
+    
+  `,
     testi: css`
       border: null;
       padding: 0;
-      background: none;
+      background:none;
     `,
     unstyledButton: css`
       border: none;
