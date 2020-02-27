@@ -10,7 +10,7 @@ import {
   Heading,
   RadioPill
 } from "@staccx/bento";
-import VidereKnapp from "./components/VidereKnapp";
+import styled from "styled-components"
 export const barn = [
   {
     myUniqueId: "221e98j",
@@ -48,9 +48,14 @@ export class Husstanden extends React.Component {
   render() {
     return (
       <div>
+      <HusstandenStil>
         <Header title="Husstanden" id={3}/>
+        </HusstandenStil>
+        <TopButtons>
         <Button variant= "">Hovedlåntaker</Button>
         <Button variant ="">Medlåntaker</Button>
+        </TopButtons>
+        <InputStyles>
         <Input label={"Fornavn"} autoFocus />
         <Input label={"Etternavn"} />
         <Input label={"Telefonnummer"} />
@@ -87,13 +92,41 @@ export class Husstanden extends React.Component {
             </RadioPillItem>
           ))}
         </RadioPill>
-
+        </InputStyles>
+            <Buttons>
         <Link to="/Legitimering">
           <Button>Videre</Button>
-        </Link>
+          </Link>
+          <Link to ="/Nedbetalingsplan"><Button variant="unstyledButton">Nedbetalingsplan</Button></Link>
+        
+        </Buttons>
       </div>
     );
   }
 }
 
 export default Husstanden;
+
+const Buttons = styled.div`
+padding-top: 32px;
+display: flex;
+flex-direction: row;
+padding-left: 24px;
+justify-content: space-between;
+`
+
+const HusstandenStil = styled.h1`
+padding-top: 124px;
+padding-left: 6px;
+
+`
+
+const TopButtons = styled.div`
+padding-top: 24px;
+
+
+`
+
+const InputStyles = styled.div`
+padding-top: 24px;
+`

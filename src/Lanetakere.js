@@ -12,7 +12,6 @@ export class Lanetakere extends Component {
     return (
       <div>
         <Wrapper>
-<<<<<<< Updated upstream
         <Header title="Lånetakere" id={2} />
         
         <Icon>{Gris}</Icon>
@@ -26,29 +25,14 @@ export class Lanetakere extends Component {
         <Button variant="">Ja</Button>
         <Button variant="">Nei</Button>
         </Svar>
-=======
-        <Header title="Lånetakere" id={2}/>
-        {Gris}
-        <p>2 stk griser i bilde form</p>
-       <h3> Skal du låne sammen med noen?</h3>
-        <p>En medlåntaker låner sammen med deg for eksempel
-        en samboer kan låne sammen med deg og er
-         f.eksempel 50% ansvarlig for lånet</p>
-        <Button variant = "">Ja</Button>
-        <Button variant = "">Nei</Button>
->>>>>>> Stashed changes
 
         <Videre>
         <Link to="/Husstanden">
           <Button>Videre</Button>
           <Link to ="/Nedbetalingsplan"><Button variant="unstyledButton">Nedbetalingsplan</Button></Link>
         </Link>
-<<<<<<< Updated upstream
         </Videre>
       </Wrapper>
-=======
-        </Wrapper>
->>>>>>> Stashed changes
       </div>
     );
   }
@@ -57,15 +41,11 @@ export class Lanetakere extends Component {
 export default Lanetakere;
 
 const Wrapper = styled.div`
-<<<<<<< Updated upstream
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 800px;
     padding-top: 150px;
-=======
-    background-color: green;
->>>>>>> Stashed changes
 `
 
 const Icon = styled.div`
