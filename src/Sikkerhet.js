@@ -38,7 +38,7 @@ const Sikkerhet = () => {
       </CheckBox>
       <Link to="/SikkerhetLeggTil">
         <LeggTil>
-          <Button variant="unstyledButton">Legg til</Button>
+          <Button variant="unstyledButton">Legg til > </Button>
         </LeggTil>
       </Link>
       <Link to="/Okonomi">
