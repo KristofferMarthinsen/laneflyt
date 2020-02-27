@@ -5,50 +5,45 @@ import Header from "./components/Header";
 import {VerdiLaneSum} from "./components/VerdiLaneSum";
 import {Button} from "@staccx/bento";
 import {Link} from "react-router-dom";
+import Layout from "./components/Layout";
 
-export class Lanedetaljer extends Component {  
-  render() {
+export const Lanedetaljer = () =>  {  
     return (
         <div>
-        <Lånesum>
-        <Header title="Lånedetaljer" id={0.5}/>
-        </Lånesum>
-        <VerdiLaneSumStyle>
+        <Layout id={1} title="Lånedetaljer" icon={null} subtitle = {null} />
         <VerdiLaneSum/>
-        </VerdiLaneSumStyle>
         <NedbetalingStyle>
         <Nedbetaling/> 
-        </NedbetalingStyle>
+         </NedbetalingStyle>
         <Buttons>
        <Link to = "/Lanetakere"><Button>Videre</Button></Link>
         <Link to ="/Nedbetalingsplan"><Button variant="unstyledButton">Nedbetalingsplan</Button></Link>
         </Buttons>
+
         </div>
     );
   }
-}
+
 
 export default Lanedetaljer;
 
-const Lånesum = styled.h1`
-padding-top: 124px;
-padding-left: 6px;
-`
+// const Lånesum = styled.h1`
+// padding-left: 6px;
+// `
 
-const Buttons = styled.div`
-padding-top: 32px;
-display: flex;
-flex-direction: row;
+ const Buttons = styled.div`
+ padding-top: 32px;
+ display: flex;
+ flex-direction: row;
 padding-left: 24px;
-justify-content: space-between;
-`
-const VerdiLaneSumStyle = styled.div`
-padding-top: 64px;
+ justify-content: space-between;
+ `
 
 
-`
-const NedbetalingStyle = styled.div`
-padding-top: 32px;
-background: #FFFFFF;
-`
+
+ 
+ const NedbetalingStyle = styled.div`
+ padding-top: 32px;
+ background: #FFFFFF;
+ `
     
