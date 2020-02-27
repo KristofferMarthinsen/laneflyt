@@ -17,6 +17,7 @@ import { WebFonts, GlobalStyle } from "@staccx/bento"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import styled from "styled-components";
+import Estimat2 from "./Estimat2";
 
 
 //const Step = ({ currentStep, onNext, onPrev }) => {
@@ -89,6 +90,9 @@ function App() {
             </Route>
             <Route path="/GjeldLeggTil">
               <GjeldLeggTil/>
+            </Route>
+            <Route path="/Estimat2">
+              <Estimat2/>
             </Route>
           </Switch>
           </Laneflyt>

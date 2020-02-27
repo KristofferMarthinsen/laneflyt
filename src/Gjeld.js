@@ -44,7 +44,6 @@ const Videre = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  padding-top: 300px;
   min-width: 300px;
   justify-content: space-around;
   button {
