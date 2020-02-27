@@ -43,6 +43,7 @@ const Tekst = styled.div`
   width: 285px;
   
   h3 {
+    padding-top: 20px;
     font-size: 16px;
     font-weight: normal;
   }
