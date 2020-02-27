@@ -1,5 +1,6 @@
 import React from "react";
 
+
 export const Gjeld2SVG = () => (
   <svg
     width="48"
