@@ -51,10 +51,8 @@ export class Husstanden extends React.Component {
       <HusstandenStil>
         <Header title="Husstanden" id={3}/>
         </HusstandenStil>
-        <TopButtons>
-        <Button variant= "">Hovedlåntaker</Button>
-        <Button variant ="">Medlåntaker</Button>
-        </TopButtons>
+        <Button variant= "topButton">Hovedlåntaker</Button>
+        <Button variant ="topButton">Medlåntaker</Button>
         <InputStyles>
         <Input label={"Fornavn"} autoFocus />
         <Input label={"Etternavn"} />
@@ -80,6 +78,8 @@ export class Husstanden extends React.Component {
           Nei{" "}
         </CheckBox>
         <p>Antall barn</p>
+        </InputStyles>
+       
         <RadioPill group={"Radiopills"}>
           {barn.map(listItem => (
             <RadioPillItem
@@ -92,7 +92,8 @@ export class Husstanden extends React.Component {
             </RadioPillItem>
           ))}
         </RadioPill>
-        </InputStyles>
+       
+       
             <Buttons>
         <Link to="/Legitimering">
           <Button>Videre</Button>
@@ -121,12 +122,8 @@ padding-left: 6px;
 
 `
 
-const TopButtons = styled.div`
-padding-top: 24px;
-
-
-`
-
 const InputStyles = styled.div`
 padding-top: 24px;
 `
+
+
