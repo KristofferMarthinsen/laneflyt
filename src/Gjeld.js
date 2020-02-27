@@ -24,17 +24,15 @@ const Gjeld = () => {
       <CheckBox id="2ID" group="test">
         To{" "}
       </CheckBox>
-      <Link to="/GjeldLeggTil">
-        <LeggTil>
-          <Button variant="unstyledButton">Legg til > </Button>
-        </LeggTil>
-      </Link>
 
-      <Link to="/Estimat2">
-        <Videre>
+      <Videre>
+        <Link to="/Estimat2">
           <Button>Videre</Button>
-        </Videre>
-      </Link>
+        </Link>{" "}
+        <Link to="/GjeldLeggTil">
+            <Button variant="unstyledButton">Legg til > </Button>
+        </Link>
+      </Videre>
     </div>
   );
 };
@@ -43,15 +41,11 @@ export default Gjeld;
 const Videre = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  padding-top: 174px;
   min-width: 300px;
   justify-content: space-around;
   button {
-    width: 280px;
+    width: 144px;
   }
 `;
 
-const LeggTil = styled.div`
- padding-left: 280px;
-
-`

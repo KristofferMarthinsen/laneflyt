@@ -48,6 +48,7 @@ const Estimate = styled.div`
     font-weight: 600;
   }
 `;
+
 const Videre = styled.div`
   display: flex;
   flex-direction: row;
