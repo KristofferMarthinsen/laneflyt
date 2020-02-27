@@ -5,9 +5,6 @@ export const buttonVariants = theming.createVariants(
   {
     [theming.VARIANT_DEFAULT]: css`
       position: relative;
-
-      
-
       background: #146670;
       border-radius: 3px;
 

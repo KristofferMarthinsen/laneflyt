@@ -38,9 +38,6 @@ export default Lanedetaljer;
 padding-left: 24px;
  justify-content: space-between;
  `
-
-
-
  
  const NedbetalingStyle = styled.div`
  padding-top: 32px;

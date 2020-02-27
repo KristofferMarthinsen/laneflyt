@@ -12,8 +12,7 @@ const Subtitle = () => (
   <>
     <h3>Skal du låne sammen med noen?</h3>
     <p>
-      En medlåntaker låner sammen med deg for eksempel en samboer kan låne
-      sammen med deg og er f.eksempel 50% ansvarlig for lånet
+      En medlåntaker låner sammen med deg og er for eksempel 50% ansvarlig for lånet
     </p>
   </>
 );
@@ -23,8 +22,8 @@ export const Lanetakere = () => {
     <div>
       <Layout icon={Gris} id={2} title="Lånetakere" subtitle={Subtitle}>
         <Svar>
-          <Button variant="">Ja</Button>
-          <Button variant="">Nei</Button>
+          <Button variant="topButton">Ja</Button>
+          <Button variant="topButton">Nei</Button>
         </Svar>
 
         <Videre>

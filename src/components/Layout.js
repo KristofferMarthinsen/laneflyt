@@ -20,12 +20,14 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 150px;
+  align-content: space-between;
+  padding-top: 30px;
 `;
 
 const HeaderElement = styled.div`
   align-self: flex-start;
   padding-left: 7px;
+  padding-bottom: 36px;
 `;
 
 const Icon = styled.div`
@@ -38,8 +40,8 @@ const Tekst = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  width: 297px;
-  padding-top: 36px;
+  width: 285px;
+  
   h3 {
     font-size: 16px;
     font-weight: normal;
@@ -49,6 +51,12 @@ const Tekst = styled.div`
     font-size: 11px;
     font-weight: normal;
     color: #626271;
+  }
+  h1{
+      padding-top: 19px;
+      font-size: 36px;
+      font-weight: 600;
+      color: #5C306B;
   }
 `;
 
