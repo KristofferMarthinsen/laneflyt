@@ -12,7 +12,7 @@ import {SikkerhetSVG} from "./svg/SikkerhetSVG"
 const Sikkerhet = () => {
   return (
     <div>
-      <Header title="Lånesum" id={6} />
+      <Header title="Sikkerhet" id={6} />
       <p>søtt bilde av et hus</p>
       {SikkerhetSVG}
       <p>Har du en eiendom som kan brukes til sikkerhet for lånet?</p>
