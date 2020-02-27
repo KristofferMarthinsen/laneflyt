@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Header from "./components/Header";
+import Layout from "./components/Layout";
 import {
   Button,
   Input,
@@ -10,7 +11,8 @@ import {
   Heading,
   RadioPill
 } from "@staccx/bento";
-import styled from "styled-components"
+import styled from "styled-components";
+
 export const barn = [
   {
     myUniqueId: "221e98j",
@@ -44,16 +46,14 @@ export const barn = [
   }
 ];
 
-export class Husstanden extends React.Component {
-  render() {
-    return (
-      <div>
-      <HusstandenStil>
-        <Header title="Husstanden" id={3}/>
-        </HusstandenStil>
-        <Button variant= "topButton">Hovedlåntaker</Button>
-        <Button variant ="topButton">Medlåntaker</Button>
-        <InputStyles>
+export const Husstanden = () => {
+  return (
+    <div>
+      <Layout id={3} title="Husstanden" />
+      
+      <Button variant="topButton">Hovedlåntaker</Button>
+      <Button variant="topButton">Medlåntaker</Button>
+      <InputStyles>
         <Input label={"Fornavn"} autoFocus />
         <Input label={"Etternavn"} />
         <Input label={"Telefonnummer"} />
@@ -78,52 +78,42 @@ export class Husstanden extends React.Component {
           Nei{" "}
         </CheckBox>
         <p>Antall barn</p>
-        </InputStyles>
-       
-        <RadioPill group={"Radiopills"}>
-          {barn.map(listItem => (
-            <RadioPillItem
-              key={listItem.myUniqueId}
-              value={listItem.value}
-              defaultChecked={listItem.defaultChecked}
-              id={listItem.myUniqueId}
-            >
-              {listItem.label}
-            </RadioPillItem>
-          ))}
-        </RadioPill>
-       
-       
-            <Buttons>
+      </InputStyles>
+
+      <RadioPill group={"Radiopills"}>
+        {barn.map(listItem => (
+          <RadioPillItem
+            key={listItem.myUniqueId}
+            value={listItem.value}
+            defaultChecked={listItem.defaultChecked}
+            id={listItem.myUniqueId}
+          >
+            {listItem.label}
+          </RadioPillItem>
+        ))}
+      </RadioPill>
+
+      <Buttons>
         <Link to="/Legitimering">
           <Button>Videre</Button>
-          </Link>
-          <Link to ="/Nedbetalingsplan"><Button variant="unstyledButton">Nedbetalingsplan</Button></Link>
-        
-        </Buttons>
-      </div>
-    );
-  }
-}
-
+        </Link>
+        <Link to="/Nedbetalingsplan">
+          <Button variant="unstyledButton">Nedbetalingsplan</Button>
+        </Link>
+      </Buttons>
+    </div>
+  );
+};
 export default Husstanden;
 
 const Buttons = styled.div`
-padding-top: 32px;
-display: flex;
-flex-direction: row;
-padding-left: 24px;
-justify-content: space-between;
-`
-
-const HusstandenStil = styled.h1`
-padding-top: 124px;
-padding-left: 6px;
-
-`
+  padding-top: 32px;
+  display: flex;
+  flex-direction: row;
+  padding-left: 24px;
+  justify-content: space-between;
+`;
 
 const InputStyles = styled.div`
-padding-top: 24px;
-`
-
-
+  padding-top: 24px;
+`;

@@ -3,99 +3,62 @@ import VidereKnapp from "./components/VidereKnapp";
 import Header from "./components/Header";
 import { Button, Heading } from "@staccx/bento";
 import { Link } from "react-router-dom";
-import {Gris} from "./svg/Gris"
+import { Gris } from "./svg/Gris";
 import theme from "./theme/theme";
-import styled from "styled-components"
+import styled from "styled-components";
+import Layout from "./components/Layout";
 
-export class Lanetakere extends Component {
-  render() {
-    return (
-      <div>
-        <Wrapper>
-          <HeaderElement>
-              <Header title="Lånetakere" id={2} />
-          </HeaderElement>
-          <Icon>{Gris}</Icon>
-          
-          <Tekst>
-              <h3> Skal du låne sammen med noen?</h3>
-              <p>En medlåntaker låner sammen med deg for eksempel en samboer kan låne sammen med deg og er f.eksempel 50% ansvarlig for lånet</p>
-          </Tekst>
+const Subtitle = () => (
+  <>
+    <h3>Skal du låne sammen med noen?</h3>
+    <p>
+      En medlåntaker låner sammen med deg for eksempel en samboer kan låne
+      sammen med deg og er f.eksempel 50% ansvarlig for lånet
+    </p>
+  </>
+);
 
-          <Svar>
+export const Lanetakere = () => {
+  return (
+    <div>
+      <Layout icon={Gris} id={2} title="Lånetakere" subtitle={Subtitle}>
+        <Svar>
           <Button variant="">Ja</Button>
           <Button variant="">Nei</Button>
-          </Svar>
+        </Svar>
 
-          <Videre>
-            <Link to="/Husstanden">
-              <Button>Videre</Button>
-            </Link>
-            <Link to ="/Nedbetalingsplan">
-              <Button variant="unstyledButton">Nedbetalingsplan ></Button>
-            </Link>
-          </Videre>
-      </Wrapper>
-      </div>
-    );
-  }
-}
+        <Videre>
+          <Link to="/Husstanden">
+            <Button>Videre</Button>
+          </Link>
+          <Link to="/Nedbetalingsplan">
+            <Button variant="unstyledButton">Nedbetalingsplan ></Button>
+          </Link>
+        </Videre>
+      </Layout>
+    </div>
+  );
+};
 
 export default Lanetakere;
 
-const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 800px;
-    padding-top: 150px;
-`
-
-const HeaderElement = styled.div`
-    align-self: flex-start;
-    padding-left: 7px;
-`
-
-const Icon = styled.div`
-    display: flex;
-    flex-direction: row;
-    padding-top: 69px;
-`
-
-const Tekst = styled.div`
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    padding-top: 14px;
-        h3{
-          font-size: 16px;
-          font-weight: 300;
-        }
-        p{
-          padding-top: 2px;
-          font-size: 11px;
-          font-weight: normal;
-          color: #626271;
-        }
-`
-
 const Svar = styled.div`
-    display: flex;
-    flex-direction: row;
-    padding-top: 28px;
-    width: 177px;
-    justify-content: space-between;
-          button{
-            width: 83px;
-          }
-`
+  display: flex;
+  flex-direction: row;
+  padding-top: 28px;
+  width: 177px;
+  justify-content: space-between;
+  button {
+    width: 83px;
+  }
+`;
 const Videre = styled.div`
-    display: flex;
-    flex-direction: row;
-    padding-top: 174px;
-    min-width: 300px;
-    justify-content: space-around;
-          button{
-            width: 144px;
-          }
-`
+  display: flex;
+  flex-direction: row;
+  padding-top: 174px;
+  min-width: 300px;
+  justify-content: space-around;
+  button {
+    width: 144px;
+  }
+`;

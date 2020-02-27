@@ -1,30 +1,25 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components"
+import styled from "styled-components";
 import Header from "./Header";
 
+const Layout = ({ title, subtitle, icon, id, children }) => (
+  <Wrapper>
+    <HeaderElement>
+      <Header title={title} id={id} />
+    </HeaderElement>
 
-const Layout = ({ title, subtitle, icon, id, children }) => {
-    console.log(subtitle)
-  return (
-    <Wrapper>
-      <HeaderElement>
-        <Header title={title} id={id} />
-      </HeaderElement>
+    {icon && <Icon>{icon()}</Icon>}
 
-      {icon && <Icon>{icon()}</Icon>}
+    {subtitle && <Tekst>{subtitle()}</Tekst>}
 
-      {subtitle && <Tekst>{subtitle()}</Tekst>}
-
-      {children}
-    </Wrapper>
-  );
-};
+    {children}
+  </Wrapper>
+);
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 800px;
   padding-top: 150px;
 `;
 
@@ -57,4 +52,4 @@ const Tekst = styled.div`
   }
 `;
 
-export default Layout
+export default Layout;

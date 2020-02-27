@@ -12,29 +12,6 @@ import { SikkerhetSVG } from "./svg/SikkerhetSVG";
 const Sikkerhet = () => {
   return (
     <div>
-<<<<<<< HEAD
-      <Header title="Sikkerhet" id={6} />
-      <p>søtt bilde av et hus</p>
-      {SikkerhetSVG}
-      <p>Har du en eiendom som kan brukes til sikkerhet for lånet?</p>
-      <p>
-        Du kan også legge til flere boliger som skal brukes til sikkerhet for
-        lånet
-      </p>
-
-      <CheckBox id="1ID" group="test">
-        En{" "}
-      </CheckBox>
-      <CheckBox id="2ID" group="test">
-       To{" "}
-      </CheckBox>
-      <Link to="/SikkerhetLeggTil">
-        <Button variant="unstyledButton">Legg til</Button>
-      </Link>
-      <Link to="/Okonomi">
-        <Button>Videre</Button>
-      </Link>
-=======
       <Wrapper>
         <HeaderElement>
           <Header title="Sikkerhet" id={6} />
@@ -67,7 +44,6 @@ const Sikkerhet = () => {
           </Videre>
         </Link>
       </Wrapper>
->>>>>>> 6cca7ffc747fbd80d4bb271a675d6b2492c01b2a
     </div>
   );
 };
