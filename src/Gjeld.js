@@ -1,38 +1,58 @@
 import React from "react";
 import { CheckBox, Button, Heading } from "@staccx/bento";
 import { Link } from "react-router-dom";
-import Header from "./components/Header";
-import {GjeldSVG} from "./svg/Gjeld1";
-import { Gjeld2SVG } from "./svg/Gjeld2";
+import { GjeldSVG } from "./svg/Gjeld1";
+import Layout from "./components/Layout";
+import styled from "styled-components";
 
+const Subtitle = () => (
+  <>
+    <h3>Legg in din gjeld</h3>
+    <p>
+      Dette inkluderer alle lån du har i dag, inkludert kredittkort og lignende.
+    </p>
+  </>
+);
 
- const Gjeld = () => {
-     return(
+const Gjeld = () => {
+  return (
     <div>
-     <Header title="Gjeld" id={7} />
-     <GjeldSVG />
-    <p>Legg inn din gjeld</p>
-    <p>Dette inkluderer alle lån du har i dag, inkludert kredittkort og lignende.</p>
-     <CheckBox id="1ID" group="test">
-          En{" "}
-        </CheckBox>
-        <CheckBox id="2ID" group="test">
-          To{" "}
-        </CheckBox>
-        <Link to="/GjeldLeggTil">
-    
-            <Button variant="unstyledButton">Legg til</Button>
-          
-          </Link>
+      <Layout icon={GjeldSVG} id={7} title="Gjeld" subtitle={Subtitle}></Layout>
+      <CheckBox id="1ID" group="test">
+        En{" "}
+      </CheckBox>
+      <CheckBox id="2ID" group="test">
+        To{" "}
+      </CheckBox>
+      <Link to="/GjeldLeggTil">
+        <LeggTil>
+          <Button variant="unstyledButton">Legg til > </Button>
+        </LeggTil>
+      </Link>
 
-          <Link to="/Estimat2">
-          
-            <Button>Videre</Button>
-          
-        </Link>
-
+      <Link to="/Estimat2">
+        <Videre>
+          <Button>Videre</Button>
+        </Videre>
+      </Link>
     </div>
-     )
-}
+  );
+};
 export default Gjeld;
 
+const Videre = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-top: 300px;
+  min-width: 300px;
+  justify-content: space-around;
+  button {
+    width: 280px;
+  }
+`;
+
+const LeggTil = styled.div`
+ padding-left: 280px;
+
+`
