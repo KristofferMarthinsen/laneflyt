@@ -41,7 +41,7 @@ const Tekst = styled.div`
   flex-direction: column;
   text-align: center;
   width: 285px;
-  
+
   h3 {
     padding-top: 20px;
     font-size: 16px;
@@ -53,11 +53,11 @@ const Tekst = styled.div`
     font-weight: normal;
     color: #626271;
   }
-  h1{
-      padding-top: 19px;
-      font-size: 36px;
-      font-weight: 600;
-      color: #5C306B;
+  h1 {
+    padding-top: 19px;
+    font-size: 36px;
+    font-weight: 600;
+    color: #5c306b;
   }
 `;
 
