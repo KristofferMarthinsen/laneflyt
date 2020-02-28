@@ -12,6 +12,7 @@ import {
   RadioPill
 } from "@staccx/bento";
 import styled from "styled-components";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 
 export const barn = [
   {
@@ -50,14 +51,86 @@ export const Husstanden = () => {
   return (
     <div>
       <Layout id={3} title="Husstanden" />
-      
+
       <Button variant="topButton">Hovedlåntaker</Button>
       <Button variant="topButton">Medlåntaker</Button>
+
       <InputStyles>
-        <Input label={"Fornavn"} autoFocus />
-        <Input label={"Etternavn"} />
-        <Input label={"Telefonnummer"} />
-        <Input label={"E-post"} />
+        <Formik
+          initialValues={{
+            fornavn: "",
+            etternavn: "",
+            email: "",
+            telefonnummer: ""
+          }}
+          validate={values => {
+            const errors = {};
+            if (!values.email) {
+              errors.email = "Required";
+            } else if (
+              !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+            ) {
+              errors.email = "Invalid email address";
+            }
+            return errors;
+          }}
+          onSubmit={(values, { setSubmitting }) => {
+            setTimeout(() => {
+              alert(JSON.stringify(values, null, 2));
+              setSubmitting(false);
+            }, 400);
+          }}
+        >
+          {({
+            values,
+            errors,
+            touched,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            isSubmitting
+            /* and other goodies */
+          }) => (
+            <form onSubmit={handleSubmit}>
+              <input
+                type="fornavn"
+                name="fornavn"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.fornavn}
+              />
+              
+              <input
+                type="etternavn"
+                name="etternavn"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.etternavn}
+              />
+              
+              <input
+                type="telefonnummer"
+                name="telefonnummer"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.telefonnummer}
+              />
+              {errors.email && touched.email && errors.email}
+              <input
+                type="email"
+                name="email"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.email}
+              />
+              {errors.email && touched.email && errors.email}
+              <button type="submit" disabled={isSubmitting}>
+                Submit
+              </button>
+            </form>
+          )}
+        </Formik>
+
         <SelectSimple
           label={"Sivilstatus"}
           placeholder="Velg..."
@@ -116,4 +189,8 @@ const Buttons = styled.div`
 
 const InputStyles = styled.div`
   padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  wrap: nowrap;
+  align-items: space-between;
 `;
