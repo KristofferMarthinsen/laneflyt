@@ -61,7 +61,9 @@ export const Husstanden = () => {
             fornavn: "",
             etternavn: "",
             email: "",
-            telefonnummer: ""
+            telefonnummer: "",
+            sivilstatus: "",
+            barn: false
           }}
           validate={values => {
             const errors = {};
@@ -92,81 +94,97 @@ export const Husstanden = () => {
             /* and other goodies */
           }) => (
             <form onSubmit={handleSubmit}>
-              <input
+              <Input
                 type="fornavn"
                 name="fornavn"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.fornavn}
+                label="Fornavn"
               />
-              
-              <input
+              <Input
                 type="etternavn"
                 name="etternavn"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.etternavn}
+                label="Etternavn"
               />
-              
-              <input
+              <Input
                 type="telefonnummer"
                 name="telefonnummer"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.telefonnummer}
+                label="Telefonnummer"
               />
               {errors.email && touched.email && errors.email}
-              <input
+              <Input
                 type="email"
                 name="email"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.email}
+                label="E-mail"
               />
               {errors.email && touched.email && errors.email}
-              <button type="submit" disabled={isSubmitting}>
+              <SelectSimple
+                label="Sivilstatus"
+                name="sivilstatus"
+                type="sivilstatus"
+                placeholder="Velg..."
+                id="simpleSelect"
+                component="select"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.sivilstatus}
+              >
+                <option value="Gift" name="gift">
+                  Gift
+                </option>
+                <option value="Samboer">Samboer</option>
+                <option value="Skilt">Skilt</option>
+                <option value="Partnerskap">Partnerskap</option>
+                <option value="Enke">Enke/Enkemann</option>
+                <option value="Separert">Separert</option>
+              </SelectSimple>
+              <p>Har du barn under 18 år ?</p>
+              
+              <CheckBox
+                value={true}
+                id="1ID"
+                group="Ja"
+              >
+                Ja{" "}
+              </CheckBox>
+              <CheckBox
+                value={false}
+                id="2ID"
+                group="Nei"
+              >
+                Nei{" "}
+              </CheckBox>
+              
+              <p>Antall barn</p>
+              <RadioPill group={"Radiopills"}>
+                {barn.map(listItem => (
+                  <RadioPillItem
+                    key={listItem.myUniqueId}
+                    value={listItem.value}
+                    defaultChecked={listItem.defaultChecked}
+                    id={listItem.myUniqueId}
+                  >
+                    {listItem.label}
+                  </RadioPillItem>
+                ))}
+              </RadioPill>
+              <Button type="submit" disabled={isSubmitting}>
                 Submit
-              </button>
+              </Button>{" "}
             </form>
           )}
         </Formik>
-        </InputStyles>
-
-        <SelectSimple
-          label={"Sivilstatus"}
-          placeholder="Velg..."
-          id="simpleSelect"
-        >
-          <option value={1}>Gift </option>
-          <option value={2}>Samober</option>
-          <option value={3}>Skilt</option>
-          <option value={4}>Partnerskap</option>
-          <option value={5}>Enke/Enkemann</option>
-          <option value={6}>Separert</option>
-        </SelectSimple>
-        <p>Har du barn under 18 år ?</p>
-        <CheckBox id="1ID" group="Ja">
-          Ja{" "}
-        </CheckBox>
-        <CheckBox id="2ID" group="Nei">
-          Nei{" "}
-        </CheckBox>
-        <p>Antall barn</p>
-      
-
-      <RadioPill group={"Radiopills"}>
-        {barn.map(listItem => (
-          <RadioPillItem
-            key={listItem.myUniqueId}
-            value={listItem.value}
-            defaultChecked={listItem.defaultChecked}
-            id={listItem.myUniqueId}
-          >
-            {listItem.label}
-          </RadioPillItem>
-        ))}
-      </RadioPill>
-
+      </InputStyles>
       <Buttons>
         <Link to="/Legitimering">
           <Button>Videre</Button>
@@ -190,10 +208,10 @@ const Buttons = styled.div`
 
 const InputStyles = styled.div`
   padding-top: 24px;
-      input{
-        display: flex;
-        flex-direction: column;
-        wrap: nowrap;
-        align-items: space-between;
-      }
+  input {
+    display: flex;
+    flex-direction: column;
+    wrap: nowrap;
+    align-items: space-between;
+  }
 `;
