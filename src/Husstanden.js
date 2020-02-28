@@ -130,6 +130,7 @@ export const Husstanden = () => {
             </form>
           )}
         </Formik>
+        </InputStyles>
 
         <SelectSimple
           label={"Sivilstatus"}
@@ -151,7 +152,7 @@ export const Husstanden = () => {
           Nei{" "}
         </CheckBox>
         <p>Antall barn</p>
-      </InputStyles>
+      
 
       <RadioPill group={"Radiopills"}>
         {barn.map(listItem => (
@@ -189,8 +190,10 @@ const Buttons = styled.div`
 
 const InputStyles = styled.div`
   padding-top: 24px;
-  display: flex;
-  flex-direction: column;
-  wrap: nowrap;
-  align-items: space-between;
+      input{
+        display: flex;
+        flex-direction: column;
+        wrap: nowrap;
+        align-items: space-between;
+      }
 `;
