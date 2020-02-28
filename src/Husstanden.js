@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import Header from "./components/Header";
 import Layout from "./components/Layout";
@@ -9,7 +9,9 @@ import {
   CheckBox,
   RadioPillItem,
   Heading,
-  RadioPill
+  RadioPill,
+  CheckGroup,
+  RadioButton
 } from "@staccx/bento";
 import styled from "styled-components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -32,7 +34,7 @@ const SignupSchema = Yup.object().shape({
 });
 
 
-export const barn = [
+export const antallBarn = [
   {
     myUniqueId: "221e98j",
     value: 1,
@@ -66,6 +68,7 @@ export const barn = [
 ];
 
 export const Husstanden = () => {
+  const [barn, setBarn] = useState(false)
   return (
     <div>
       <Layout id={3} title="Husstanden" />
@@ -82,7 +85,7 @@ export const Husstanden = () => {
             email: "",
             telefonnummer: "",
             sivilstatus: "",
-            barn: false
+            barn: barn
           }}
           validate={values => {
             const errors = {};
@@ -121,95 +124,101 @@ export const Husstanden = () => {
             handleChange,
             handleBlur,
             handleSubmit,
-            isSubmitting
+            isSubmitting,
+            setFieldValue
             /* and other goodies */
-          }) => {
-            console.log("errors", errors)
-            return (
-              <form onSubmit={handleSubmit}>
-              {errors.fornavn && touched.fornavn && errors.fornavn}
-                <Input
-                  type="fornavn"
-                  name="fornavn"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.fornavn}
-                  label="Fornavn"
-                />
-                 {errors.etternavn && touched.etternavn && errors.etternavn}
-                <Input
-                  type="etternavn"
-                  name="etternavn"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.etternavn}
-                  label="Etternavn"
-                />
-                 {errors.telefonummer && touched.telefonnummer && errors.telefonnummer}
-                <Input
-                  type="telefonnummer"
-                  name="telefonnummer"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.telefonnummer}
-                  label="Telefonnummer"
-                />
-                {errors.email && touched.email && errors.email}
-                <Input
-                  type="email"
-                  name="email"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.email}
-                  label="E-mail"
-                />
-               
-                <SelectSimple
-                  label="Sivilstatus"
-                  name="sivilstatus"
-                  type="sivilstatus"
-                  placeholder="Velg..."
-                  id="simpleSelect"
-                  component="select"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.sivilstatus}
-                >
-                  <option value="Gift" name="gift">
-                    Gift
-                  </option>
-                  <option value="Samboer">Samboer</option>
-                  <option value="Skilt">Skilt</option>
-                  <option value="Partnerskap">Partnerskap</option>
-                  <option value="Enke">Enke/Enkemann</option>
-                  <option value="Separert">Separert</option>
-                </SelectSimple>
-                <p>Har du barn under 18 år ?</p>
-                <CheckBox value={true} id="1ID" group="Ja">
-                  Ja{" "}
-                </CheckBox>
-                <CheckBox value={false} id="2ID" group="Nei">
-                  Nei{" "}
-                </CheckBox>
-                <p>Antall barn</p>
-                <RadioPill group={"Radiopills"}>
-                  {barn.map(listItem => (
-                    <RadioPillItem
-                      key={listItem.myUniqueId}
-                      value={listItem.value}
-                      defaultChecked={listItem.defaultChecked}
-                      id={listItem.myUniqueId}
-                    >
-                      {listItem.label}
-                    </RadioPillItem>
-                  ))}
-                </RadioPill>
-                <Button type="submit" disabled={isSubmitting}>
-                  Submit
-                </Button>{" "}
-              </form>
-            );
-          }}
+          }) => (
+            <form onSubmit={handleSubmit}>
+              <Input
+                type="fornavn"
+                name="fornavn"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.fornavn}
+                label="Fornavn"
+              />
+              <Input
+                type="etternavn"
+                name="etternavn"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.etternavn}
+                label="Etternavn"
+              />
+              <Input
+                type="telefonnummer"
+                name="telefonnummer"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.telefonnummer}
+                label="Telefonnummer"
+              />
+              {errors.email && touched.email && errors.email}
+              <Input
+                type="email"
+                name="email"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.email}
+                label="E-mail"
+              />
+              {errors.email && touched.email && errors.email}
+              <SelectSimple
+                label="Sivilstatus"
+                name="sivilstatus"
+                type="sivilstatus"
+                placeholder="Velg..."
+                id="simpleSelect"
+                component="select"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.sivilstatus}
+              >
+                <option value="Gift">Gift</option>
+                <option value="Samboer">Samboer</option>
+                <option value="Skilt">Skilt</option>
+                <option value="Partnerskap">Partnerskap</option>
+                <option value="Enke">Enke/Enkemann</option>
+                <option value="Separert">Separert</option>
+              </SelectSimple>
+              <p>Har du barn under 18 år ?</p>
+              {/*Checkbox-dings her  */}
+              <CheckGroup
+                label="Barn"
+                name="barn"
+                type="barn"
+                onChange={value => setFieldValue("barn", value)}
+                onBlur={handleBlur}
+                value={barn}
+                group="barn" 
+              >
+                <RadioButton value={true} id="1">
+                  Ja
+                </RadioButton>
+                <RadioButton id="2" value={false} >
+                  Nei
+                </RadioButton>
+              </CheckGroup>
+              <p>Antall barn</p>
+              
+              
+              <RadioPill group={"Radiopills"}>
+                {antallBarn.map(listItem => (
+                  <RadioPillItem
+                    key={listItem.myUniqueId}
+                    value={listItem.value}
+                    defaultChecked={listItem.defaultChecked}
+                    id={listItem.myUniqueId}
+                  >
+                    {listItem.label}
+                  </RadioPillItem>
+                ))}
+              </RadioPill>
+              <Button type="submit" disabled={isSubmitting}>
+                Submit
+              </Button>{" "}
+            </form>
+          )}
         </Formik>
       </InputStyles>
       <Buttons>
@@ -242,3 +251,20 @@ const InputStyles = styled.div`
     align-items: space-between;
   }
 `;
+
+{
+  /* <CheckGroup
+                
+value={props.values.barn}
+>
+<CheckBox onChange={handleChange}
+onBlur={handleBlur} id="1ID" group="Ja" name="barn" value={true}>
+  Ja
+</CheckBox>
+<CheckBox onChange={handleChange}
+onBlur={handleBlur} value={false} id="2ID" group="Nei">
+  Nei
+</CheckBox>
+
+</CheckGroup> */
+}
