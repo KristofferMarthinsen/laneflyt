@@ -28,7 +28,11 @@ const SignupSchema = Yup.object().shape({
     .min(2, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
-  telefonnummer: Yup.string().matches(phoneRegExp, "Phone number is not valid")
+  telefonnummer: Yup.string().matches(phoneRegExp, "Phone number is not valid"),
+  sivilstatus: Yup.string()
+    .oneOf(["Gift", "Samboer", "Skilt", "Partnerskap", "Enke", "Separert"])
+    .required("Required"),
+  
 });
 
 export const antallBarn = [
@@ -65,7 +69,7 @@ export const antallBarn = [
 ];
 
 export const Husstanden = () => {
-  const [barn, value, key, setBarn] = useState(false);
+  const [barn, setBarn] = useState(false);
   return (
     <div>
       <Layout id={3} title="Husstanden" />
@@ -97,7 +101,10 @@ export const Husstanden = () => {
             if (!values.telefonnummer) {
               errors.telefonnummer = "Required";
             }
-
+            if(!values.sivilstatus) {
+              errors.sivilstatus = "Required";
+            }
+            
             if (!values.email) {
               errors.email = "Required";
             } else if (
@@ -111,6 +118,7 @@ export const Husstanden = () => {
             setTimeout(() => {
               console.log(values)
               alert(JSON.stringify(values, null, 2));
+              console.log(values)
               setSubmitting(false);
             }, 400);
           }}
@@ -127,6 +135,7 @@ export const Husstanden = () => {
             /* and other goodies */
           }) => (
             <form onSubmit={handleSubmit}>
+              {errors.fornavn && touched.fornavn && errors.fornavn}
               <Input
                 type="fornavn"
                 name="fornavn"
@@ -135,6 +144,7 @@ export const Husstanden = () => {
                 value={values.fornavn}
                 label="Fornavn"
               />
+              {errors.etternavn && touched.etternavn && errors.etternavn}
               <Input
                 type="etternavn"
                 name="etternavn"
@@ -143,6 +153,9 @@ export const Husstanden = () => {
                 value={values.etternavn}
                 label="Etternavn"
               />
+              {errors.telefonnummer &&
+                touched.telefonnummer &&
+                errors.telefonnummer}
               <Input
                 type="telefonnummer"
                 name="telefonnummer"
@@ -160,14 +173,11 @@ export const Husstanden = () => {
                 value={values.email}
                 label="E-mail"
               />
-              {errors.email && touched.email && errors.email}
+               {errors.sivilstatus && touched.sivilstatus && errors.sivilstatus}
               <SelectSimple
-                label="Sivilstatus"
+                label={"Sivilstatus"}
                 name="sivilstatus"
-                type="sivilstatus"
                 placeholder="Velg..."
-                id="simpleSelect"
-                component="select"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.sivilstatus}
@@ -181,6 +191,7 @@ export const Husstanden = () => {
               </SelectSimple>
               <p>Har du barn under 18 år ?</p>
               {/*Checkbox-dings her  */}
+              {errors.barn}
               <CheckGroup
                 label="Barn"
                 name="barn"
