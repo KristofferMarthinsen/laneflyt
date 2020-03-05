@@ -1,5 +1,5 @@
 import React from "react"
-import {Input } from "@staccx/bento"
+import HusstandInput from "../HusstandInputs"
 
 
 
@@ -7,13 +7,7 @@ const FornavnInput = () => {
 
 
     return (
-        <>
-        <Input
-                type="fornavn"
-                name="fornavn"
-                label="Fornavn"
-              />
-        </>
+        <HusstandInput name={"Fornavn"} label={"Fornavn"}/>
     )
 }
 export default FornavnInput
