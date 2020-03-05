@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "./components/Header";
 import Layout from "./components/Layout";
@@ -17,7 +17,7 @@ import styled from "styled-components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/
+const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
 
 const SignupSchema = Yup.object().shape({
   fornavn: Yup.string()
@@ -28,47 +28,44 @@ const SignupSchema = Yup.object().shape({
     .min(2, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
-  telefonnummer: Yup.string()
-  .matches(phoneRegExp, 'Phone number is not valid')
-  
+  telefonnummer: Yup.string().matches(phoneRegExp, "Phone number is not valid")
 });
-
 
 export const antallBarn = [
   {
     myUniqueId: "221e98j",
-    value: 1,
+    values: 1,
     label: "1",
     defaultChecked: true
   },
   {
     myUniqueId: "ads31",
-    value: 2,
+    values: 2,
     label: "2",
     defaultChecked: false
   },
   {
     myUniqueId: "h14",
-    value: 3,
+    values: 3,
     label: "3 ",
     defaultChecked: false
   },
   {
     myUniqueId: "h14asdsdf",
-    value: 4,
+    values: 4,
     label: "4",
     defaultChecked: false
   },
   {
     myUniqueId: "h14dsfgdfgsd",
-    value: 5,
+    values: 5,
     label: "5 +",
     defaultChecked: false
   }
 ];
 
 export const Husstanden = () => {
-  const [barn, setBarn] = useState(false)
+  const [barn, value, key, setBarn] = useState(false);
   return (
     <div>
       <Layout id={3} title="Husstanden" />
@@ -85,22 +82,22 @@ export const Husstanden = () => {
             email: "",
             telefonnummer: "",
             sivilstatus: "",
-            barn: barn
+            barn: barn,
+            numBarn: null,
+            alder: ""
           }}
           validate={values => {
             const errors = {};
-            if(!values.fornavn){
+            if (!values.fornavn) {
               errors.fornavn = "Required";
             }
-            if(!values.etternavn){
-              errors.etternavn= "Required";
+            if (!values.etternavn) {
+              errors.etternavn = "Required";
             }
-            if(!values.telefonnummer){
-              errors.telefonnummer= "Required";
-            } 
+            if (!values.telefonnummer) {
+              errors.telefonnummer = "Required";
+            }
 
-            
-    
             if (!values.email) {
               errors.email = "Required";
             } else if (
@@ -112,6 +109,7 @@ export const Husstanden = () => {
           }}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
+              console.log(values)
               alert(JSON.stringify(values, null, 2));
               setSubmitting(false);
             }, 400);
@@ -190,30 +188,61 @@ export const Husstanden = () => {
                 onChange={value => setFieldValue("barn", value)}
                 onBlur={handleBlur}
                 value={barn}
-                group="barn" 
+                group="barn"
               >
                 <RadioButton value={true} id="1">
                   Ja
                 </RadioButton>
-                <RadioButton id="2" value={false} >
+                <RadioButton id="2" value={false}>
                   Nei
                 </RadioButton>
               </CheckGroup>
               <p>Antall barn</p>
-              
-              
-              <RadioPill group={"Radiopills"}>
+              <RadioPill group={"numBarn"} name="numBarn" onChange={handleChange}>
                 {antallBarn.map(listItem => (
                   <RadioPillItem
                     key={listItem.myUniqueId}
-                    value={listItem.value}
+                    value={listItem.values}
                     defaultChecked={listItem.defaultChecked}
                     id={listItem.myUniqueId}
                   >
                     {listItem.label}
+
                   </RadioPillItem>
                 ))}
               </RadioPill>
+
+              <SelectSimple
+                label="Alder barn 1"
+                name="alder"
+                type="alder"
+                placeholder="Velg..."
+                id="simpleSelect"
+                component="select"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.alder}
+              >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+               
+              </SelectSimple>    
+
               <Button type="submit" disabled={isSubmitting}>
                 Submit
               </Button>{" "}
