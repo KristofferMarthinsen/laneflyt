@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "./components/Header";
 import Layout from "./components/Layout";
@@ -17,7 +17,7 @@ import styled from "styled-components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/
+const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
 
 const SignupSchema = Yup.object().shape({
   fornavn: Yup.string()
@@ -28,11 +28,12 @@ const SignupSchema = Yup.object().shape({
     .min(2, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
-  telefonnummer: Yup.string()
-  .matches(phoneRegExp, 'Phone number is not valid')
+  telefonnummer: Yup.string().matches(phoneRegExp, "Phone number is not valid"),
+  sivilstatus: Yup.string()
+    .oneOf(["Gift", "Samboer", "Skilt", "Partnerskap", "Enke", "Separert"])
+    .required("Required"),
   
 });
-
 
 export const antallBarn = [
   {
@@ -68,7 +69,7 @@ export const antallBarn = [
 ];
 
 export const Husstanden = () => {
-  const [barn, setBarn] = useState(false)
+  const [barn, setBarn] = useState(false);
   return (
     <div>
       <Layout id={3} title="Husstanden" />
@@ -84,23 +85,24 @@ export const Husstanden = () => {
             etternavn: "",
             email: "",
             telefonnummer: "",
-            sivilstatus: "",
+            sivilstatus: null,
             barn: barn
           }}
           validate={values => {
             const errors = {};
-            if(!values.fornavn){
+            if (!values.fornavn) {
               errors.fornavn = "Required";
             }
-            if(!values.etternavn){
-              errors.etternavn= "Required";
+            if (!values.etternavn) {
+              errors.etternavn = "Required";
             }
-            if(!values.telefonnummer){
-              errors.telefonnummer= "Required";
-            } 
-
+            if (!values.telefonnummer) {
+              errors.telefonnummer = "Required";
+            }
+            if(!values.sivilstatus) {
+              errors.sivilstatus = "Required";
+            }
             
-    
             if (!values.email) {
               errors.email = "Required";
             } else if (
@@ -113,6 +115,7 @@ export const Husstanden = () => {
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
               alert(JSON.stringify(values, null, 2));
+              console.log(values)
               setSubmitting(false);
             }, 400);
           }}
@@ -129,6 +132,7 @@ export const Husstanden = () => {
             /* and other goodies */
           }) => (
             <form onSubmit={handleSubmit}>
+              {errors.fornavn && touched.fornavn && errors.fornavn}
               <Input
                 type="fornavn"
                 name="fornavn"
@@ -137,6 +141,7 @@ export const Husstanden = () => {
                 value={values.fornavn}
                 label="Fornavn"
               />
+              {errors.etternavn && touched.etternavn && errors.etternavn}
               <Input
                 type="etternavn"
                 name="etternavn"
@@ -145,6 +150,9 @@ export const Husstanden = () => {
                 value={values.etternavn}
                 label="Etternavn"
               />
+              {errors.telefonnummer &&
+                touched.telefonnummer &&
+                errors.telefonnummer}
               <Input
                 type="telefonnummer"
                 name="telefonnummer"
@@ -162,14 +170,11 @@ export const Husstanden = () => {
                 value={values.email}
                 label="E-mail"
               />
-              {errors.email && touched.email && errors.email}
+               {errors.sivilstatus && touched.sivilstatus && errors.sivilstatus}
               <SelectSimple
-                label="Sivilstatus"
+                label={"Sivilstatus"}
                 name="sivilstatus"
-                type="sivilstatus"
                 placeholder="Velg..."
-                id="simpleSelect"
-                component="select"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.sivilstatus}
@@ -183,6 +188,7 @@ export const Husstanden = () => {
               </SelectSimple>
               <p>Har du barn under 18 år ?</p>
               {/*Checkbox-dings her  */}
+              {errors.barn}
               <CheckGroup
                 label="Barn"
                 name="barn"
@@ -190,18 +196,16 @@ export const Husstanden = () => {
                 onChange={value => setFieldValue("barn", value)}
                 onBlur={handleBlur}
                 value={barn}
-                group="barn" 
+                group="barn"
               >
                 <RadioButton value={true} id="1">
                   Ja
                 </RadioButton>
-                <RadioButton id="2" value={false} >
+                <RadioButton id="2" value={false}>
                   Nei
                 </RadioButton>
               </CheckGroup>
               <p>Antall barn</p>
-              
-              
               <RadioPill group={"Radiopills"}>
                 {antallBarn.map(listItem => (
                   <RadioPillItem
