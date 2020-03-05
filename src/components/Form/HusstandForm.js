@@ -12,6 +12,7 @@ import SignupSchema from "./FormInputs/HusstandForm.schema";
 import SivilStatusInput from "./FormInputs/SivilStatus/SivilStatusInput";
 import AntallBarnInput from "./FormInputs/AntallBarn/AntallBarnInput";
 import BarnAlderInput from "./FormInputs/BarnAlder/BarnAlderInput";
+import TelefonNummerInput from "./FormInputs/Telefon/TelefonNummerInput"
 
 
 
@@ -47,6 +48,7 @@ export const HusstandForm = () => {
 				  <Form>
 					  <FornavnInput />
 					  <EtternavnInput />
+					<TelefonNummerInput/>
 					  <EpostInput/>
 					  <SivilStatusInput />
 					  <CheckGroup
