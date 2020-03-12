@@ -1,6 +1,6 @@
 import React from "react"
-import { Input, theming } from "@staccx/bento"
-import styled, { css } from "styled-components"
+import { Input} from "@staccx/bento"
+import styled from "styled-components"
 import { ErrorMessage, useFormikContext } from "formik"
 
 const HusstandInput = ({ name, ...props }) => {

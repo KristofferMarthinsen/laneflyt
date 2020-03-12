@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Lanedetaljer from "./Lanedetaljer";
 import Lanetakere from "./Lanetakere";
 import Husstanden from "./Husstanden";
@@ -14,7 +14,7 @@ import GjeldLeggTil from "./GjeldLeggTil"
 import theme from "./theme/theme";
 import background from "./theme/header-background.png";
 import { WebFonts, GlobalStyle } from "@staccx/bento"
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 import styled from "styled-components";
 import Estimat2 from "./Estimat2";

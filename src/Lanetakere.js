@@ -1,10 +1,7 @@
-import React, { Component } from "react";
-import VidereKnapp from "./components/VidereKnapp";
-import Header from "./components/Header";
-import { Button, Heading } from "@staccx/bento";
+import React from "react";
+import { Button} from "@staccx/bento";
 import { Link } from "react-router-dom";
 import { Gris } from "./svg/Gris";
-import theme from "./theme/theme";
 import styled from "styled-components";
 import Layout from "./components/Layout";
 

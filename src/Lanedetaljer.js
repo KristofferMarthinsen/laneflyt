@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components"
 import Nedbetaling from "./components/Nedbetaling";
-import Header from "./components/Header";
 import {VerdiLaneSum} from "./components/VerdiLaneSum";
 import {Button} from "@staccx/bento";
 import {Link} from "react-router-dom";

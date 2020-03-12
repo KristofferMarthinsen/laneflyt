@@ -1,4 +1,3 @@
-import { css } from "styled-components"
 import { theming } from "@staccx/bento"
 import {buttonVariants} from "./variants/button.variants"
 import {h1Variants} from "./variants/h1.variants"

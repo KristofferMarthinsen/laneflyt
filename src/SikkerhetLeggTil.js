@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Heading, Button, Input, CurrencyInput, Slider } from "@staccx/bento";
+import { Button } from "@staccx/bento";
 import { Link } from "react-router-dom";
 import { SikkerhetLeggTilSVG } from "./svg/SikkerhetLeggTilSVG";
 import Layout from "./components/Layout";
@@ -18,49 +18,48 @@ const Subtitle = () => (
 export const SikkerhetLegTil = () => {
   const [Sikkerhet, setSikkerhet] = useState(null);
   return (
-	  <Formik
-		  validationSchema={SignupSchema}
-		  initialValues={{
-			  Adresse: "",
-			  BoligVerdi:"",
-        KjopeVerdi:""
-		  }}
-		  onSubmit={(values, { setSubmitting }) => {
-			  setTimeout(() => {
-				  console.log(values);
-				  alert(JSON.stringify(values, null, 2));
-				  console.log(values);
-				  setSubmitting(false);
-			  }, 400);
-		  }}
-	  >
+    <Formik
+      validationSchema={SignupSchema}
+      initialValues={{
+        Adresse: "",
+        BoligVerdi: "",
+        KjopeVerdi: ""
+      }}
+      onSubmit={(values, { setSubmitting }) => {
+        setTimeout(() => {
+          console.log(values);
+          alert(JSON.stringify(values, null, 2));
+          console.log(values);
+          setSubmitting(false);
+        }, 400);
+      }}
+    >
+      {({ handleSubmit, setFieldValue }) => {
+        const Sikkerhet = value => {
+          setFieldValue("Sikker", value);
+          setSikkerhet(value === "true" ? true : false);
+        };
 
-		  {({ handleSubmit, setFieldValue }) => {
-		  	const Sikkerhet = value => {
-		  		setFieldValue("Sikker", value);
-		  		setSikkerhet(value === "true" ? true : false);
-		  };
+        return (
+          <Form>
+            <Layout
+              icon={SikkerhetLeggTilSVG}
+              id={6}
+              title="Legg til Sikkerheit"
+              subtitle={Subtitle}
+            ></Layout>
+            <AdresseInput />
+            <BoligVerdiInput />
+            <KjopeVerdiInput />
 
-  return (
-    <Form>
-      <Layout
-        icon={SikkerhetLeggTilSVG}
-        id={6}
-        title="Legg til Sikkerheit"
-        subtitle={Subtitle}
-      ></Layout>
-      <AdresseInput/>
-      <BoligVerdiInput/>
-      <KjopeVerdiInput/>
-     
-      <Button onClick={handleSubmit} > Submit</Button>
-      <Link to="Sikkerhet">
-        <Button>Lagre</Button>
-      </Link>
-      </Form>
-      )}}
-      </Formik>
-  
+            <Button onClick={handleSubmit}> Submit</Button>
+            <Link to="Sikkerhet">
+              <Button>Lagre</Button>
+            </Link>
+          </Form>
+        );
+      }}
+    </Formik>
   );
 };
 export default SikkerhetLegTil;

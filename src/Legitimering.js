@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Button, Heading } from "@staccx/bento";
+import React from "react";
+import { Button} from "@staccx/bento";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { DokApp } from "./svg/DokApp";

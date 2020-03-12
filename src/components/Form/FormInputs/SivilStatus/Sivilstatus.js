@@ -1,6 +1,6 @@
 import React from "react"
 import { SelectSimple } from "@staccx/bento";
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import { ErrorMessage, useFormikContext } from "formik"
 
 const Sivilstatus = ({ name, ...props }) => {

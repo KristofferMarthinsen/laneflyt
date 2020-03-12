@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Slider, Breadcrumb, CurrencyInput, Expand } from "@staccx/bento";
+import { Slider, CurrencyInput} from "@staccx/bento";
 
 export const VerdiLaneSum = () => {
     const  [ BoligVerdi, setBoligVerdi ] = useState(0)  

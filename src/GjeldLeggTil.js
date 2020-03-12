@@ -1,7 +1,6 @@
 import React from "react";
-import { CheckBox, Button, Heading } from "@staccx/bento";
+import { CheckBox, Button } from "@staccx/bento";
 import { Link } from "react-router-dom";
-import Header from "./components/Header";
 import { Gjeld2SVG } from "./svg/Gjeld2";
 import Layout from "./components/Layout";
 

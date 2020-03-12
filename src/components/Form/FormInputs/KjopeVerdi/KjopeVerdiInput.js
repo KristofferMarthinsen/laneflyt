@@ -1,22 +1,20 @@
-import React, { useState } from "react"
-import HusstandInput from "../../HusstandInputs"
-import {Slider} from "@staccx/bento"
-
-
+import React, { useState } from "react";
+import HusstandInput from "../../HusstandInputs";
+import { SliderKeyboardInput } from "@staccx/bento";
 
 const KjopeVerdiInput = () => {
-    const [KjopeVerdi, setKjopeVerdi] = useState(0);
-	return (
-		<div>
-			<HusstandInput name={"KjopeVerdi"} label={"Kjøpesum"}value={KjopeVerdi || 0} onChange={e => setKjopeVerdi(e.target.value)}/>
-            <Slider
-            name={"Disabled"}
-            onChange={e => setKjopeVerdi(e.target.value)}
-            min={0}
-           max={10000}
-          step={1000}
+  const [KjopeVerdi, setKjopeVerdi] = useState(0);
+  return (
+    <div>
+      <SliderKeyboardInput
+        label="KjopeVerdi"
+        min={100}
+        max={500}
+        step={50}
+        defaultValue={250}
+        onChange={e => setKjopeVerdi(e.target.value)}
       />
-        </div>
-	)
-}
-export default KjopeVerdiInput
+    </div>
+  );
+};
+export default KjopeVerdiInput;

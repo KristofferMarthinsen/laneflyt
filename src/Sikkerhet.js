@@ -1,12 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { theming } from "@staccx/bento";
-import VidereKnapp from "./components/VidereKnapp";
-import SikkerhetLeggTil from "./SikkerhetLeggTil";
-import { CheckBox, Button, Heading } from "@staccx/bento";
-import { useHistory } from "react-router-dom";
+import { CheckBox, Button} from "@staccx/bento";
 import { Link } from "react-router-dom";
-import Header from "./components/Header";
 import { SikkerhetSVG } from "./svg/SikkerhetSVG";
 import Layout from "./components/Layout";
 import PopupForm from "./components/PopupForm";

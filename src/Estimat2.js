@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { Button, Heading } from "@staccx/bento";
-import Header from "./components/Header";
+import { Button} from "@staccx/bento";
 import { EstimatSVG } from "./svg/EstimatSVG";
 import styled from "styled-components";
 import Layout from "./components/Layout";

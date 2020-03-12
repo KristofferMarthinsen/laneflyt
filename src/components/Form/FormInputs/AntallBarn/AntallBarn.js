@@ -1,9 +1,8 @@
 import React, {useState} from "react"
 import { RadioPillItem, RadioPill } from "@staccx/bento";
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import { ErrorMessage, useFormikContext } from "formik"
-import BarnAlderInput from "../BarnAlder/BarnAlderInput";
-import AntallBarnInput from "./AntallBarnInput";
+
 import BarnAlder from "../BarnAlder/BarnAlder";
 
 
