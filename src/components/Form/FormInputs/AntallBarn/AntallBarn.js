@@ -1,7 +1,10 @@
-import React from "react"
+import React, {useState} from "react"
 import { RadioPillItem, RadioPill } from "@staccx/bento";
 import styled, { css } from "styled-components"
 import { ErrorMessage, useFormikContext } from "formik"
+import BarnAlderInput from "../BarnAlder/BarnAlderInput";
+import AntallBarnInput from "./AntallBarnInput";
+
 
 
 export const antallBarn = [
@@ -38,14 +41,48 @@ export const antallBarn = [
 ];
 
 const AntallBarn = ({ name, ...props }) => {
+	const [antall, setAntall ] = useState(0)
 	const { setFieldValue } = useFormikContext()
+
+	const AntallBarnSwitch = () => {
+		switch (antall) {
+			case "1":
+				return <BarnAlderInput/>
+			case "2":
+				return <><BarnAlderInput/>
+					<BarnAlderInput/></>
+			case "3":
+				return <><BarnAlderInput/>
+					<BarnAlderInput/>
+					<BarnAlderInput/></>
+			case "4":
+				return <><BarnAlderInput/>
+					<BarnAlderInput/>
+					<BarnAlderInput/>
+					<BarnAlderInput/>
+					</>
+			case "5":
+				return <><BarnAlderInput/>
+					<BarnAlderInput/>
+					<BarnAlderInput/>
+					<BarnAlderInput/>
+					<BarnAlderInput/>
+				</>
+			default:
+				return <BarnAlderInput/>
+		}
+	}
+
+
+
+
 	return (
 		<div>
 			<RadioPill
 				group={"numBarn"}
 				name="numBarn"
 				{...props}
-				onChange={e => setFieldValue(name, e.target.value)}
+				onChange={e => (setAntall(e.target.value), setFieldValue(name, e.target.value))}
 			>
 				{antallBarn.map(listItem => (
 					<RadioPillItem
@@ -61,6 +98,7 @@ const AntallBarn = ({ name, ...props }) => {
 			<ErrorMessage name={name}>
 				{msg => console.log(msg) || <Error>{msg}</Error>}
 			</ErrorMessage>
+			<AntallBarnSwitch/>
 		</div>
 	)
 }

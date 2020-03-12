@@ -27,14 +27,13 @@ export const HusstandForm = () => {
 			  Epost: "",
 			  SivilStatus: null,
 			  barn: barn,
-			  antallBarn: null,
-			  BarnAlder: null
+			  BarnAlder: null,
+			  antallBarn: null
 		  }}
 		  onSubmit={(values, { setSubmitting }) => {
 			  setTimeout(() => {
 				  console.log(values);
 				  alert(JSON.stringify(values, null, 2));
-				  console.log(values);
 				  setSubmitting(false);
 			  }, 400);
 		  }}
@@ -51,6 +50,7 @@ export const HusstandForm = () => {
 					<TelefonNummerInput/>
 					  <EpostInput/>
 					  <SivilStatusInput />
+					  <p>Har du barn?</p>
 					  <CheckGroup
 						  label="Barn"
 						  name="barn"
@@ -70,7 +70,6 @@ export const HusstandForm = () => {
 					  	<>
 						  <p>antall barn </p>
 							<AntallBarnInput/>
-							<BarnAlderInput/>
 						  </>
 					  )}
 				  <Button onClick={handleSubmit} > submit</Button>
