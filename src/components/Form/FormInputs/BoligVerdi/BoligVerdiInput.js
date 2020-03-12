@@ -1,17 +1,18 @@
-import React, { useState } from "react"
+import React from "react"
 import HusstandInput from "../../HusstandInputs"
 import {Slider} from "@staccx/bento"
+import {useFormikContext } from "formik"
 
 
 
-const BoligVerdiInput = () => {
-     const [BoligVerdi, setBoligVerdi] = useState(0);
+const BoligVerdiInput = (name, ...props) => {
+    const { setFieldValue } = useFormikContext()
 	return (
 		<div>
-			<HusstandInput name={"BoligVerdi"} label={"Boligverdi"}/>
+            <HusstandInput name={"Boligverdi"} label={"Boligverdi"}value={setFieldValue || 0}/>
             <Slider
-            name={"Disabled"}
-            onChange={e => setBoligVerdi(e.target.value)}
+            {...props}
+            onChange={e => setFieldValue(name, e.target.value)}
             min={0}
            max={10000}
           step={1000}
