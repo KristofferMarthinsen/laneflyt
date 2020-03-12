@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 
-const pageId = [1, 2, 3, 4, 5, 6, 7];
+
 
 
 export class Heading extends React.Component { 

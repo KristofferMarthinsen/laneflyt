@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React from "react"
 import {SelectSimple} from "@staccx/bento";
 import styled from "styled-components"
 import { ErrorMessage, useFormikContext } from "formik"
@@ -7,7 +7,6 @@ import { ErrorMessage, useFormikContext } from "formik"
 
 
 const BarnAlder = ({ name, ...props }) => {
-	const [alder, setAlder] = useState(0)
 	const { setFieldValue } = useFormikContext()
 
 

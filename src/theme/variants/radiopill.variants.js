@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { RadioPill, RadioPillItem, theming } from "@staccx/bento";
+import { RadioPill, theming } from "@staccx/bento";
 
 export const radiopillVariants = theming.createVariants(
   {
