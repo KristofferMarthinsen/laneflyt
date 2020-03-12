@@ -1,5 +1,5 @@
-import React from "react"
-import {RadioPill, SelectSimple} from "@staccx/bento";
+import React, {useState} from "react"
+import {SelectSimple} from "@staccx/bento";
 import styled, { css } from "styled-components"
 import { ErrorMessage, useFormikContext } from "formik"
 
@@ -7,7 +7,10 @@ import { ErrorMessage, useFormikContext } from "formik"
 
 
 const BarnAlder = ({ name, ...props }) => {
+	const [alder, setAlder] = useState(0)
 	const { setFieldValue } = useFormikContext()
+
+
 	return (
 		<div>
 			<SelectSimple
@@ -15,7 +18,7 @@ const BarnAlder = ({ name, ...props }) => {
 				name="alder"
 				type="alder"
 				placeholder="Velg..."
-				id="simpleSelect"
+				id="4325"
 				component="select"
 				{...props}
 				onChange={e => setFieldValue(name, e.target.value)}

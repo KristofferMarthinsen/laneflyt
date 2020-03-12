@@ -4,6 +4,7 @@ import styled, { css } from "styled-components"
 import { ErrorMessage, useFormikContext } from "formik"
 import BarnAlderInput from "../BarnAlder/BarnAlderInput";
 import AntallBarnInput from "./AntallBarnInput";
+import BarnAlder from "../BarnAlder/BarnAlder";
 
 
 
@@ -44,37 +45,6 @@ const AntallBarn = ({ name, ...props }) => {
 	const [antall, setAntall ] = useState(0)
 	const { setFieldValue } = useFormikContext()
 
-	const AntallBarnSwitch = () => {
-		switch (antall) {
-			case "1":
-				return <BarnAlderInput/>
-			case "2":
-				return <><BarnAlderInput/>
-					<BarnAlderInput/></>
-			case "3":
-				return <><BarnAlderInput/>
-					<BarnAlderInput/>
-					<BarnAlderInput/></>
-			case "4":
-				return <><BarnAlderInput/>
-					<BarnAlderInput/>
-					<BarnAlderInput/>
-					<BarnAlderInput/>
-					</>
-			case "5":
-				return <><BarnAlderInput/>
-					<BarnAlderInput/>
-					<BarnAlderInput/>
-					<BarnAlderInput/>
-					<BarnAlderInput/>
-				</>
-			default:
-				return <BarnAlderInput/>
-		}
-	}
-
-
-
 
 	return (
 		<div>
@@ -98,7 +68,23 @@ const AntallBarn = ({ name, ...props }) => {
 			<ErrorMessage name={name}>
 				{msg => console.log(msg) || <Error>{msg}</Error>}
 			</ErrorMessage>
-			<AntallBarnSwitch/>
+			<div>
+				{antall === "1" && <BarnAlder name={"BarnAlder"} label={"alder"}/>}
+				{antall === "2" && <><BarnAlder name={"BarnAlder"} label={"alder"}/>
+					<BarnAlder name={"BarnAlder2"} label={"alder2"}/></>}
+				{antall === "3" && <><BarnAlder name={"BarnAlder"} label={"alder"}/>
+					<BarnAlder name={"BarnAlder2"} label={"alder2"}/>
+					<BarnAlder name={"BarnAlder3"} label={"alder3"}/></>}
+				{antall === "4" && <><BarnAlder name={"BarnAlder"} label={"alder"}/>
+					<BarnAlder name={"BarnAlder2"} label={"alder2"}/>
+					<BarnAlder name={"BarnAlder3"} label={"alder3"}/>
+					<BarnAlder name={"BarnAlder4"} label={"alder4"}/></>}
+				{antall === "5" && <><BarnAlder name={"BarnAlder"} label={"alder"}/>
+					<BarnAlder name={"BarnAlder2"} label={"alder2"}/>
+					<BarnAlder name={"BarnAlder3"} label={"alder3"}/>
+					<BarnAlder name={"BarnAlder4"} label={"alder4"}/>
+					<BarnAlder name={"BarnAlder5"} label={"alder5"}/></>}
+			</div>
 		</div>
 	)
 }
