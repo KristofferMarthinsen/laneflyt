@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import Header from "./components/Header";
 import { SikkerhetSVG } from "./svg/SikkerhetSVG";
 import Layout from "./components/Layout";
+import PopupForm from "./components/PopupForm";
 
 const Subtitle = () => (
   <>
@@ -39,11 +40,13 @@ const Sikkerhet = () => {
       <Link to="/SikkerhetLeggTil">
         <LeggTil>
           <Button variant="unstyledButton">Legg til > </Button>
+          <PopupForm/>
         </LeggTil>
       </Link>
       <Link to="/Okonomi">
         <Videre>
           <Button>Videre</Button>
+
         </Videre>
       </Link>
     </div>

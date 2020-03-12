@@ -1,45 +1,66 @@
 import React, { useState } from "react";
 import { Heading, Button, Input, CurrencyInput, Slider } from "@staccx/bento";
 import { Link } from "react-router-dom";
-import {SikkerhetLeggTilSVG} from "./svg/SikkerhetLeggTilSVG"
-import Layout from "./components/Layout"
+import { SikkerhetLeggTilSVG } from "./svg/SikkerhetLeggTilSVG";
+import Layout from "./components/Layout";
+import { Formik, Form } from "formik";
+import SignupSchema from "./components/Form/FormInputs/SikkerhetForm.schema";
+import AdresseInput from "./components/Form/FormInputs/Adresse/AdresseInput";
+import KjopeVerdiInput from "./components/Form/FormInputs/KjopeVerdi/KjopeVerdiInput";
+import BoligVerdiInput from "./components/Form/FormInputs/BoligVerdi/BoligVerdiInput";
 
 const Subtitle = () => (
   <>
-  <p>Her kan du legge til sikkerheit</p>
+    <p>Her kan du legge til sikkerheit</p>
   </>
-  );
-
-
+);
 
 export const SikkerhetLegTil = () => {
-  const [BoligVerdi, setBoligVerdi] = useState(0);
-  const [KjopeSum, setKjopeSum] = useState(0);
+  const [Sikkerhet, setSikkerhet] = useState(null);
   return (
-    <div>
-    <Layout icon={SikkerhetLeggTilSVG} id={6} title="Legg til Sikkerheit" subtitle={Subtitle}></Layout>
-      <Input label={"Adresse"} />
-      <CurrencyInput
-        label={"Bolig verdi"}
-        value={BoligVerdi || 0}
-        onChange={e => setBoligVerdi(e.target.value)}
-      />
-       <CurrencyInput
-        label={"Kjøpesum"}
-        value={KjopeSum || 0}
-        onChange={e => setKjopeSum(e.target.value)}
-      />
-      <Slider
-        name={"Disabled"}
-        onChange={e => setBoligVerdi(e.target.value)}
-        min={0}
-        max={10000}
-        step={1000}
-      />
+	  <Formik
+		  validationSchema={SignupSchema}
+		  initialValues={{
+			  Adresse: "",
+			  BoligVerdi:"",
+        KjopeVerdi:""
+		  }}
+		  onSubmit={(values, { setSubmitting }) => {
+			  setTimeout(() => {
+				  console.log(values);
+				  alert(JSON.stringify(values, null, 2));
+				  console.log(values);
+				  setSubmitting(false);
+			  }, 400);
+		  }}
+	  >
+
+		  {({ handleSubmit, setFieldValue }) => {
+		  	const Sikkerhet = value => {
+		  		setFieldValue("Sikker", value);
+		  		setSikkerhet(value === "true" ? true : false);
+		  };
+
+  return (
+    <Form>
+      <Layout
+        icon={SikkerhetLeggTilSVG}
+        id={6}
+        title="Legg til Sikkerheit"
+        subtitle={Subtitle}
+      ></Layout>
+      <AdresseInput/>
+      <BoligVerdiInput/>
+      <KjopeVerdiInput/>
+     
+      <Button onClick={handleSubmit} > Submit</Button>
       <Link to="Sikkerhet">
         <Button>Lagre</Button>
       </Link>
-    </div>
+      </Form>
+      )}}
+      </Formik>
+  
   );
 };
 export default SikkerhetLegTil;
