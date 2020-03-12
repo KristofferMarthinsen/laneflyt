@@ -69,21 +69,21 @@ const AntallBarn = ({ name, ...props }) => {
 				{msg => console.log(msg) || <Error>{msg}</Error>}
 			</ErrorMessage>
 			<div>
-				{antall === "1" && <BarnAlder name={"BarnAlder"} label={"alder"}/>}
-				{antall === "2" && <><BarnAlder name={"BarnAlder"} label={"alder"}/>
-					<BarnAlder name={"BarnAlder2"} label={"alder2"}/></>}
-				{antall === "3" && <><BarnAlder name={"BarnAlder"} label={"alder"}/>
-					<BarnAlder name={"BarnAlder2"} label={"alder2"}/>
-					<BarnAlder name={"BarnAlder3"} label={"alder3"}/></>}
-				{antall === "4" && <><BarnAlder name={"BarnAlder"} label={"alder"}/>
-					<BarnAlder name={"BarnAlder2"} label={"alder2"}/>
-					<BarnAlder name={"BarnAlder3"} label={"alder3"}/>
-					<BarnAlder name={"BarnAlder4"} label={"alder4"}/></>}
-				{antall === "5" && <><BarnAlder name={"BarnAlder"} label={"alder"}/>
-					<BarnAlder name={"BarnAlder2"} label={"alder2"}/>
-					<BarnAlder name={"BarnAlder3"} label={"alder3"}/>
-					<BarnAlder name={"BarnAlder4"} label={"alder4"}/>
-					<BarnAlder name={"BarnAlder5"} label={"alder5"}/></>}
+				{antall === "1" && <BarnAlder name={"BarnAlder"} label={"Alder barn 1"}/>}
+				{antall === "2" && <><BarnAlder name={"BarnAlder"} label={"Alder barn 1"}/>
+					<BarnAlder name={"BarnAlder2"} label={"Alder barn 2"}/></>}
+				{antall === "3" && <><BarnAlder name={"BarnAlder"} label={"Alder barn 1"}/>
+					<BarnAlder name={"BarnAlder2"} label={"Alder barn 2"}/>
+					<BarnAlder name={"BarnAlder3"} label={"Alder barn 3"}/></>}
+				{antall === "4" && <><BarnAlder name={"BarnAlder"} label={"Alder barn 1"}/>
+					<BarnAlder name={"BarnAlder2"} label={"Alder barn 2"}/>
+					<BarnAlder name={"BarnAlder3"} label={"Alder barn 3"}/>
+					<BarnAlder name={"BarnAlder4"} label={"Alder barn 4"}/></>}
+				{antall === "5" && <><BarnAlder name={"BarnAlder"} label={"Alder barn 1"}/>
+					<BarnAlder name={"BarnAlder2"} label={"Alder barn 2"}/>
+					<BarnAlder name={"BarnAlder3"} label={"Alder barn 3"}/>
+					<BarnAlder name={"BarnAlder4"} label={"Alder barn 4"}/>
+					<BarnAlder name={"BarnAlder5"} label={"Alder barn 5"}/></>}
 			</div>
 		</div>
 	)
