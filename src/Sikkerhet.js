@@ -38,6 +38,7 @@ const Sikkerhet = () => {
         To{" "}
       </CheckBox>
       <Link to="/SikkerhetLeggTil">
+      <PopupForm/>
         <LeggTil>
           <Button variant="unstyledButton">Legg til > </Button>
           <PopupForm/>
