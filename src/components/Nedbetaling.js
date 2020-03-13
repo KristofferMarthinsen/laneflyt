@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import {Input,Button} from "@staccx/bento";
 import LaneSum from "./Form/FormInputs/LaneSum/LameSumInput";
 import BoligVerdi from "./Form/FormInputs/BoligVerdi/BoligVerdiInput";
 import { Formik, Form } from "formik";
 import SignupSchema from "./Form/FormInputs/NedbetalingForm.schema";
 import NedbetalingstidInput from "./Form/FormInputs/NedbetalingsTidInput/NedbetalingsTidInput";
-
+import AvdragsFrihetInput from "./Form/FormInputs/AvdragsFrihet/AvdragsFrihetInput";
 export const Nedbetaling = () => {
   const [setNedbetaling] = useState(null);
   return (
@@ -13,7 +14,8 @@ export const Nedbetaling = () => {
       initialValues={{
         BoligVerdi: "",
         LaneSum: "",
-        Nedbetalingstid: ""
+        NedbetalingsTid: "",
+        AvdragsFrihet: ""
       }}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
@@ -35,7 +37,12 @@ export const Nedbetaling = () => {
               <BoligVerdi />
               <LaneSum />
               <NedbetalingstidInput />
+              <AvdragsFrihetInput/>
+              <Input label={"Rente nominell:"} disabled />
+              <Input label={"Rente effektiv:"} disabled />
+              <Input label={"Å betale hver måned:"} disabled />
             </Form>
+            <Button onClick={handleSubmit}> submit</Button>
           </div>
         );
       }}
