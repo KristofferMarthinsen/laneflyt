@@ -1,19 +1,21 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import { SliderKeyboardInput } from "@staccx/bento";
-import { useFormikContext } from "formik";
+import {useFormikContext} from "formik"
 
-const KjopeVerdiInput = () => {
-  const { setFieldValue } = useFormikContext();
+const KjopeVerdiInput = (name, ...props) => {
+	const [price, setPrice] = useState(0)
+
+  const { setFieldValue } = useFormikContext()
   return (
     <div>
       <SliderKeyboardInput
-        label="KjopeVerdi"
-        name="KjopeVerdi"
+        label="Kjopeverdi"
+		name="KjopeVerdi"
         min={100}
         max={500}
         step={50}
-        defaultValue={250}
-        onChange={value => setFieldValue("Inntekt", value)}
+        defaultValue={0}
+        onChange={value => (setPrice(value), setFieldValue("KjopeVerdi", value))}
       />
     </div>
   );
