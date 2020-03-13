@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "@staccx/bento";
 import { Formik, Form } from "formik";
 import KjopeVerdiInput from "../FormInputs/KjopeVerdi/KjopeVerdiInput"
@@ -31,7 +31,6 @@ export const OkonomiForm = () => {
             <AntallBilerInput/>
             <AntallBoligerInput/>
             <Button onClick={handleSubmit}> submit</Button>
-          
           </Form>
         );
       }}

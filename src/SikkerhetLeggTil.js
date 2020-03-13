@@ -16,7 +16,7 @@ const Subtitle = () => (
 );
 
 export const SikkerhetLegTil = () => {
-  const [Sikkerhet, setSikkerhet] = useState(null);
+  const [ setSikkerhet] = useState(null);
   return (
     <Formik
       validationSchema={SignupSchema}
@@ -35,10 +35,7 @@ export const SikkerhetLegTil = () => {
       }}
     >
       {({ handleSubmit, setFieldValue }) => {
-        const Sikkerhet = value => {
-          setFieldValue("Sikker", value);
-          setSikkerhet(value === "true" ? true : false);
-        };
+       
 
         return (
           <Form>

@@ -1,11 +1,5 @@
-import React, { useState } from "react";
-import {
-  Button,
-  CurrencyInput,
-  Slider,
-  RadioPill,
-  RadioPillItem
-} from "@staccx/bento";
+import React from "react";
+import { Button } from "@staccx/bento";
 import { Link } from "react-router-dom";
 import { OkonomiSVG } from "./svg/OkonomiSVG";
 import Layout from "./components/Layout";
@@ -19,7 +13,6 @@ const Subtitle = () => (
 );
 
 const Okonomi = () => {
-  
   return (
     <div>
       <Layout icon={OkonomiSVG} id={7} title="Økonomi" subtitle={Subtitle} />
@@ -29,7 +22,6 @@ const Okonomi = () => {
       <Link to="/Gjeld">
         <Button>Videre</Button>
       </Link>
-      
     </div>
   );
 };
@@ -38,9 +30,10 @@ export default Okonomi;
 
 const FormLayout = styled.div`
   padding-top: 25px;
-`
+`;
 
-{/* 
+{
+  /* 
   const [SamletOkonomi, setSamletOkonomi] = useState(0);
   <CurrencyInput
         label={"Sum inntekt"}
@@ -79,4 +72,5 @@ const FormLayout = styled.div`
             {listItem.label}
           </RadioPillItem>
         ))}
-      </RadioPill> */}
+      </RadioPill> */
+}

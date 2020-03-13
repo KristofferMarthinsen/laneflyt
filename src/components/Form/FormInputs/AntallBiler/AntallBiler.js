@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { RadioPillItem, RadioPill, Label } from "@staccx/bento";
+import React from "react";
+import { RadioPillItem, RadioPill } from "@staccx/bento";
 import styled from "styled-components";
 import { ErrorMessage, useFormikContext } from "formik";
 
@@ -40,6 +40,7 @@ const AntallBiler = ({ name, ...props }) => {
   return (
     <div>
       <RadioPill
+        full={true}
         group={"antallBiler"}
         name="antallBiler"
         {...props}
