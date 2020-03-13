@@ -38,6 +38,5 @@ padding-left: 24px;
  
  const NedbetalingStyle = styled.div`
  padding-top: 32px;
- background: #FFFFFF;
  `
     

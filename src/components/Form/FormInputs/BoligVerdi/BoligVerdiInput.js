@@ -3,7 +3,7 @@ import { SliderKeyboardInput } from "@staccx/bento";
 import { useFormikContext } from "formik";
 
 const BoligVerdiInput = (name, ...props) => {
-  const [setBoligVerdi] = useState(0);
+  const [boligVerdi, setBoligVerdi] = useState(0);
 
   const { setFieldValue } = useFormikContext();
   return (
@@ -16,7 +16,7 @@ const BoligVerdiInput = (name, ...props) => {
         step={50}
         defaultValue={0}
         onChange={value => (
-          setBoligVerdi(value), setFieldValue("BoligVerdi", value)
+          setBoligVerdi(boligVerdi), setFieldValue("BoligVerdi", value)
         )}
       />
     </div>
