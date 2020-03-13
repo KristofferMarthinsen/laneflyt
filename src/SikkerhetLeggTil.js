@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "@staccx/bento";
 import { Link } from "react-router-dom";
 import { SikkerhetLeggTilSVG } from "./svg/SikkerhetLeggTilSVG";
@@ -16,7 +16,6 @@ const Subtitle = () => (
 );
 
 export const SikkerhetLegTil = () => {
-  const [ setSikkerhet] = useState(null);
   return (
     <Formik
       validationSchema={SignupSchema}
@@ -34,7 +33,7 @@ export const SikkerhetLegTil = () => {
         }, 400);
       }}
     >
-      {({ handleSubmit, setFieldValue }) => {
+      {({ handleSubmit }) => {
        
 
         return (

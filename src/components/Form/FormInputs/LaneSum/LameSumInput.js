@@ -3,7 +3,7 @@ import { SliderKeyboardInput } from "@staccx/bento";
 import { useFormikContext } from "formik";
 
 const LaneSumInput = (name, ...props) => {
-  const [LaneSum, setLaneSum] = useState(0);
+  const [setLaneSum] = useState(0);
   const { setFieldValue } = useFormikContext();
   return (
     <div>

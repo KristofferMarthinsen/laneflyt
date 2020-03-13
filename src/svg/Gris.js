@@ -25,8 +25,8 @@ export const Gris = () => (
         y2="33.1"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2295A3" />
-        <stop offset="1" stop-color="#146670" />
+        <stop stopColor="#2295A3" />
+        <stop offset="1" stopColor="#146670" />
       </linearGradient>
       <linearGradient
         id="paint1_linear"
@@ -36,8 +36,8 @@ export const Gris = () => (
         y2="49.65"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2295A3" />
-        <stop offset="1" stop-color="#146670" />
+        <stop stopColor="#2295A3" />
+        <stop offset="1" stopColor="#146670" />
       </linearGradient>
     </defs>
   </svg>

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Slider, ExpandListItem, List } from "@staccx/bento";
 import LaneSum from "./Form/FormInputs/LaneSum/LameSumInput";
 import BoligVerdi from "./Form/FormInputs/BoligVerdi/BoligVerdiInput";
 import { Formik, Form } from "formik";
@@ -7,7 +6,7 @@ import SignupSchema from "./Form/FormInputs/NedbetalingForm.schema";
 import NedbetalingstidInput from "./Form/FormInputs/NedbetalingsTidInput/NedbetalingsTidInput";
 
 export const Nedbetaling = () => {
-  const [Nedbetaling, setNedbetaling] = useState(null);
+  const [setNedbetaling] = useState(null);
   return (
     <Formik
       validationSchema={SignupSchema}

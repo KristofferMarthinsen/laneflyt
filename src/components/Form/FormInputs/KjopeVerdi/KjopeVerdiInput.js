@@ -3,7 +3,7 @@ import { SliderKeyboardInput } from "@staccx/bento";
 import {useFormikContext} from "formik"
 
 const KjopeVerdiInput = (name, ...props) => {
-	const [price, setPrice] = useState(0)
+	const [setPrice] = useState(0)
 
   const { setFieldValue } = useFormikContext()
   return (
