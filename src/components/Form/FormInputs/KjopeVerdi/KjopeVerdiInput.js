@@ -9,12 +9,12 @@ const KjopeVerdiInput = () => {
   return (
     <div>
       <SliderKeyboardInput
-        label="KjopeVerdi"
+        label="Kjopeverdi"
 		name="KjopeVerdi"
         min={100}
         max={500}
         step={50}
-        defaultValue={250}
+        defaultValue={0}
         onChange={value => (setPrice(value), setFieldValue("KjopeVerdi", value))}
       />
     </div>
