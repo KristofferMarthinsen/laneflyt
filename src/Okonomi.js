@@ -10,71 +10,7 @@ import { Link } from "react-router-dom";
 import { OkonomiSVG } from "./svg/OkonomiSVG";
 import Layout from "./components/Layout";
 import styled from "styled-components";
-
-export const bil = [
-  {
-    myUniqueId: "1bil",
-    value: 1,
-    label: "1",
-    defaultChecked: true
-  },
-  {
-    myUniqueId: "2bil",
-    value: 2,
-    label: "2",
-    defaultChecked: false
-  },
-  {
-    myUniqueId: "3bil",
-    value: 3,
-    label: "3 ",
-    defaultChecked: false
-  },
-  {
-    myUniqueId: "4bil",
-    value: 4,
-    label: "4",
-    defaultChecked: false
-  },
-  {
-    myUniqueId: "5bil",
-    value: 5,
-    label: "5 +",
-    defaultChecked: false
-  }
-];
-export const boliger = [
-  {
-    myUniqueId: "1boliger",
-    value: 1,
-    label: "1",
-    defaultChecked: true
-  },
-  {
-    myUniqueId: "2boliger",
-    value: 2,
-    label: "2",
-    defaultChecked: false
-  },
-  {
-    myUniqueId: "3boliger",
-    value: 3,
-    label: "3 ",
-    defaultChecked: false
-  },
-  {
-    myUniqueId: "4boliger",
-    value: 4,
-    label: "4",
-    defaultChecked: false
-  },
-  {
-    myUniqueId: "5boliger",
-    value: 5,
-    label: "5 +",
-    defaultChecked: false
-  }
-];
+import { OkonomiForm } from "./components/Form/Okonomi/OkonomiForm";
 
 const Subtitle = () => (
   <>
@@ -83,12 +19,30 @@ const Subtitle = () => (
 );
 
 const Okonomi = () => {
-  const [SamletOkonomi, setSamletOkonomi] = useState(0);
+  
   return (
     <div>
       <Layout icon={OkonomiSVG} id={7} title="Økonomi" subtitle={Subtitle} />
       <FormLayout>
-      <CurrencyInput
+        <OkonomiForm />
+      </FormLayout>
+      <Link to="/Gjeld">
+        <Button>Videre</Button>
+      </Link>
+      
+    </div>
+  );
+};
+
+export default Okonomi;
+
+const FormLayout = styled.div`
+  padding-top: 25px;
+`
+
+{/* 
+  const [SamletOkonomi, setSamletOkonomi] = useState(0);
+  <CurrencyInput
         label={"Sum inntekt"}
         value={SamletOkonomi || 0}
         onChange={e => setSamletOkonomi(e.target.value)}
@@ -125,18 +79,4 @@ const Okonomi = () => {
             {listItem.label}
           </RadioPillItem>
         ))}
-      </RadioPill>
-      </FormLayout>
-      <Link to="/Gjeld">
-        <Button>Videre</Button>
-      </Link>
-      
-    </div>
-  );
-};
-
-export default Okonomi;
-
-const FormLayout = styled.div`
-  padding-top: 25px;
-`
+      </RadioPill> */}

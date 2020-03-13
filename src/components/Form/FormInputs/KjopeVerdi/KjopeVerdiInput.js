@@ -1,18 +1,19 @@
 import React, { useState } from "react";
-import HusstandInput from "../../HusstandInputs";
 import { SliderKeyboardInput } from "@staccx/bento";
+import { useFormikContext } from "formik";
 
 const KjopeVerdiInput = () => {
-  const [KjopeVerdi, setKjopeVerdi] = useState(0);
+  const { setFieldValue } = useFormikContext();
   return (
     <div>
       <SliderKeyboardInput
         label="KjopeVerdi"
+        name="KjopeVerdi"
         min={100}
         max={500}
         step={50}
         defaultValue={250}
-        onChange={e => setKjopeVerdi(e.target.value)}
+        onChange={value => setFieldValue("Inntekt", value)}
       />
     </div>
   );
