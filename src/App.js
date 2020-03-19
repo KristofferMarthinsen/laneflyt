@@ -19,34 +19,7 @@ import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import styled from "styled-components";
 import Estimat2 from "./Estimat2";
 
-
-//const Step = ({ currentStep, onNext, onPrev }) => {
-//switch (currentStep) {
-//case 1:
-//return <Lanedetaljer onNext={onNext} />;
-
-//case 2:
-//return <Lanetakere onNext={onNext} />;
-
-//case 3:
-//return <Husstanden onNext={onNext} />;
-
-//case 4:
-//return <Legitimering onNext={onNext} />;
-
-//case 5:
-//return <Estimat onNext={onNext} />;
-
-//case 6:
-//return <Sikkerhet onNext= {onNext}/>;
-
-//default:
-//return <div>Ukjent steg</div>;
-//}
-//};
-
 function App() {
-  //const [step, setStep] = useState(1);
   return (
     
     <ThemeProvider theme={theme}>

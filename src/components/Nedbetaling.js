@@ -22,7 +22,7 @@ export const Nedbetaling = () => {
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
           console.log(values);
-          alert(JSON.stringify(values, null, 2));
+          localStorage.setItem('nedbetaling', JSON.stringify(values, null, 2));
           console.log(values);
           setSubmitting(false);
         }, 400);
