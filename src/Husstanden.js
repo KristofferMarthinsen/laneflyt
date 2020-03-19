@@ -9,11 +9,8 @@ export const Husstanden = () => {
   return (
     <div>
       <Layout id={3} title="Husstanden" />
-
-      <Button variant="topButton">Hovedlåntaker</Button>
-      <Button variant="topButton">Medlåntaker</Button>
+      
       <HusstandForm/>
-
       <Buttons>
         <Link to="/Legitimering">
           <Button>Videre</Button>
