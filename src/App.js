@@ -89,6 +89,9 @@ const Laneflyt = styled.div`
   margin: 0 auto;
   padding: 24px;
   min-height: 750px;
+      .videreKnapp{
+        color: red;
+      }
 `
 
 

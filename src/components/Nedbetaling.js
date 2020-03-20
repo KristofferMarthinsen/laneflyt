@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 import { Input, Button } from "@staccx/bento";
 import LaneSum from "./Form/FormInputs/LaneSum/LaneSumInput";
 import BoligVerdi from "./Form/FormInputs/BoligVerdi/BoligVerdiInput";
@@ -8,8 +9,9 @@ import NedbetalingstidInput from "./Form/FormInputs/NedbetalingsTidInput/Nedbeta
 import AvdragsFrihetInput from "./Form/FormInputs/AvdragsFrihet/AvdragsFrihetInput";
 import styled from "styled-components";
 
-export const Nedbetaling = () => {
+export const Nedbetaling = ({ next }) => {
   const [setNedbetaling] = useState(null);
+  const [fireRedirect, setFireRedirect] = useState(false);
   return (
     <Formik
       validationSchema={SignupSchema}
@@ -22,9 +24,10 @@ export const Nedbetaling = () => {
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
           console.log(values);
-          localStorage.setItem('nedbetaling', JSON.stringify(values, null, 2));
+          localStorage.setItem("nedbetaling", JSON.stringify(values, null, 2));
           console.log(values);
           setSubmitting(false);
+          setFireRedirect(true);
         }, 400);
       }}
     >
@@ -46,7 +49,10 @@ export const Nedbetaling = () => {
                 <Input label={"Å betale hver måned:"} disabled />
               </NedbetalingsPris>
             </Form>
-            <Button onClick={handleSubmit}> submit</Button>
+            <Button className="videreKnapp" type="submit" onClick={handleSubmit}>
+              Videre
+            </Button>
+            {fireRedirect && <Redirect to={next} />}
           </div>
         );
       }}

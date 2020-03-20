@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, CheckGroup, RadioButton } from "@staccx/bento";
 import { Formik, Form } from "formik";
+import { Redirect } from "react-router-dom";
 import FornavnInput from "./FormInputs/fornavn/FornavnInput";
 import EtternavnInput from "./FormInputs/Etternavn/EtternavnInput";
 import EpostInput from "./FormInputs/Epost/EpostInput";
@@ -10,8 +11,9 @@ import AntallBarnInput from "./FormInputs/AntallBarn/AntallBarnInput";
 import TelefonNummerInput from "./FormInputs/Telefon/TelefonNummerInput";
 import styled from "styled-components";
 
-export const HusstandForm = () => {
+export const HusstandForm = ({ next }) => {
   const [barn, setBarn] = useState(false);
+  const [fireRedirect, setFireRedirect] = useState(false);
   return (
     <Formik
       validationSchema={SignupSchema}
@@ -29,6 +31,7 @@ export const HusstandForm = () => {
           console.log(values);
           localStorage.setItem("Husstanden", JSON.stringify(values, null, 2));
           setSubmitting(false);
+          setFireRedirect(true);
         }, 400);
       }}
     >
@@ -75,7 +78,10 @@ export const HusstandForm = () => {
                   <AntallBarnInput />
                 </>
               )}
-              <Button onClick={handleSubmit}> submit</Button>
+              <Button className="videreKnapp" type="submit" onClick={handleSubmit}>
+                Videre
+              </Button>
+              {fireRedirect && <Redirect to={next} />}
             </Form>
           </>
         );

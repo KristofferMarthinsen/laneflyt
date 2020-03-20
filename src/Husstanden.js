@@ -1,20 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "./components/Layout";
-import {Button} from "@staccx/bento";
+import { Button } from "@staccx/bento";
 import styled from "styled-components";
-import HusstandForm from "./components/Form/HusstandForm"
+import HusstandForm from "./components/Form/HusstandForm";
 
 export const Husstanden = () => {
   return (
     <div>
       <Layout id={3} title="Husstanden" />
-      
-      <HusstandForm/>
+
+      <HusstandForm next="/Legitimering" />
       <Buttons>
-        <Link to="/Legitimering">
-          <Button>Videre</Button>
-        </Link>
         <Link to="/Nedbetalingsplan">
           <Button variant="unstyledButton">Nedbetalingsplan</Button>
         </Link>
@@ -31,4 +28,3 @@ const Buttons = styled.div`
   padding-left: 24px;
   justify-content: space-between;
 `;
-

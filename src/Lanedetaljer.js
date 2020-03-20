@@ -1,26 +1,25 @@
 import React from "react";
-import styled from "styled-components"
+import styled from "styled-components";
 import Nedbetaling from "./components/Nedbetaling";
-import {Button} from "@staccx/bento";
-import {Link} from "react-router-dom";
+import { Button } from "@staccx/bento";
+import { Link } from "react-router-dom";
 import Layout from "./components/Layout";
 
-export const Lanedetaljer = () =>  {  
-    return (
-        <div>
-        <Layout id={1} title="Lånedetaljer" icon={null} subtitle = {null} />
-        <NedbetalingStyle>
-        <Nedbetaling/> 
-         </NedbetalingStyle>
-        <Buttons>
-       <Link to = "/Lanetakere"><Button>Videre</Button></Link>
-        <Link to ="/Nedbetalingsplan"><Button variant="unstyledButton">Nedbetalingsplan</Button></Link>
-        </Buttons>
-
-        </div>
-    );
-  }
-
+export const Lanedetaljer = () => {
+  return (
+    <div>
+      <Layout id={1} title="Lånedetaljer" icon={null} subtitle={null} />
+      <NedbetalingStyle>
+        <Nedbetaling next="/Lanetakere" />
+      </NedbetalingStyle>
+      <Buttons>
+        <Link to="/Nedbetalingsplan">
+          <Button variant="unstyledButton">Nedbetalingsplan</Button>
+        </Link>
+      </Buttons>
+    </div>
+  );
+};
 
 export default Lanedetaljer;
 
@@ -28,15 +27,14 @@ export default Lanedetaljer;
 // padding-left: 6px;
 // `
 
- const Buttons = styled.div`
- padding-top: 32px;
- display: flex;
- flex-direction: row;
-padding-left: 24px;
- justify-content: space-between;
- `
- 
- const NedbetalingStyle = styled.div`
- padding-top: 32px;
- `
-    
+const Buttons = styled.div`
+  padding-top: 32px;
+  display: flex;
+  flex-direction: row;
+  padding-left: 24px;
+  justify-content: space-between;
+`;
+
+const NedbetalingStyle = styled.div`
+  padding-top: 32px;
+`;

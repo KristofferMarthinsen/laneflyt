@@ -17,11 +17,8 @@ const Okonomi = () => {
     <div>
       <Layout icon={OkonomiSVG} id={7} title="Økonomi" subtitle={Subtitle} />
       <FormLayout>
-        <OkonomiForm />
+        <OkonomiForm next="/Gjeld" />
       </FormLayout>
-      <Link to="/Gjeld">
-        <Button>Videre</Button>
-      </Link>
     </div>
   );
 };
