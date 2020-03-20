@@ -90,13 +90,17 @@ const Laneflyt = styled.div`
   padding: 24px;
   min-height: 750px;
       .navigationButtons{
-        background-color: black;
+        padding-top: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        max-width: 280px;
       }
       .nextBtn{
-        color: white;
+        width: 140px;
       }
       .payplanBtn{
-        background-color: grey;
+        width: 114px;
       }
 `
 

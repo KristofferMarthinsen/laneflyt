@@ -56,7 +56,7 @@ export const Nedbetaling = ({ next }) => {
             {fireRedirect && <Redirect to={next} />}
            
         <Link to="/Nedbetalingsplan">
-          <Button className="payplanBtn" variant="unstyledButton">Nedbetalingsplan</Button>
+          <Button className="payplanBtn" variant="unstyledButton">Nedbetalingsplan ></Button>
         </Link>
       </div>
           </div>
