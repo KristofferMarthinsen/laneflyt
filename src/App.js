@@ -90,7 +90,7 @@ const Laneflyt = styled.div`
   padding: 24px;
   min-height: 750px;
       .videreKnapp{
-        color: red;
+        color: white;
       }
 `
 

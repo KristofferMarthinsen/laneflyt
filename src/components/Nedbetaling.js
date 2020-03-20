@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { Input, Button } from "@staccx/bento";
 import LaneSum from "./Form/FormInputs/LaneSum/LaneSumInput";
-import BoligVerdi from "./Form/FormInputs/BoligVerdi/BoligVerdiInput";
+import BoligVerdiInput from "./Form/FormInputs/BoligVerdi/BoligVerdiInput";
 import { Formik, Form } from "formik";
 import SignupSchema from "./Form/FormInputs/NedbetalingForm.schema";
 import NedbetalingstidInput from "./Form/FormInputs/NedbetalingsTidInput/NedbetalingsTidInput";
@@ -39,7 +39,7 @@ export const Nedbetaling = ({ next }) => {
         return (
           <div>
             <Form>
-              <BoligVerdi />
+              <BoligVerdiInput />
               <LaneSum />
               <NedbetalingsPris>
                 <NedbetalingstidInput />

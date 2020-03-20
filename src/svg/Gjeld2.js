@@ -22,8 +22,8 @@ export const Gjeld2SVG = () => (
         y2="19.5508"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2295A3" />
-        <stop offset="1" stop-color="#146670" />
+        <stop stopColor="#2295A3" />
+        <stop offset="1" stopColor="#146670" />
       </linearGradient>
     </defs>
   </svg>

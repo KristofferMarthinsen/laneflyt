@@ -21,8 +21,8 @@ export const SikkerhetSVG = () => (
         y2="33.6614"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2295A3" />
-        <stop offset="1" stop-color="#146670" />
+        <stop stopColor="#2295A3" />
+        <stop offset="1" stopColor="#146670" />
       </linearGradient>
     </defs>
   </svg>

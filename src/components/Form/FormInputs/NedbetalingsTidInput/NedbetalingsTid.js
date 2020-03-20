@@ -11,7 +11,7 @@ const NedbetalingsTid = ({ name, ...props }) => {
 	  <SelectSimple
         label="Nedbetalingstid"
         name="Nedbetalingstid"
-        type="Nedbetaling"
+        id="Nedbetaling"
         placeholder="Velg..."
         component="select"
         {...props}

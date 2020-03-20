@@ -16,6 +16,7 @@ const AvdragsFrihet = ({ name, ...props }) => {
 				label="Avdragsfrihet"
 				name="Avdragsfrihet"
 				type="Avdragsfrihet"
+				id="Avdragsfrihet"
 				placeholder="Velg..."
 				component="select"
 				{...props}
