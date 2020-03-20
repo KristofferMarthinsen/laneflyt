@@ -29,7 +29,7 @@ function App() {
       <Router>
         
        
-        <Laneflyt>
+        <Laneflyt> 
           <Switch>
           <Route exact path="/">
               <Lanedetaljer title={"Lånedetaljer"}/>
@@ -89,8 +89,14 @@ const Laneflyt = styled.div`
   margin: 0 auto;
   padding: 24px;
   min-height: 750px;
-      .videreKnapp{
+      .navigationButtons{
+        background-color: black;
+      }
+      .nextBtn{
         color: white;
+      }
+      .payplanBtn{
+        background-color: grey;
       }
 `
 

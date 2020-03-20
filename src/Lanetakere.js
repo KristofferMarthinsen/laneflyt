@@ -23,14 +23,14 @@ export const Lanetakere = () => {
           <Button variant="topButton">Nei</Button>
         </Svar>
 
-        <Videre>
+        <div className="navigationButtons">
           <Link to="/Husstanden">
-            <Button>Videre</Button>
+            <Button className="nextBtn">Videre</Button>
           </Link>
           <Link to="/Nedbetalingsplan">
-            <Button variant="unstyledButton">Nedbetalingsplan ></Button>
+            <Button className="payplanBtn" variant="unstyledButton">Nedbetalingsplan ></Button>
           </Link>
-        </Videre>
+        </div>
       </Layout>
     </div>
   );
@@ -46,15 +46,5 @@ const Svar = styled.div`
   justify-content: space-between;
   button {
     width: 83px;
-  }
-`;
-const Videre = styled.div`
-  display: flex;
-  flex-direction: row;
-  padding-top: 174px;
-  min-width: 300px;
-  justify-content: space-around;
-  button {
-    width: 144px;
   }
 `;

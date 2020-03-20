@@ -12,11 +12,7 @@ export const Lanedetaljer = () => {
       <NedbetalingStyle>
         <Nedbetaling next="/Lanetakere" />
       </NedbetalingStyle>
-      <Buttons>
-        <Link to="/Nedbetalingsplan">
-          <Button variant="unstyledButton">Nedbetalingsplan</Button>
-        </Link>
-      </Buttons>
+    
     </div>
   );
 };
@@ -27,13 +23,6 @@ export default Lanedetaljer;
 // padding-left: 6px;
 // `
 
-const Buttons = styled.div`
-  padding-top: 32px;
-  display: flex;
-  flex-direction: row;
-  padding-left: 24px;
-  justify-content: space-between;
-`;
 
 const NedbetalingStyle = styled.div`
   padding-top: 32px;

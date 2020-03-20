@@ -40,7 +40,7 @@ export const OkonomiForm = ({ next }) => {
           </Form>
         );
       }}
-    </Formik>
+    </Formik> 
   );
 };
 

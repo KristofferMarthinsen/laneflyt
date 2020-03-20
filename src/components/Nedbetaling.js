@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { Input, Button } from "@staccx/bento";
 import LaneSum from "./Form/FormInputs/LaneSum/LaneSumInput";
 import BoligVerdiInput from "./Form/FormInputs/BoligVerdi/BoligVerdiInput";
@@ -49,10 +49,16 @@ export const Nedbetaling = ({ next }) => {
                 <Input label={"Å betale hver måned:"} disabled />
               </NedbetalingsPris>
             </Form>
-            <Button className="videreKnapp" type="submit" onClick={handleSubmit}>
+            <div className="navigationButtons">
+            <Button className="nextBtn" type="submit" onClick={handleSubmit}>
               Videre
             </Button>
             {fireRedirect && <Redirect to={next} />}
+           
+        <Link to="/Nedbetalingsplan">
+          <Button className="payplanBtn" variant="unstyledButton">Nedbetalingsplan</Button>
+        </Link>
+      </div>
           </div>
         );
       }}
@@ -70,3 +76,12 @@ const NedbetalingsPris = styled.div`
     0px 44px 64px rgba(0, 0, 75, 0.02);
   border-radius: 2px;
 `;
+
+const Buttons = styled.div`
+  padding-top: 32px;
+  display: flex;
+  flex-direction: row;
+  padding-left: 24px;
+  justify-content: space-between;
+`;
+

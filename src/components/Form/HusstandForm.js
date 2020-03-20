@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, CheckGroup, RadioButton } from "@staccx/bento";
 import { Formik, Form } from "formik";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import FornavnInput from "./FormInputs/fornavn/FornavnInput";
 import EtternavnInput from "./FormInputs/Etternavn/EtternavnInput";
 import EpostInput from "./FormInputs/Epost/EpostInput";
@@ -78,10 +78,20 @@ export const HusstandForm = ({ next }) => {
                   <AntallBarnInput />
                 </>
               )}
-              <Button className="videreKnapp" type="submit" onClick={handleSubmit}>
-                Videre
-              </Button>
-              {fireRedirect && <Redirect to={next} />}
+              <div className="navigationButtons">
+                <Button
+                  className="nextBtn"
+                  type="submit"
+                  onClick={handleSubmit}
+                >
+                  Videre
+                </Button>
+                {fireRedirect && <Redirect to={next} />}
+
+                <Link to="/Nedbetalingsplan">
+                  <Button className="payplanBtn" variant="unstyledButton">Nedbetalingsplan</Button>
+                </Link>
+              </div>
             </Form>
           </>
         );
@@ -116,3 +126,4 @@ const Lanetakere = styled.div`
     border-radius: 0px 4px 4px 0px;
   }
 `;
+
