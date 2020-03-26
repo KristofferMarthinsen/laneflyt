@@ -20,6 +20,7 @@ export const HusstandForm = ({ next }) => {
       initialValues={{
         Fornavn: "",
         Etternavn: "",
+        Telefon: "",
         Epost: "",
         SivilStatus: null,
         barn: barn,

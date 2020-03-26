@@ -1,12 +1,14 @@
 import React from "react"
-import HusstandInput from "../../HusstandInputs"
+import {PhoneInput} from "@staccx/bento"
+import { ErrorMessage, useFormikContext } from "formik"
 
 
 
 const TelefonnummerInput = () => {
+	const { setFieldValue } = useFormikContext()
 	return (
 		<div>
-			<HusstandInput name={"Tlf"} label={"Tlf"}/>
+			<PhoneInput id="phoneID" name="tlf" label="Telefonnummer" onChange={e => setFieldValue("Telefon", e.target.value)}/>
 		</div>
 	)
 }
