@@ -1,6 +1,4 @@
 import React from "react";
-import { Button } from "@staccx/bento";
-import { Link } from "react-router-dom";
 import { OkonomiSVG } from "./svg/OkonomiSVG";
 import Layout from "./components/Layout";
 import styled from "styled-components";
