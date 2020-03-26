@@ -32,13 +32,12 @@ const Sikkerhet = () => {
       <CheckBox id="2ID" group="test">
         To{" "}
       </CheckBox>
-      <Link to="/SikkerhetLeggTil">
-      <PopupForm/>
+        <Link to ="/SikkerhetLeggtil">
         <LeggTil>
           <Button variant="unstyledButton">Legg til > </Button>
-          <PopupForm/>
         </LeggTil>
-      </Link>
+        </Link>
+      
       <Link to="/Okonomi">
         <Videre>
           <Button>Videre</Button>

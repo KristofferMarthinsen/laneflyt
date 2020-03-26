@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "@staccx/bento";
-import { Redirect, Link } from "react-router-dom";
+import { Redirect} from "react-router-dom";
 import { Gjeld2SVG } from "./svg/Gjeld2";
 import Layout from "./components/Layout";
 import { Formik, Form } from "formik";

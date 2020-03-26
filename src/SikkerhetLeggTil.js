@@ -1,6 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import { Button } from "@staccx/bento";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { SikkerhetLeggTilSVG } from "./svg/SikkerhetLeggTilSVG";
 import Layout from "./components/Layout";
 import { Formik, Form } from "formik";
@@ -16,6 +16,7 @@ const Subtitle = () => (
 );
 
 export const SikkerhetLegTil = () => {
+  const [fireRedirect, setFireRedirect] = useState(false);
   return (
     <Formik
       validationSchema={SignupSchema}
@@ -27,9 +28,10 @@ export const SikkerhetLegTil = () => {
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
           console.log(values);
-          alert(JSON.stringify(values, null, 2));
+         localStorage.setItem("gjeld", JSON.stringify(values, null, 2));
           console.log(values);
           setSubmitting(false);
+          setFireRedirect(true);
         }, 400);
       }}
     >
@@ -37,6 +39,7 @@ export const SikkerhetLegTil = () => {
        
 
         return (
+          <div>
           <Form>
             <Layout
               icon={SikkerhetLeggTilSVG}
@@ -47,12 +50,14 @@ export const SikkerhetLegTil = () => {
             <AdresseInput />
             <BoligVerdiInput />
             <KjopeVerdiInput />
-
-            <Button onClick={handleSubmit}> Submit</Button>
-            <Link to="Sikkerhet">
-              <Button>Lagre</Button>
-            </Link>
           </Form>
+          <div className="navigationButtons">
+            <Button className="nextBtn" type="submit" onClick={handleSubmit}>
+              Lagre
+            </Button>
+            {fireRedirect && <Redirect to={"/Sikkerhet"} />}
+      </div>
+      </div>
         );
       }}
     </Formik>
