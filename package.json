@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@staccx/bento": "^10.0.1-alpha.9",
+    "@staccx/bento": "^10.0.1-alpha.27",
     "formik": "^2.1.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
