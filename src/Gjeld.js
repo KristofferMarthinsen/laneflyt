@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 const Subtitle = () => (
   <>
-    <h3>Legg in din gjeld</h3>
+    <h3>Legg inn din gjeld</h3>
     <p>
       Dette inkluderer alle lån du har i dag, inkludert kredittkort og lignende.
     </p>

@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import Nedbetaling from "./components/Nedbetaling";
-import { Button } from "@staccx/bento";
-import { Link } from "react-router-dom";
 import Layout from "./components/Layout";
 
 export const Lanedetaljer = () => {
