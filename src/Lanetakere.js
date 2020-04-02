@@ -1,5 +1,5 @@
 import React from "react";
-import { Button} from "@staccx/bento";
+import { Button, RadioButton} from "@staccx/bento";
 import { Link } from "react-router-dom";
 import { Gris } from "./svg/Gris";
 import styled from "styled-components";
@@ -19,8 +19,9 @@ export const Lanetakere = () => {
     <div>
       <Layout icon={Gris} id={2} title="Lånetakere" subtitle={Subtitle}>
         <Svar>
-          <Button variant="topButton">Ja</Button>
-          <Button variant="topButton">Nei</Button>
+          
+          <RadioButton defaultChecked id="ja" group="lanetakere">Ja</RadioButton>
+          <RadioButton id="nei" group="lanetakere">Nei</RadioButton>
         </Svar>
 
         <div className="navigationButtons">

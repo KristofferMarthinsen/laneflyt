@@ -17,7 +17,7 @@ import { WebFonts, GlobalStyle } from "@staccx/bento";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 import Estimat2 from "./Estimat2";
-import { Stitch, AnonymousCredential } from 'mongodb-stitch-browser-sdk'
+import { Stitch, AnonymousCredential} from 'mongodb-stitch-browser-sdk'
  
 Stitch.initializeDefaultAppClient("laneflyten-bntik");
 const client = Stitch.defaultAppClient;
@@ -26,6 +26,8 @@ console.log("logging in anonymously");
 client.auth.loginWithCredential(new AnonymousCredential()).then(user => {
   console.log(`logged in anonymously as user ${user.id}`)
 });
+
+
 
 function App() {
   return (
