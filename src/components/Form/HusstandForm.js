@@ -10,12 +10,13 @@ import SivilStatusInput from "./FormInputs/SivilStatus/SivilStatusInput";
 import AntallBarnInput from "./FormInputs/AntallBarn/AntallBarnInput";
 import TelefonNummerInput from "./FormInputs/Telefon/TelefonNummerInput";
 import styled from "styled-components";
-import {Stitch} from "mongodb-stitch-browser-sdk";
+import {AnonymousCredential, Stitch} from "mongodb-stitch-browser-sdk";
+import {laneflytCollection} from "../MongoDB";
 
 export const HusstandForm = ({ next }) => {
   const [barn, setBarn] = useState(false);
   const [fireRedirect, setFireRedirect] = useState(false);
-  
+
   return (
     <Formik
       validationSchema={SignupSchema}
@@ -31,15 +32,9 @@ export const HusstandForm = ({ next }) => {
       }}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
-          
-          itemsCollection //hvor skal vi hente itemsCollection fra?
-            .insertOne(values)
-            .then(result =>
-              console.log(
-                `Successfully inserted item with _id: ${result.insertedId}`
-              )
-            )
-            .catch(err => console.error(`Failed to insert item: ${err}`));
+			laneflytCollection.insertOne(values).then(result => {
+				console.log(`Created`, result)
+			}).catch(err => console.log("wrong", err))
           setSubmitting(false);
           setFireRedirect(true);
         }, 400);

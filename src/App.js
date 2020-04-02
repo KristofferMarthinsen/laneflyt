@@ -17,31 +17,27 @@ import { WebFonts, GlobalStyle } from "@staccx/bento";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 import Estimat2 from "./Estimat2";
-import {
-  Stitch,
-  AnonymousCredential,
-  RemoteMongoClient
-} from "mongodb-stitch-browser-sdk";
-
-Stitch.initializeDefaultAppClient("laneflyten-bntik");
-const client = Stitch.defaultAppClient;
-const mongoClient = client.getServiceClient(
-  RemoteMongoClient.factory,
-  "mongodb-atlas"
-);
-
-console.log("logging in anonymously");
-client.auth.loginWithCredential(new AnonymousCredential()).then(user => {
-  console.log(`logged in anonymously as user ${user.id}`);
-});
-
-const db = mongoClient.db("Laneflyt");
-
-const laneflytCollection = db.collection("FormData");
+import { laneflytCollection } from "./components/MongoDB";
+// import {
+// 	Stitch,
+// 	AnonymousCredential,
+// 	RemoteMongoClient
+// } from "mongodb-stitch-browser-sdk";
+//
+//
+// Stitch.initializeDefaultAppClient("laneflyten-bntik");
+// export const client = Stitch.defaultAppClient;
+// export const mongoClient = client.getServiceClient(
+// 	RemoteMongoClient.factory,
+// 	"mongodb-atlas"
+// );
+// client.auth.loginWithCredential(new AnonymousCredential()).then(user => {
+// 	console.log(`logged in anonymously as user ${user.id}`);
+// });
 
 laneflytCollection.find({})
-.asArray().then(docs => {
-  console.log(docs);
+	.asArray().then(docs => {
+	console.log(docs);
 });
 
 function App() {
