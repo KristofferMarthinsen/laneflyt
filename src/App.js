@@ -9,71 +9,73 @@ import SikkerhetLeggTil from "./SikkerhetLeggTil";
 import { ThemeProvider } from "styled-components";
 import NedbetalingsPlan from "./components/NedbetalingsPlan";
 import Okonomi from "./Okonomi";
-import Gjeld from "./Gjeld"
-import GjeldLeggTil from "./GjeldLeggTil"
+import Gjeld from "./Gjeld";
+import GjeldLeggTil from "./GjeldLeggTil";
 import theme from "./theme/theme";
 import background from "./theme/header-background.png";
-import { WebFonts, GlobalStyle } from "@staccx/bento"
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
-
+import { WebFonts, GlobalStyle } from "@staccx/bento";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 import Estimat2 from "./Estimat2";
+import { Stitch, AnonymousCredential } from 'mongodb-stitch-browser-sdk'
+ 
+Stitch.initializeDefaultAppClient("laneflyten-bntik");
+const client = Stitch.defaultAppClient;
+ 
+console.log("logging in anonymously");
+client.auth.loginWithCredential(new AnonymousCredential()).then(user => {
+  console.log(`logged in anonymously as user ${user.id}`)
+});
 
 function App() {
   return (
-    
     <ThemeProvider theme={theme}>
-    <GlobalStyle/>
-    <WebFonts/>
-      
-      <Router>
+      <GlobalStyle />
+      <WebFonts />
         
-       
-        <Laneflyt> 
+      <Router>
+        <Laneflyt>
           <Switch>
-          <Route exact path="/">
-              <Lanedetaljer title={"Lånedetaljer"}/>
+            <Route exact path="/">
+              <Lanedetaljer title={"Lånedetaljer"} />
             </Route>
             <Route path="/Lanetakere">
-              <Lanetakere title="Lånetakere"/>
+              <Lanetakere title="Lånetakere" />
             </Route>
             <Route path="/Husstanden">
-              <Husstanden/>
+              <Husstanden />
             </Route>
             <Route path="/Legitimering">
-              <Legitimering/>
+              <Legitimering />
             </Route>
             <Route path="/Estimat">
-              <Estimat/>
+              <Estimat />
             </Route>
             <Route path="/Sikkerhet">
-              <Sikkerhet/>
+              <Sikkerhet />
             </Route>
             <Route path="/SikkerhetLeggTil">
-              <SikkerhetLeggTil/>
+              <SikkerhetLeggTil />
             </Route>
             <Route path="/NedbetalingsPlan">
-              <NedbetalingsPlan/>
+              <NedbetalingsPlan />
             </Route>
             <Route path="/Okonomi">
-              <Okonomi/>
+              <Okonomi />
             </Route>
             <Route path="/Gjeld">
-              <Gjeld/>
+              <Gjeld />
             </Route>
             <Route path="/GjeldLeggTil">
-              <GjeldLeggTil/>
+              <GjeldLeggTil />
             </Route>
             <Route path="/Estimat2">
-              <Estimat2/>
+              <Estimat2 />
             </Route>
           </Switch>
-          </Laneflyt>
-       
-        
+        </Laneflyt>
       </Router>
     </ThemeProvider>
-    
   );
 }
 
@@ -82,29 +84,25 @@ export default App;
 const Laneflyt = styled.div`
   font-family: ${theme.body};
   font-weight: 200;
-  background: #F4F4F4;
+  background: #f4f4f4;
   max-width: 375px;
   background-image: url(${background});
   background-repeat: no-repeat;
   margin: 0 auto;
   padding: 24px;
   min-height: 750px;
-      .navigationButtons{
-        padding-top: 50px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        max-width: 280px;
-      }
-      .nextBtn{
-        width: 140px;
-      }
-      .payplanBtn{
-        width: 114px;
-      }
-`
-
-
-
-
+  .navigationButtons {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    max-width: 280px;
+  }
+  .nextBtn {
+    width: 140px;
+  }
+  .payplanBtn {
+    width: 114px;
+  }
+`;
 
