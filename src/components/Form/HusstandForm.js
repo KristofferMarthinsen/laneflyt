@@ -10,10 +10,12 @@ import SivilStatusInput from "./FormInputs/SivilStatus/SivilStatusInput";
 import AntallBarnInput from "./FormInputs/AntallBarn/AntallBarnInput";
 import TelefonNummerInput from "./FormInputs/Telefon/TelefonNummerInput";
 import styled from "styled-components";
+import {Stitch} from "mongodb-stitch-browser-sdk";
 
 export const HusstandForm = ({ next }) => {
   const [barn, setBarn] = useState(false);
   const [fireRedirect, setFireRedirect] = useState(false);
+  
   return (
     <Formik
       validationSchema={SignupSchema}
@@ -29,8 +31,15 @@ export const HusstandForm = ({ next }) => {
       }}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
-          console.log(values);
-          localStorage.setItem("Husstanden", JSON.stringify(values, null, 2));
+          
+          itemsCollection //hvor skal vi hente itemsCollection fra?
+            .insertOne(values)
+            .then(result =>
+              console.log(
+                `Successfully inserted item with _id: ${result.insertedId}`
+              )
+            )
+            .catch(err => console.error(`Failed to insert item: ${err}`));
           setSubmitting(false);
           setFireRedirect(true);
         }, 400);
@@ -90,7 +99,9 @@ export const HusstandForm = ({ next }) => {
                 {fireRedirect && <Redirect to={next} />}
 
                 <Link to="/Nedbetalingsplan">
-                  <Button className="payplanBtn" variant="unstyledButton">Nedbetalingsplan ></Button>
+                  <Button className="payplanBtn" variant="unstyledButton">
+                    Nedbetalingsplan >
+                  </Button>
                 </Link>
               </div>
             </Form>
@@ -127,4 +138,3 @@ const Lanetakere = styled.div`
     border-radius: 0px 4px 4px 0px;
   }
 `;
-
