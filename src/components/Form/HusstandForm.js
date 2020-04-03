@@ -10,16 +10,22 @@ import SivilStatusInput from "./FormInputs/SivilStatus/SivilStatusInput";
 import AntallBarnInput from "./FormInputs/AntallBarn/AntallBarnInput";
 import TelefonNummerInput from "./FormInputs/Telefon/TelefonNummerInput";
 import styled from "styled-components";
-import {AnonymousCredential, Stitch} from "mongodb-stitch-browser-sdk";
-import {laneflytCollection} from "../MongoDB";
-
+import { AnonymousCredential, Stitch } from "mongodb-stitch-browser-sdk";
+import { laneflytCollection } from "../MongoDB";
 
 export const HusstandForm = ({ next }) => {
   const [barn, setBarn] = useState(false);
   const [fireRedirect, setFireRedirect] = useState(false);
-  const query = {FormData}
+  const query = { FormData };
 
-  const options = { returnNewDocument: true };
+  const options = {
+    projection: {
+      title: 1,
+      quantity: 1
+    },
+    sort: { title: -1 }
+  };
+
   return (
     <Formik
       validationSchema={SignupSchema}
@@ -39,14 +45,18 @@ export const HusstandForm = ({ next }) => {
       }}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
-			  laneflytCollection.findOneAndUpdate(query, values, options).then(result => {
-          if(result) {
-            console.log(`Successfully updated document: ${result}.`)
-          } else {
-            console.log("No document matches the provided query.")
-          }
-          return result
-			}).catch(err => console.log("wrong", err))
+          laneflytCollection
+            .findOne(query, options)
+            .then(result => {
+              if (result) {
+                console.log(`Successfully found document: ${result}.`);
+                console.log(values)
+              } else {
+                console.log("No document matches the provided query.");
+              }
+            })
+            .catch(err => console.error(`Failed to find document: ${err}`));
+
           setSubmitting(false);
           setFireRedirect(true);
         }, 400);
