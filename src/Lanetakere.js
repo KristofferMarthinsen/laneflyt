@@ -19,7 +19,7 @@ export const Lanetakere = () => {
     <div>
       <Layout icon={Gris} id={2} title="Lånetakere" subtitle={Subtitle}>
         <Svar>
-          
+
           <RadioButton defaultChecked id="ja" group="lanetakere">Ja</RadioButton>
           <RadioButton id="nei" group="lanetakere">Nei</RadioButton>
         </Svar>

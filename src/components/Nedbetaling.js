@@ -8,12 +8,13 @@ import SignupSchema from "./Form/FormInputs/NedbetalingForm.schema";
 import NedbetalingstidInput from "./Form/FormInputs/NedbetalingsTidInput/NedbetalingsTidInput";
 import AvdragsFrihetInput from "./Form/FormInputs/AvdragsFrihet/AvdragsFrihetInput";
 import styled from "styled-components";
+import { ObjectId } from "mongodb"
 import { laneflytCollection } from "./MongoDB";
 
 export const Nedbetaling = ({ next }) => {
   const [setNedbetaling] = useState(null);
   const [fireRedirect, setFireRedirect] = useState(false);
-  
+
   return (
     <Formik
       validationSchema={SignupSchema}
@@ -37,6 +38,9 @@ export const Nedbetaling = ({ next }) => {
             .insertOne(values)
             .then(result => {
               console.log(`Created`, result);
+              console.log(result);
+              console.log(result.insertedId.toString())
+				values.id = result.insertedId.toString()
             })
             .catch(err => console.log("wrong", err));
           setSubmitting(false);
@@ -66,7 +70,7 @@ export const Nedbetaling = ({ next }) => {
               <Button className="nextBtn" type="submit" onClick={handleSubmit}>
                 Videre
               </Button>
-              {fireRedirect && <Redirect to={next} />}
+              {fireRedirect && <Redirect to={{pathname: next, state: {test: "test"}}} />}
 
               <Link to="/Nedbetalingsplan">
                 <Button className="payplanBtn" variant="unstyledButton">

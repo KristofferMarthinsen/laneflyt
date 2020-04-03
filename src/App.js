@@ -17,6 +17,7 @@ import { WebFonts, GlobalStyle } from "@staccx/bento";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 import Estimat2 from "./Estimat2";
+import { ObjectId } from "mongodb"
 import { laneflytCollection } from "./components/MongoDB";
 // import {
 // 	Stitch,
@@ -37,7 +38,9 @@ import { laneflytCollection } from "./components/MongoDB";
 
 laneflytCollection.find({})
 	.asArray().then(docs => {
-	console.log(docs);
+	docs.map(itm => {
+		console.log(itm._id)
+	})
 });
 
 function App() {

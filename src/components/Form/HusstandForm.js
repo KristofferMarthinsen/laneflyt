@@ -10,13 +10,13 @@ import SivilStatusInput from "./FormInputs/SivilStatus/SivilStatusInput";
 import AntallBarnInput from "./FormInputs/AntallBarn/AntallBarnInput";
 import TelefonNummerInput from "./FormInputs/Telefon/TelefonNummerInput";
 import styled from "styled-components";
-import { AnonymousCredential, Stitch } from "mongodb-stitch-browser-sdk";
+import { ObjectId } from "mongodb"
 import { laneflytCollection } from "../MongoDB";
 
 export const HusstandForm = ({ next }) => {
   const [barn, setBarn] = useState(false);
   const [fireRedirect, setFireRedirect] = useState(false);
-  
+
   return (
     <Formik
       validationSchema={SignupSchema}
@@ -32,7 +32,7 @@ export const HusstandForm = ({ next }) => {
       }}
 
       onSubmit={(values, { setSubmitting }) => {
-        
+
         setTimeout(() => {
           laneflytCollection
           .updateOne(
@@ -41,8 +41,8 @@ export const HusstandForm = ({ next }) => {
             { upsert: true }
           )
             .catch(err => console.error(`Failed to find document: ${err}`));
-           
-            
+
+
 
           setSubmitting(false);
           setFireRedirect(true);
