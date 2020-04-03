@@ -59,6 +59,7 @@ const Videre = styled.div`
   justify-content: space-around;
   button {
     width: 280px;
+    bottom: 100px;
   }
 `;
 

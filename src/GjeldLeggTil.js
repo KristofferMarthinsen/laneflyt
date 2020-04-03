@@ -19,7 +19,7 @@ const Subtitle = () => (
 export const GjeldLeggTil = () => {
   const [setGjeld] = useState(null);
   const [fireRedirect, setFireRedirect] = useState(false);
-  const query = { test: "test" };
+  const query = { Fornavn: "helene" };
 
   return (
     <Formik
