@@ -13,14 +13,21 @@ import styled from "styled-components";
 import {AnonymousCredential, Stitch} from "mongodb-stitch-browser-sdk";
 import {laneflytCollection} from "../MongoDB";
 
+
 export const HusstandForm = ({ next }) => {
   const [barn, setBarn] = useState(false);
   const [fireRedirect, setFireRedirect] = useState(false);
+  const query = {FormData}
 
+  const options = { returnNewDocument: true };
   return (
     <Formik
       validationSchema={SignupSchema}
       initialValues={{
+        BoligVerdi: "",
+        LaneSum: "",
+        NedbetalingsTid: "",
+        AvdragsFrihet: "",
         Fornavn: "",
         Etternavn: "",
         Telefon: "",
@@ -32,8 +39,13 @@ export const HusstandForm = ({ next }) => {
       }}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
-			laneflytCollection.insertOne(values).then(result => {
-				console.log(`Created`, result)
+			  laneflytCollection.findOneAndUpdate(query, values, options).then(result => {
+          if(result) {
+            console.log(`Successfully updated document: ${result}.`)
+          } else {
+            console.log("No document matches the provided query.")
+          }
+          return result
 			}).catch(err => console.log("wrong", err))
           setSubmitting(false);
           setFireRedirect(true);

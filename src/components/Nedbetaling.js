@@ -8,10 +8,12 @@ import SignupSchema from "./Form/FormInputs/NedbetalingForm.schema";
 import NedbetalingstidInput from "./Form/FormInputs/NedbetalingsTidInput/NedbetalingsTidInput";
 import AvdragsFrihetInput from "./Form/FormInputs/AvdragsFrihet/AvdragsFrihetInput";
 import styled from "styled-components";
+import { laneflytCollection } from "./MongoDB";
 
 export const Nedbetaling = ({ next }) => {
   const [setNedbetaling] = useState(null);
   const [fireRedirect, setFireRedirect] = useState(false);
+  
   return (
     <Formik
       validationSchema={SignupSchema}
@@ -19,13 +21,24 @@ export const Nedbetaling = ({ next }) => {
         BoligVerdi: "",
         LaneSum: "",
         NedbetalingsTid: "",
-        AvdragsFrihet: ""
+        AvdragsFrihet: "",
+        Fornavn: "",
+        Etternavn: "",
+        Telefon: "",
+        Epost: "",
+        SivilStatus: null,
+        barn: null,
+        BarnAlder: null,
+        antallBarn: null
       }}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
-          console.log(values);
-          localStorage.setItem("nedbetaling", JSON.stringify(values, null, 2));
-          console.log(values);
+          laneflytCollection
+            .insertOne(values)
+            .then(result => {
+              console.log(`Created`, result);
+            })
+            .catch(err => console.log("wrong", err));
           setSubmitting(false);
           setFireRedirect(true);
         }, 400);
@@ -50,15 +63,17 @@ export const Nedbetaling = ({ next }) => {
               </NedbetalingsPris>
             </Form>
             <div className="navigationButtons">
-            <Button className="nextBtn" type="submit" onClick={handleSubmit}>
-              Videre
-            </Button>
-            {fireRedirect && <Redirect to={next} />}
-           
-        <Link to="/Nedbetalingsplan">
-          <Button className="payplanBtn" variant="unstyledButton">Nedbetalingsplan ></Button>
-        </Link>
-      </div>
+              <Button className="nextBtn" type="submit" onClick={handleSubmit}>
+                Videre
+              </Button>
+              {fireRedirect && <Redirect to={next} />}
+
+              <Link to="/Nedbetalingsplan">
+                <Button className="payplanBtn" variant="unstyledButton">
+                  Nedbetalingsplan >
+                </Button>
+              </Link>
+            </div>
           </div>
         );
       }}
@@ -84,4 +99,3 @@ const Buttons = styled.div`
   padding-left: 24px;
   justify-content: space-between;
 `;
-
