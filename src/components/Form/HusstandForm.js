@@ -16,24 +16,11 @@ import { laneflytCollection } from "../MongoDB";
 export const HusstandForm = ({ next }) => {
   const [barn, setBarn] = useState(false);
   const [fireRedirect, setFireRedirect] = useState(false);
-  const query = { FormData };
-
-  const options = {
-    projection: {
-      title: 1,
-      quantity: 1
-    },
-    sort: { title: -1 }
-  };
-
+  
   return (
     <Formik
       validationSchema={SignupSchema}
       initialValues={{
-        BoligVerdi: "",
-        LaneSum: "",
-        NedbetalingsTid: "",
-        AvdragsFrihet: "",
         Fornavn: "",
         Etternavn: "",
         Telefon: "",
@@ -43,19 +30,19 @@ export const HusstandForm = ({ next }) => {
         BarnAlder: null,
         antallBarn: null
       }}
+
       onSubmit={(values, { setSubmitting }) => {
+        
         setTimeout(() => {
           laneflytCollection
-            .findOne(query, options)
-            .then(result => {
-              if (result) {
-                console.log(`Successfully found document: ${result}.`);
-                console.log(values)
-              } else {
-                console.log("No document matches the provided query.");
-              }
-            })
+          .updateOne(
+            { "_id" : ObjectId("5e871254f4efd88b5d4c300c")},
+            { $set: { Fornavn: values.Fornavn} },
+            { upsert: true }
+          )
             .catch(err => console.error(`Failed to find document: ${err}`));
+           
+            
 
           setSubmitting(false);
           setFireRedirect(true);
