@@ -13,6 +13,7 @@ import styled from "styled-components";
 import { ObjectId } from "mongodb"
 import { laneflytCollection } from "../MongoDB";
 
+
 export const HusstandForm = ({ next }) => {
   const [barn, setBarn] = useState(false);
   const [fireRedirect, setFireRedirect] = useState(false);
@@ -34,15 +35,33 @@ export const HusstandForm = ({ next }) => {
       onSubmit={(values, { setSubmitting }) => {
 
         setTimeout(() => {
-          laneflytCollection
-          .updateOne(
-            { "_id" : ObjectId("5e871254f4efd88b5d4c300c")},
-            { $set: { Fornavn: values.Fornavn} },
-            { upsert: true }
-          )
-            .catch(err => console.error(`Failed to find document: ${err}`));
+          
+          // Set some fields in that document
+          const leggTil = {
+            "$set": {
+            Fornavn: values.Fornavn,
+            Etternavn: values.Etternavn,
+            Telefon: values.Telefon,
+            Epost: values.Epost,
+            SivilStatus: values.SivilStatus,
+            barn: values.barn,
+            BarnAlder: values.BarnAlder,
+            AntallBarn: values.AntallBarn
+            }
+            };
 
-
+          const options = { returnNewDocument: true };
+          
+          laneflytCollection.findOneAndUpdate({"Id": "1"}, leggTil, options)
+            .then(updatedDocument => {
+              if(updatedDocument) {
+                console.log(`Successfully updated document: ${updatedDocument}.`)
+              } else {
+                console.log("No document matches the provided query.")
+              }
+              return updatedDocument
+            })
+            .catch(err => console.error(`Failed to find and update document: ${err}`))
 
           setSubmitting(false);
           setFireRedirect(true);

@@ -36,12 +36,13 @@ import { laneflytCollection } from "./components/MongoDB";
 // 	console.log(`logged in anonymously as user ${user.id}`);
 // });
 
-laneflytCollection.find({})
-	.asArray().then(docs => {
-	docs.map(itm => {
-		console.log(itm._id)
-	})
-});
+
+// laneflytCollection.find({})
+// 	.asArray().then(docs => {
+// 	docs.map(itm => {
+// 		console.log(itm._id)
+// 	})
+// });
 
 function App() {
   return (
@@ -53,7 +54,7 @@ function App() {
         <Laneflyt>
           <Switch>
             <Route exact path="/">
-              <Lanedetaljer title={"Lånedetaljer"} />
+              <Lanedetaljer title={"Lånedetaljer"}/>
             </Route>
             <Route path="/Lanetakere">
               <Lanetakere title="Lånetakere" />
