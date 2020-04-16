@@ -22,9 +22,17 @@ export const OkonomiForm = ({ next }) => {
       }}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
+          const leggTil = {
+            $set: {
+              SamletInntekt: values.SamletInntekt,
+              antallBiler: values.antallBiler,
+              antallBolig: values.antallBolig
+            }
+          };
+
           const options = { returnNewDocument: true };
           laneflytCollection
-            .findOneAndUpdate(query, values, options)
+            .findOneAndUpdate({ Id: "1" }, leggTil, options)
             .then(updatedDocument => {
               if (updatedDocument) {
                 console.log(
@@ -32,13 +40,13 @@ export const OkonomiForm = ({ next }) => {
                 );
               } else {
                 console.log("No document matches the provided query.");
-                console.log(values)
               }
               return updatedDocument;
             })
             .catch(err =>
               console.error(`Failed to find and update document: ${err}`)
             );
+
           setSubmitting(false);
           setFireRedirect(true);
         }, 400);

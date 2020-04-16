@@ -19,7 +19,7 @@ const Subtitle = () => (
 export const GjeldLeggTil = () => {
   const [setGjeld] = useState(null);
   const [fireRedirect, setFireRedirect] = useState(false);
-  const query = { Fornavn: "helene" };
+  const query = { Fornavn: "Helene" };
 
   return (
     <Formik
@@ -31,9 +31,17 @@ export const GjeldLeggTil = () => {
       }}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
+          const leggTil = {
+            $set: {
+              LanGiverInput: values.LanGiverInput,
+              LanTypeInput: values.LanTypeInput,
+              Sumgjeld: values.SumGjeld
+            }
+          };
+
           const options = { returnNewDocument: true };
           laneflytCollection
-            .findOneAndUpdate(query, values, options)
+            .findOneAndUpdate({ Id: "1" }, leggTil, options)
             .then(updatedDocument => {
               if (updatedDocument) {
                 console.log(
@@ -41,13 +49,13 @@ export const GjeldLeggTil = () => {
                 );
               } else {
                 console.log("No document matches the provided query.");
-                console.log(values)
               }
               return updatedDocument;
             })
             .catch(err =>
               console.error(`Failed to find and update document: ${err}`)
             );
+
           setSubmitting(false);
           setFireRedirect(true);
         }, 400);
