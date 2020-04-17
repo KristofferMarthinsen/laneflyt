@@ -20,6 +20,7 @@ const Gjeld = () => {
   return (
     <div>
       <Layout icon={GjeldSVG} id={7} title="Gjeld" subtitle={Subtitle}></Layout>
+      <GjeldLagtTil/>
       <CheckBox id="1ID" group="test">
         En{" "}
       </CheckBox>

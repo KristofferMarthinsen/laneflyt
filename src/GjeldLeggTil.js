@@ -27,7 +27,7 @@ export const GjeldLeggTil = () => {
       initialValues={{
         LanGiverInput: "",
         LanTypeInput: "",
-        Sumgjeld: ""
+        SumGjeld: ""
       }}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
@@ -35,7 +35,7 @@ export const GjeldLeggTil = () => {
             $set: {
               LanGiverInput: values.LanGiverInput,
               LanTypeInput: values.LanTypeInput,
-              Sumgjeld: values.SumGjeld
+              SumGjeld: values.SumGjeld
             }
           };
 
