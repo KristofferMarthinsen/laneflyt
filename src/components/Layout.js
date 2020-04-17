@@ -22,6 +22,7 @@ const Wrapper = styled.div`
   align-items: center;
   align-content: space-between;
   padding-top: 30px;
+  z-index: 0;
 `;
 
 const HeaderElement = styled.div`

@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { CheckBox, Button} from "@staccx/bento";
+import { Button } from "@staccx/bento";
 import { Link } from "react-router-dom";
 import { SikkerhetSVG } from "./svg/SikkerhetSVG";
 import Layout from "./components/Layout";
-import PopupForm from "./components/PopupForm";
+import { SikkerhetLeggTilSVG } from "./svg/SikkerhetLeggTilSVG";
+import { Formik, Form } from "formik";
+import SignupSchema from "./components/Form/FormInputs/SikkerhetForm.schema";
+import AdresseInput from "./components/Form/FormInputs/Adresse/AdresseInput";
+import KjopeVerdiInput from "./components/Form/FormInputs/KjopeVerdi/KjopeVerdiInput";
+import BoligVerdiInput from "./components/Form/FormInputs/BoligVerdi/BoligVerdiInput";
+import { laneflytCollection } from "./components/MongoDB";
 
 const Subtitle = () => (
   <>
@@ -17,16 +23,92 @@ const Subtitle = () => (
 );
 
 const Sikkerhet = () => {
+  const [PopupState, setPopupState] = useState(false); //Set state for toggle view of popup
+
+  const handleShow = () => {
+    setPopupState(true);
+  };
+
+  const handleHide = () => {
+    setPopupState(false);
+  };
+
   return (
     <div>
-      <Layout
-        title="Sikkerhet"
-        id={6}
-        icon={SikkerhetSVG}
-        subtitle={Subtitle}
-      />
+      <Layout title="Sikkerhet" id={6} icon={SikkerhetSVG} subtitle={Subtitle}> 
+        <Button onClick={handleShow} variant="unstyledButton">
+          Legg til +
+        </Button>
+        <Popup>
+          {PopupState && ( //If state is true, return popup-form
+            <Formik
+              validationSchema={SignupSchema}
+              initialValues={{
+                Adresse: "",
+                BoligVerdi: "",
+                KjopeVerdi: ""
+              }}
+              onSubmit={(values, { setSubmitting }) => {
+                setTimeout(() => {
+                  const leggTil = {
+                    $set: {
+                      Adresse: values.Adresse,
+                      BoligVerdi: values.BoligVerdi,
+                      KjopeVerdi: values.KjopeVerdi
+                    }
+                  };
 
-      <CheckBox id="1ID" group="test">
+                  const options = { returnNewDocument: true };
+                  laneflytCollection
+                    .findOneAndUpdate({ Id: "1" }, leggTil, options)
+                    .then(updatedDocument => {
+                      if (updatedDocument) {
+                        console.log(
+                          `Successfully updated document: ${updatedDocument}.`
+                        );
+                      } else {
+                        console.log("No document matches the provided query.");
+                        console.log(values);
+                      }
+                      return updatedDocument;
+                    })
+                    .catch(err =>
+                      console.error(
+                        `Failed to find and update document: ${err}`
+                      )
+                    );
+                  setSubmitting(false);
+                  handleHide(); //Set state to false once form is filled out
+                }, 400);
+              }}
+            >
+              {({ handleSubmit }) => {
+                return (
+                  <PopupStyling>
+                    <p>Legg til eiendel</p>
+                    <SikkerhetLeggTilSVG />
+                    <Form>
+                      <AdresseInput />
+                      <BoligVerdiInput />
+                      <KjopeVerdiInput />
+                    </Form>
+                    <div className="navigationButtons">
+                      <Button
+                        className="nextBtn"
+                        type="submit"
+                        onClick={handleSubmit}
+                      >
+                        Lagre
+                      </Button>
+                    </div>
+                  </PopupStyling>
+                );
+              }}
+            </Formik>
+          )}
+        </Popup>
+
+        {/* <CheckBox id="1ID" group="test">
         En{" "}
       </CheckBox>
       <CheckBox id="2ID" group="test">
@@ -36,19 +118,27 @@ const Sikkerhet = () => {
         <LeggTil>
           <Button variant="unstyledButton">Legg til > </Button>
         </LeggTil>
-        </Link>
-      
-      <Link to="/Okonomi">
-        <Videre>
-          <Button>Videre</Button>
+        </Link> */}
 
-        </Videre>
-      </Link>
+        <Link to="/Okonomi">
+          <Videre>
+            <Button>Videre</Button>
+          </Videre>
+        </Link>
+      </Layout>
     </div>
   );
 };
 
 export default Sikkerhet;
+
+const PopupStyling = styled.div`
+  background-color: white;
+  min-width: 375px;
+  min-height: 500px;
+  margin-left: 0px;
+  padding-left: 0px;
+`;
 
 const Videre = styled.div`
   display: flex;
@@ -63,6 +153,8 @@ const Videre = styled.div`
   }
 `;
 
-const LeggTil = styled.div`
-  margin-left: 250px;
+const Popup = styled.div`
+  position: absolute;
+  margin-top: 110px;
+  z-index: 1;
 `;

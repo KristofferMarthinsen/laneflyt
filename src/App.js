@@ -107,7 +107,8 @@ const Laneflyt = styled.div`
   background-repeat: no-repeat;
   margin: 0 auto;
   padding: 24px;
-  min-height: 750px;
+  max-height: 667px;
+  z-index: 0;
   .navigationButtons {
     padding-top: 50px;
     display: flex;

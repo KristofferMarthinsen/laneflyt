@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button } from "@staccx/bento";
-import { Redirect } from "react-router-dom";
 import { SikkerhetLeggTilSVG } from "./svg/SikkerhetLeggTilSVG";
 import Layout from "./components/Layout";
 import { Formik, Form } from "formik";
@@ -9,16 +8,13 @@ import AdresseInput from "./components/Form/FormInputs/Adresse/AdresseInput";
 import KjopeVerdiInput from "./components/Form/FormInputs/KjopeVerdi/KjopeVerdiInput";
 import BoligVerdiInput from "./components/Form/FormInputs/BoligVerdi/BoligVerdiInput";
 import { laneflytCollection } from "./components/MongoDB";
+import styled from 'styled-components'
 
-const Subtitle = () => (
-  <>
-    <p>Her kan du legge til sikkerheit</p>
-  </>
-);
 
-export const SikkerhetLegTil = () => {
-  const [fireRedirect, setFireRedirect] = useState(false);
-  const query = { test: "test" };
+export const SikkerhetLegTil = (value) => {
+
+
+
 
   return (
     <Formik
@@ -30,9 +26,19 @@ export const SikkerhetLegTil = () => {
       }}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
+
+          const leggTil = {
+            "$set": {
+            Adresse: values.Adresse,
+            BoligVerdi: values.BoligVerdi,
+            KjopeVerdi: values.KjopeVerdi,
+            }
+            };
+
+
           const options = { returnNewDocument: true };
           laneflytCollection
-            .findOneAndUpdate(query, values, options)
+            .findOneAndUpdate({"Id": "1"}, leggTil, options)
             .then(updatedDocument => {
               if (updatedDocument) {
                 console.log(
@@ -48,20 +54,15 @@ export const SikkerhetLegTil = () => {
               console.error(`Failed to find and update document: ${err}`)
             );
           setSubmitting(false);
-          setFireRedirect(true);
         }, 400);
       }}
     >
       {({ handleSubmit }) => {
         return (
-          <div>
+          <PopupStyling>
+            <p>Legg til eiendel</p>
+            <SikkerhetLeggTilSVG/>
             <Form>
-              <Layout
-                icon={SikkerhetLeggTilSVG}
-                id={6}
-                title="Legg til Sikkerheit"
-                subtitle={Subtitle}
-              ></Layout>
               <AdresseInput />
               <BoligVerdiInput />
               <KjopeVerdiInput />
@@ -70,12 +71,21 @@ export const SikkerhetLegTil = () => {
               <Button className="nextBtn" type="submit" onClick={handleSubmit}>
                 Lagre
               </Button>
-              {fireRedirect && <Redirect to={"/Sikkerhet"} />}
             </div>
-          </div>
+          </PopupStyling>
         );
       }}
     </Formik>
   );
 };
 export default SikkerhetLegTil;
+
+const PopupStyling = styled.div`
+    background-color: white;
+    min-width: 375px;
+    min-height: 500px;
+    margin-left: 0px;
+    padding-left: 0px;
+   
+    
+`
