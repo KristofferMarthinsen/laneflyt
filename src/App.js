@@ -5,7 +5,6 @@ import Husstanden from "./Husstanden";
 import Legitimering from "./Legitimering";
 import Estimat from "./Estimat";
 import Sikkerhet from "./Sikkerhet";
-import SikkerhetLeggTil from "./SikkerhetLeggTil";
 import { ThemeProvider } from "styled-components";
 import NedbetalingsPlan from "./components/NedbetalingsPlan";
 import Okonomi from "./Okonomi";
@@ -70,9 +69,6 @@ function App() {
             </Route>
             <Route path="/Sikkerhet">
               <Sikkerhet />
-            </Route>
-            <Route path="/SikkerhetLeggTil">
-              <SikkerhetLeggTil />
             </Route>
             <Route path="/NedbetalingsPlan">
               <NedbetalingsPlan />
