@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { GjeldSVG } from "./svg/Gjeld1";
 import Layout from "./components/Layout";
 import styled from "styled-components";
+import GjeldLagtTil from "./components/GjeldLagtTil"
 
 const Subtitle = () => (
   <>
@@ -13,6 +14,7 @@ const Subtitle = () => (
     </p>
   </>
 );
+
 
 const Gjeld = () => {
   return (
@@ -24,7 +26,6 @@ const Gjeld = () => {
       <CheckBox id="2ID" group="test">
         To{" "}
       </CheckBox>
-
       <Videre>
         <Link to="/Estimat2">
           <Button>Videre</Button>
