@@ -11,6 +11,7 @@ import AdresseInput from "./components/Form/FormInputs/Adresse/AdresseInput";
 import KjopeVerdiInput from "./components/Form/FormInputs/KjopeVerdi/KjopeVerdiInput";
 import BoligVerdiInput from "./components/Form/FormInputs/BoligVerdi/BoligVerdiInput";
 import { laneflytCollection } from "./components/MongoDB";
+import SikkerhetLagtTil from "./components/SikkerhetLagtTil";
 
 const Subtitle = () => (
   <>
@@ -35,12 +36,13 @@ const Sikkerhet = () => {
 
   return (
     <div>
-      <Layout title="Sikkerhet" id={6} icon={SikkerhetSVG} subtitle={Subtitle}> 
+      <Layout title="Sikkerhet" id={6} icon={SikkerhetSVG} subtitle={Subtitle}>
+        <SikkerhetLagtTil />
         <Button onClick={handleShow} variant="unstyledButton">
           Legg til +
         </Button>
         <Popup>
-          {PopupState && ( //If state is true, return popup-form
+          {PopupState && ( //If state is true, display popup-form
             <Formik
               validationSchema={SignupSchema}
               initialValues={{
@@ -119,13 +121,12 @@ const Sikkerhet = () => {
           <Button variant="unstyledButton">Legg til > </Button>
         </LeggTil>
         </Link> */}
-        </Layout>
-        <Videre>
+      </Layout>
+      <Videre>
         <Link to="/Okonomi">
-            <Button>Videre</Button>
-          </Link> 
-        </Videre>
-      
+          <Button>Videre</Button>
+        </Link>
+      </Videre>
     </div>
   );
 };
@@ -145,10 +146,10 @@ const PopupStyling = styled.div`
   border-top-right-radius: 25px;
   margin-left: 0px;
   padding-left: 0px;
-    p{
-      font-weight: bold;
-      color: #A5A5A5;
-    }
+  p {
+    font-weight: bold;
+    color: #a5a5a5;
+  }
 `;
 
 const Popup = styled.div`
@@ -157,15 +158,13 @@ const Popup = styled.div`
   z-index: 1;
 `;
 
- const Videre = styled.div`
-   display: flex;
-   flex-direction: row;
-   min-width: 300px;
-   justify-content: center;
-   padding-top: 150px;
-   button {
-     width: 280px;
-   }
- `;
-
-
+const Videre = styled.div`
+  display: flex;
+  flex-direction: row;
+  min-width: 300px;
+  justify-content: center;
+  padding-top: 150px;
+  button {
+    width: 280px;
+  }
+`;
