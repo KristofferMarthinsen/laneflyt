@@ -2,11 +2,15 @@ import React, {useState} from "react";
 import { laneflytCollection } from "./MongoDB"
 
 const query = { "Id": "1" };
+const options = {
+    "LanGiverInput": {},
+    
+}
 const testy = [];
 
-laneflytCollection.find(query)
+laneflytCollection.find(query, options)
 .toArray()
-.then(items => { items.map(object => testy.push(object.LanGiverInput)+(console.log(object)))})
+.then(items => { items.map(object => testy.push(object.LanGiverInput) +(console.log(object)))})
 .catch(err => console.error(`Failed to find documents: ${err}`))
 
 

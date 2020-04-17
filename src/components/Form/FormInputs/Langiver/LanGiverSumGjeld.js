@@ -14,9 +14,9 @@ const LanGiverSumGjeld = (name, ...props) => {
         min={100}
         max={500}
         step={50}
-        defaultValue={0}
+        defaultValue={1}
         onChange={value => (
-          setSumGjeld(SumGjeld), setFieldValue("Sumgjeld", value)
+          setSumGjeld(SumGjeld), setFieldValue("SumGjeld", value)
         )}
       />
     </div>
