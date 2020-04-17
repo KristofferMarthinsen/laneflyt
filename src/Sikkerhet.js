@@ -119,13 +119,13 @@ const Sikkerhet = () => {
           <Button variant="unstyledButton">Legg til > </Button>
         </LeggTil>
         </Link> */}
-
+        </Layout>
+        <Videre>
         <Link to="/Okonomi">
-          <Videre>
             <Button>Videre</Button>
-          </Videre>
-        </Link>
-      </Layout>
+          </Link> 
+        </Videre>
+      
     </div>
   );
 };
@@ -133,24 +133,22 @@ const Sikkerhet = () => {
 export default Sikkerhet;
 
 const PopupStyling = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
   background-color: white;
   min-width: 375px;
   min-height: 500px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
   margin-left: 0px;
   padding-left: 0px;
-`;
-
-const Videre = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  padding-top: 300px;
-  min-width: 300px;
-  justify-content: space-around;
-  button {
-    width: 280px;
-    bottom: 100px;
-  }
+    p{
+      font-weight: bold;
+      color: #A5A5A5;
+    }
 `;
 
 const Popup = styled.div`
@@ -158,3 +156,16 @@ const Popup = styled.div`
   margin-top: 110px;
   z-index: 1;
 `;
+
+ const Videre = styled.div`
+   display: flex;
+   flex-direction: row;
+   min-width: 300px;
+   justify-content: center;
+   padding-top: 150px;
+   button {
+     width: 280px;
+   }
+ `;
+
+
