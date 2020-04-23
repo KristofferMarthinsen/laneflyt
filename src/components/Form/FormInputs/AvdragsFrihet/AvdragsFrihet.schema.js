@@ -6,5 +6,5 @@ export default yup
 .number()
 .positive()
 .integer()
-.min(100, "Invalid.")
+.min(2, "Invalid.")
 .required()
