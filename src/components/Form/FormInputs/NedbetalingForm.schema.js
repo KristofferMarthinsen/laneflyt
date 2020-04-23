@@ -3,7 +3,7 @@ import NedbetalingsTid from "./NedbetalingsTidInput/NedbetalingsTid.schema"
 import BoligVerdi from "./BoligVerdi/BoligVerdiInput.schema"
 import LaneSumInput from "./LaneSum/LaneSumInput.schema"
 import AvdragsFrihet from "./AvdragsFrihet/AvdragsFrihet.schema"
-import BoligVerdiInput from "./BoligVerdi/BoligVerdiInput"
+
 
 export default yup.object().shape({
 

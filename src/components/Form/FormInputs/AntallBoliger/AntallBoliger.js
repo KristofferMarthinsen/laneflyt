@@ -5,10 +5,16 @@ import { ErrorMessage, useFormikContext } from "formik";
 
 export const bolig = [
   {
+    myUniqueId: "0boliger",
+    values: 0,
+    label: "0",
+    defaultChecked: true
+  },
+  {
     myUniqueId: "1boliger",
     values: 1,
     label: "1",
-    defaultChecked: true
+    defaultChecked: false
   },
   {
     myUniqueId: "2boliger",

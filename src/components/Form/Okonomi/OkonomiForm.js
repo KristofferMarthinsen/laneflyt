@@ -6,7 +6,7 @@ import SamletInntekt from "../FormInputs/SamletInntekt/SamletInntekt";
 import AntallBilerInput from "../FormInputs/AntallBiler/AntallBilerInput";
 import AntallBoligerInput from "../FormInputs/AntallBoliger/AntallBoligerInput";
 import { laneflytCollection } from "../../../components/MongoDB"
-//import SignupSchema from "./FormInputs/HusstandForm.schema";
+
 
 export const OkonomiForm = ({ next }) => {
   const [fireRedirect, setFireRedirect] = useState(false);
@@ -14,7 +14,6 @@ export const OkonomiForm = ({ next }) => {
 
   return (
     <Formik
-      //validationSchema={SignupSchema}
       initialValues={{
         SamletInntekt: "",
         antallBiler: null,
