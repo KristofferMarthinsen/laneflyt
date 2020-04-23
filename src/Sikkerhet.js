@@ -34,6 +34,7 @@ const Sikkerhet = () => {
     setPopupState(false);
   };
 
+
   return (
     <div>
       <Layout title="Sikkerhet" id={6} icon={SikkerhetSVG} subtitle={Subtitle}>
