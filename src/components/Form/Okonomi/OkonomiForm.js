@@ -10,7 +10,7 @@ import { laneflytCollection } from "../../../components/MongoDB"
 
 export const OkonomiForm = ({ next }) => {
   const [fireRedirect, setFireRedirect] = useState(false);
-  const query = { test: "test" };
+  
 
   return (
     <Formik

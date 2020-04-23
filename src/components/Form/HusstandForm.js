@@ -10,7 +10,6 @@ import SivilStatusInput from "./FormInputs/SivilStatus/SivilStatusInput";
 import AntallBarnInput from "./FormInputs/AntallBarn/AntallBarnInput";
 import TelefonNummerInput from "./FormInputs/Telefon/TelefonNummerInput";
 import styled from "styled-components";
-import { ObjectId } from "mongodb"
 import { laneflytCollection } from "../MongoDB";
 
 

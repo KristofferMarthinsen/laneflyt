@@ -13,7 +13,7 @@ const LaneSumInput = () => {
         min={100}
         max={500}
         step={50}
-        defaultValue={250}
+        defaultValue={100}
         onChange={value => (
           setLaneSum(LaneSum), setFieldValue("LaneSum", value)
         )}
