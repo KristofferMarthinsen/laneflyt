@@ -6,8 +6,8 @@ import Layout from "./components/Layout";
 import { Formik, Form } from "formik";
 import GjeldFormSchema from "./components/Form/FormInputs/GjeldForm.schema";
 import LanGiverInput from "./components/Form/FormInputs/Langiver/LanGiverInput";
-import LanType from "./components/Form/FormInputs/Langiver/LanType";
-import LanGiverSumGjeld from "./components/Form/FormInputs/Langiver/LanGiverSumGjeld";
+import LanTypeInput from "./components/Form/FormInputs/Langiver/LanType";
+import SumGjeld from "./components/Form/FormInputs/Langiver/LanGiverSumGjeld";
 import { laneflytCollection } from "./components/MongoDB";
 
 const Subtitle = () => (
@@ -27,7 +27,7 @@ export const GjeldLeggTil = () => {
       initialValues={{
         LanGiverInput: "",
         LanTypeInput: "",
-        Sumgjeld: ""
+        SumGjeld: ""
       }}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
@@ -35,7 +35,7 @@ export const GjeldLeggTil = () => {
             $set: {
               LanGiverInput: values.LanGiverInput,
               LanTypeInput: values.LanTypeInput,
-              Sumgjeld: values.SumGjeld
+              SumGjeld: values.SumGjeld
             }
           };
 
@@ -76,8 +76,8 @@ export const GjeldLeggTil = () => {
             />
             <Form>
               <LanGiverInput />
-              <LanType />
-              <LanGiverSumGjeld />
+              <LanTypeInput />
+              <SumGjeld />
             </Form>
             <div className="navigationButtons">
               <Button className="nextBtn" type="submit" onClick={handleSubmit}>
