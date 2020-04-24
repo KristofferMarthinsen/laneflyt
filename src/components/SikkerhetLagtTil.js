@@ -34,13 +34,16 @@ const SikkerhetLagtTil = () => {
         </Forklaring>
       </ul>
 
-      <Verdier>
-        <ul>
-          {eiendeler.map(adresse => (
-            <li>{adresse.Adresse}</li>
-          ))}
-        </ul>
-      </Verdier>
+      <ul>
+        {eiendeler.map(adresse => (
+          <Verdier>
+            <>
+              <li>{adresse.Adresse}</li>
+              <li>{adresse.EiendomsVerdi}</li>
+            </>
+          </Verdier>
+        ))}
+      </ul>
     </EiendelerListe>
   );
 };
