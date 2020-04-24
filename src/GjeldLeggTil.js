@@ -1,94 +1,72 @@
 import React, { useState } from "react";
-import { Button } from "@staccx/bento";
-import { Redirect } from "react-router-dom";
-import { Gjeld2SVG } from "./svg/Gjeld2";
-import Layout from "./components/Layout";
-import { Formik, Form } from "formik";
-import GjeldFormSchema from "./components/Form/FormInputs/GjeldForm.schema";
-import LanGiverInput from "./components/Form/FormInputs/Langiver/LanGiverInput";
-import LanTypeInput from "./components/Form/FormInputs/Langiver/LanType";
-import SumGjeld from "./components/Form/FormInputs/Langiver/LanGiverSumGjeld";
-import { laneflytCollection } from "./components/MongoDB";
+import { eiendelCollection } from "./components/MongoDB";
+import styled from "styled-components";
 
-const Subtitle = () => (
-  <>
-    <p>Legg til samlet gjeld</p>
-  </>
-);
 
-export const GjeldLeggTil = () => {
-  const [setGjeld] = useState(null);
-  const [fireRedirect, setFireRedirect] = useState(false);
-  const query = { Fornavn: "Helene" };
+const GjeldLeggTil = () => {
+  const [eiendeler, setEiendeler] = useState([]);
+  //const [verdi, setVerdi] = useState();
+  eiendelCollection
+    .find()
+    .toArray()
+    .then(items => {
+      if (eiendeler.length == 0) {
+        setEiendeler(items);
+      }
+      //setAdress([...adress, db.Adresse])
+      //setVerdi(db.EiendomsVerdi);
+    })
+    .catch(err => console.error(`Failed to find documents: ${err}`));
+
+  // console.log("Dette er", assets)
+  // console.log("Dette er lengden", assets.length)
 
   return (
-    <Formik
-      validationSchema={GjeldFormSchema}
-      initialValues={{
-        LanGiverInput: "",
-        LanTypeInput: "",
-        SumGjeld: ""
-      }}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          const leggTil = {
-            $set: {
-              LanGiverInput: values.LanGiverInput,
-              LanTypeInput: values.LanTypeInput,
-              SumGjeld: values.SumGjeld
-            }
-          };
-
-          const options = { returnNewDocument: true };
-          laneflytCollection
-            .findOneAndUpdate({ Id: "1" }, leggTil, options)
-            .then(updatedDocument => {
-              if (updatedDocument) {
-                console.log(
-                  `Successfully updated document: ${updatedDocument}.`
-                );
-              } else {
-                console.log("No document matches the provided query.");
-              }
-              return updatedDocument;
-            })
-            .catch(err =>
-              console.error(`Failed to find and update document: ${err}`)
-            );
-
-          setSubmitting(false);
-          setFireRedirect(true);
-        }, 400);
-      }}
-    >
-      {({ handleSubmit, setFieldValue }) => {
-        const Gjeld = value => {
-          setFieldValue("Sikker", value);
-          setGjeld(value === "true" ? true : false);
-        };
-        return (
-          <div>
-            <Layout
-              icon={Gjeld2SVG}
-              id={7}
-              title="Legg til gjeld"
-              subtitle={Subtitle}
-            />
-            <Form>
-              <LanGiverInput />
-              <LanTypeInput />
-              <SumGjeld />
-            </Form>
-            <div className="navigationButtons">
-              <Button className="nextBtn" type="submit" onClick={handleSubmit}>
-                Lagre
-              </Button>
-              {fireRedirect && <Redirect to={"/Gjeld"} />}
-            </div>
-          </div>
-        );
-      }}
-    </Formik>
+    <EiendelerListe>
+      <ul>
+        <Forklaring>
+          <li>Gjeld</li>
+          
+        </Forklaring>
+      </ul>
+      <Verdier>
+        <ul>
+          {eiendeler.map(gjeld => (
+            <li>{gjeld.LanGiverInput}</li>
+          ))}
+        </ul>
+      </Verdier>
+    </EiendelerListe>
   );
 };
+
 export default GjeldLeggTil;
+
+const EiendelerListe = styled.div`
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  min-width: 115%;
+`;
+
+const Forklaring = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-weight: 700;
+  padding-bottom: 4px;
+`;
+
+const Verdier = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-weight: 400;
+  line-height: 40px;
+  background-color: #ffffff;
+  box-shadow: 0px 16px 16px rgba(0, 0, 75, 0.02),
+    0px 8px 8px rgba(0, 0, 75, 0.02), 0px 4px 7px rgba(0, 0, 75, 0.021),
+    0px 2px 2px rgba(0, 0, 75, 0.021), 0px 32px 22px rgba(0, 0, 75, 0.021),
+    0px 44px 64px rgba(0, 0, 75, 0.02);
+`;

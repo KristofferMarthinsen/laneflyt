@@ -1,10 +1,18 @@
-import React from "react";
-import { CheckBox, Button} from "@staccx/bento";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { GjeldSVG } from "./svg/Gjeld1";
+import {Gjeld2SVG} from "./svg/Gjeld2"
 import Layout from "./components/Layout";
 import styled from "styled-components";
-import GjeldLagtTil from "./components/GjeldLagtTil"
+import GjeldLeggTil from "./GjeldLeggTil"
+import { Button } from "@staccx/bento";
+import GjeldFormSchema from "./components/Form/FormInputs/GjeldForm.schema";
+import LanGiverInput from "./components/Form/FormInputs/Langiver/LanGiverInput";
+import LanTypeInput from "./components/Form/FormInputs/Langiver/LanType";
+import SumGjeld from "./components/Form/FormInputs/Langiver/LanGiverSumGjeld";
+import { eiendelCollection } from "./components/MongoDB";
+import { Formik, Form } from "formik";
+
 
 const Subtitle = () => (
   <>
@@ -15,39 +23,128 @@ const Subtitle = () => (
   </>
 );
 
+  
+
 
 const Gjeld = () => {
+  const [PopupState, setPopupState] = useState(false); //Set state for toggle view of popup
+
+
+  const handleShow = () => {
+    setPopupState(true);
+  };
+
+  const handleHide = () => {
+    setPopupState(false);
+  };
+
   return (
     <div>
-      <Layout icon={GjeldSVG} id={7} title="Gjeld" subtitle={Subtitle}></Layout>
-      <GjeldLagtTil/>
-      <CheckBox id="1ID" group="test">
-        En{" "}
-      </CheckBox>
-      <CheckBox id="2ID" group="test">
-        To{" "}
-      </CheckBox>
+      <Layout icon={GjeldSVG} id={7} title="Gjeld" subtitle={Subtitle}>
+      <GjeldLeggTil/>
+      <Button onClick={handleShow} variant="unstyledButton">
+          Legg til +
+        </Button>
+        <Popup>
+        {PopupState && ( //If state is true, display popup-form
+                <Formik
+      validationSchema={GjeldFormSchema}
+      initialValues={{
+        LanGiverInput: "",
+        LanTypeInput: "",
+        SumGjeld: ""
+      }}
+      onSubmit={(values, { setSubmitting }) => {
+        setTimeout(() => {
+          const leggTil = {
+              Id : "1",
+              LanGiverInput: values.LanGiverInput,
+              LanTypeInput: values.LanTypeInput,
+              SumGjeld: values.SumGjeld
+            
+          };
+                  
+    eiendelCollection.insertOne(leggTil)
+      .then(result => console.log(`Successfully inserted item with _id: ${result.insertedId}`))
+      .catch(err => console.error(`Failed to insert item: ${err}`))
+
+
+
+      setSubmitting(false);
+                  handleHide(); //Set state to false once form is filled out
+                }, 400);
+              }}
+            >
+              {({ handleSubmit }) => {
+                return (
+                  <PopupStyling>
+                    <p>Legg til Gjeld</p>
+                    <Gjeld2SVG/>
+                    <Form>
+                      <LanGiverInput />
+                      <LanTypeInput />
+                      <SumGjeld />
+                    </Form>
+                    <div className="navigationButtons">
+                      <Button
+                        className="nextBtn"
+                        type="submit"
+                        onClick={handleSubmit}
+                      >
+                        Lagre
+                      </Button>
+                    </div>
+                  </PopupStyling>
+                );
+              }}
+            </Formik>
+          )}
+        </Popup>
+              
+        </Layout>
       <Videre>
         <Link to="/Estimat2">
           <Button>Videre</Button>
-        </Link>{" "}
-        <Link to="/GjeldLeggTil">
-            <Button variant="unstyledButton">Legg til > </Button>
         </Link>
       </Videre>
     </div>
   );
 };
-export default Gjeld;
 
-const Videre = styled.div`
-  display: flex;
-  flex-direction: row;
-  padding-top: 174px;
-  min-width: 300px;
-  justify-content: space-around;
-  button {
-    width: 144px;
-  }
+ export default Gjeld;
+
+ const PopupStyling = styled.div`
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ justify-content: space-around;
+ background-color: white;
+ min-width: 375px;
+ min-height: 500px;
+ border-top-left-radius: 25px;
+ border-top-right-radius: 25px;
+ margin-left: 0px;
+ padding-left: 0px;
+ p {
+   font-weight: bold;
+   color: #a5a5a5;
+ }
 `;
 
+const Popup = styled.div`
+ position: absolute;
+ margin-top: 110px;
+ z-index: 1;
+`;
+
+const Videre = styled.div`
+ display: flex;
+ flex-direction: row;
+ min-width: 300px;
+ justify-content: center;
+ padding-top: 150px;
+ button {
+   width: 280px;
+ }
+`;
