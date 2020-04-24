@@ -10,8 +10,10 @@ import SignupSchema from "./components/Form/FormInputs/SikkerhetForm.schema";
 import AdresseInput from "./components/Form/FormInputs/Adresse/AdresseInput";
 import KjopeVerdiInput from "./components/Form/FormInputs/KjopeVerdi/KjopeVerdiInput";
 import BoligVerdiInput from "./components/Form/FormInputs/BoligVerdi/BoligVerdiInput";
-import { laneflytCollection } from "./components/MongoDB";
+import { eiendelCollection } from "./components/MongoDB";
 import SikkerhetLagtTil from "./components/SikkerhetLagtTil";
+
+//Det som er feil; Sikkerhetlagttil blir bare kalt på når man trykker på "legg til" - kan være pga handleshow? Burde legge funksjonen inn i documentonlad elns
 
 const Subtitle = () => (
   <>
@@ -26,6 +28,7 @@ const Subtitle = () => (
 const Sikkerhet = () => {
   const [PopupState, setPopupState] = useState(false); //Set state for toggle view of popup
 
+
   const handleShow = () => {
     setPopupState(true);
   };
@@ -34,6 +37,7 @@ const Sikkerhet = () => {
     setPopupState(false);
   };
 
+  
 
   return (
     <div>
@@ -54,32 +58,37 @@ const Sikkerhet = () => {
               onSubmit={(values, { setSubmitting }) => {
                 setTimeout(() => {
                   const leggTil = {
-                    $set: {
+                      Id: "1",
                       Adresse: values.Adresse,
-                      BoligVerdi: values.BoligVerdi,
+                      EiendomsVerdi: values.BoligVerdi,
                       KjopeVerdi: values.KjopeVerdi
-                    }
+                    
                   };
 
-                  const options = { returnNewDocument: true };
-                  laneflytCollection
-                    .findOneAndUpdate({ Id: "1" }, leggTil, options)
-                    .then(updatedDocument => {
-                      if (updatedDocument) {
-                        console.log(
-                          `Successfully updated document: ${updatedDocument}.`
-                        );
-                      } else {
-                        console.log("No document matches the provided query.");
-                        console.log(values);
-                      }
-                      return updatedDocument;
-                    })
-                    .catch(err =>
-                      console.error(
-                        `Failed to find and update document: ${err}`
-                      )
-                    );
+                  
+                  eiendelCollection.insertOne(leggTil)
+                    .then(result => console.log(`Successfully inserted item with _id: ${result.insertedId}`))
+                    .catch(err => console.error(`Failed to insert item: ${err}`))
+
+                  // const options = { returnNewDocument: true };
+                  // laneflytCollection
+                  //   .findOneAndUpdate({ Id: "1" }, leggTil, options)
+                  //   .then(updatedDocument => {
+                  //     if (updatedDocument) {
+                  //       console.log(
+                  //         `Successfully updated document: ${updatedDocument}.`
+                  //       );
+                  //     } else {
+                  //       console.log("No document matches the provided query.");
+                  //       console.log(values);
+                  //     }
+                  //     return updatedDocument;
+                  //   })
+                  //   .catch(err =>
+                  //     console.error(
+                  //       `Failed to find and update document: ${err}`
+                  //     )
+                  //   );
                   setSubmitting(false);
                   handleHide(); //Set state to false once form is filled out
                 }, 400);

@@ -1,29 +1,78 @@
-import React from "react";
-import { laneflytCollection } from "./MongoDB";
+import React, { useState } from "react";
+import { eiendelCollection } from "./MongoDB";
 import { object } from "yup";
+import styled from "styled-components";
 
-const assets = [];
+//Bruker ikke state, men let, fordi vi skal ha flere komponenter i en liste
+//Problemet nå er å displaye arrayet ut i komponenten
 
 const SikkerhetLagtTil = () => {
-  laneflytCollection
-    .find({})
+    let assets = [];
+//const [adress, setAdress] = useState([]); 
+//   const [verdi, setVerdi] = useState();
+  eiendelCollection
+    .find()
     .toArray()
     .then(items => {
       items.map(db => {
-          assets.push(db.Adresse)
-          console.log(assets)
+        assets.push(db.Adresse)
+        
+        //setAdress([...adress, db.Adresse])
+        //setVerdi(db.EiendomsVerdi);
       });
     })
     .catch(err => console.error(`Failed to find documents: ${err}`));
-    
-    
+
+    console.log(assets)
+
   return (
-    <div>
-      <ul><li>{assets}</li></ul>
-    </div>
+    <EiendelerListe>
+      <ul>
+        <Forklaring>
+        <li>Adresse</li>
+        <li>Verdi</li>
+        </Forklaring>
+      </ul>
+      
+          <Verdier>
+          <ul>
+          {assets.map(banan => (
+        <li key={banan}>{banan}</li>
+      ))}
+       </ul>
+        </Verdier>
+     
+    </EiendelerListe>
   );
 };
 
 export default SikkerhetLagtTil;
 
-//Flytt dette over i sikkerhet, og se om det er lettere å få ut verdier da. Spesielt første initielle verdi.
+const EiendelerListe = styled.div`
+ padding-top: 30px;
+    display: flex;
+  flex-direction: column;
+  margin: 0px;
+  min-width: 115%;
+`;
+
+const Forklaring = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-weight: 700;
+    padding-bottom: 4px;
+`
+
+const Verdier = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-weight: 400;
+    line-height: 40px;
+    background-color: #ffffff;
+    box-shadow: 0px 16px 16px rgba(0, 0, 75, 0.02),
+    0px 8px 8px rgba(0, 0, 75, 0.02), 0px 4px 7px rgba(0, 0, 75, 0.021),
+    0px 2px 2px rgba(0, 0, 75, 0.021), 0px 32px 22px rgba(0, 0, 75, 0.021),
+    0px 44px 64px rgba(0, 0, 75, 0.02);
+`
