@@ -9,6 +9,8 @@ const AdresseInput = () => {
   const [adress, setAdress] = useState(""); //For google autocomplete
 
   const handleSelect = async value => {};
+  console.log(adress +"hei")
+      
 
   return (
     <div>
@@ -21,7 +23,7 @@ const AdresseInput = () => {
           <div>
             <StyledInput
               location={"suggestWords"}
-              onChange={e => setFieldValue("Adresse", e.target.value)}
+              onChange={e => setFieldValue("Adresse" , e.target.value)}
               label="Adresse"
               {...getInputProps({ placeholder: "Skriv adresse" })}
             />
@@ -35,8 +37,9 @@ const AdresseInput = () => {
 
 				return <div {...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</div>
 			})}
-			
+      
 			</div>
+      
 			
           </div>
         )}

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { eiendelCollection } from "./components/MongoDB";
 import styled from "styled-components";
 
-
 const GjeldLeggTil = () => {
   const [eiendeler, setEiendeler] = useState([]);
   //const [verdi, setVerdi] = useState();
@@ -10,7 +9,7 @@ const GjeldLeggTil = () => {
     .find()
     .toArray()
     .then(items => {
-      if (eiendeler.length == 0) {
+      if (eiendeler.length === 0) {
         setEiendeler(items);
       }
       //setAdress([...adress, db.Adresse])
@@ -26,16 +25,19 @@ const GjeldLeggTil = () => {
       <ul>
         <Forklaring>
           <li>Gjeld</li>
-          
+          <li>Sum</li>
         </Forklaring>
       </ul>
-      <Verdier>
-        <ul>
-          {eiendeler.map(gjeld => (
-            <li>{gjeld.LanGiverInput}</li>
-          ))}
-        </ul>
-      </Verdier>
+      <ul>
+        {eiendeler.map(gjeld => (
+          <Verdier>
+            <>
+              <li className="langiver">{gjeld.LanGiverInput}</li>
+              <li className="sumgjeld">{gjeld.SumGjeld}</li>
+            </>
+          </Verdier>
+        ))}
+      </ul>
     </EiendelerListe>
   );
 };
