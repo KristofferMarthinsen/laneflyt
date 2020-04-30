@@ -38,8 +38,8 @@ const SikkerhetLagtTil = () => {
         {eiendeler.map(adresse => (
           <Verdier>
             <>
-              <li>{adresse.Adresse}</li>
-              <li>{adresse.EiendomsVerdi}</li>
+              <li className="adresse">{adresse.Adresse}</li>
+              <li className="verdi">{adresse.EiendomsVerdi}</li>
             </>
           </Verdier>
         ))}
@@ -56,6 +56,11 @@ const EiendelerListe = styled.div`
   flex-direction: column;
   margin: 0px;
   min-width: 115%;
+  
+  box-shadow: 0px 16px 16px rgba(0, 0, 75, 0.02),
+  0px 8px 8px rgba(0, 0, 75, 0.02), 0px 4px 7px rgba(0, 0, 75, 0.021),
+  0px 2px 2px rgba(0, 0, 75, 0.021), 0px 32px 22px rgba(0, 0, 75, 0.021),
+  0px 44px 64px rgba(0, 0, 75, 0.02);
 `;
 
 const Forklaring = styled.div`
@@ -69,12 +74,11 @@ const Forklaring = styled.div`
 const Verdier = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  background-color: #ffffff;
+  justify-content: space-between;
   font-weight: 400;
   line-height: 40px;
-  background-color: #ffffff;
-  box-shadow: 0px 16px 16px rgba(0, 0, 75, 0.02),
-    0px 8px 8px rgba(0, 0, 75, 0.02), 0px 4px 7px rgba(0, 0, 75, 0.021),
-    0px 2px 2px rgba(0, 0, 75, 0.021), 0px 32px 22px rgba(0, 0, 75, 0.021),
-    0px 44px 64px rgba(0, 0, 75, 0.02);
+  padding-left: 30px;
+  padding-right: 50px;
+  border-bottom: 1px solid #BBBBBB;
 `;
