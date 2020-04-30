@@ -1,21 +1,10 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import { eiendelCollection } from "./components/MongoDB";
 import styled from "styled-components";
 
-const GjeldLeggTil = () => {
-  const [eiendeler, setEiendeler] = useState([]);
+const GjeldLeggTil = ({eie}) => {
   //const [verdi, setVerdi] = useState();
-  eiendelCollection
-    .find()
-    .toArray()
-    .then(items => {
-      if (eiendeler.length === 0) {
-        setEiendeler(items);
-      }
-      //setAdress([...adress, db.Adresse])
-      //setVerdi(db.EiendomsVerdi);
-    })
-    .catch(err => console.error(`Failed to find documents: ${err}`));
+
 
   // console.log("Dette er", assets)
   // console.log("Dette er lengden", assets.length)
@@ -29,7 +18,7 @@ const GjeldLeggTil = () => {
         </Forklaring>
       </ul>
       <ul>
-        {eiendeler.map(gjeld => (
+        {eie.map(gjeld => (
           <Verdier>
             <>
               <li className="langiver">{gjeld.LanGiverInput}</li>

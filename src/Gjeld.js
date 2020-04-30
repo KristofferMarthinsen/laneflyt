@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import { GjeldSVG } from "./svg/Gjeld1";
 import {Gjeld2SVG} from "./svg/Gjeld2"
@@ -23,12 +23,12 @@ const Subtitle = () => (
   </>
 );
 
-  
+
 
 
 const Gjeld = () => {
+	const [eiendeler, setEiendeler] = useState([]);
   const [PopupState, setPopupState] = useState(false); //Set state for toggle view of popup
-
 
   const handleShow = () => {
     setPopupState(true);
@@ -38,10 +38,28 @@ const Gjeld = () => {
     setPopupState(false);
   };
 
+
+
+  	useEffect(() => {
+	eiendelCollection
+		.find()
+		.toArray()
+		.then(items => {
+			if (eiendeler.length === 0) {
+				setEiendeler(items);
+			}
+			//setAdress([...adress, db.Adresse])
+			//setVerdi(db.EiendomsVerdi);
+		})
+		.catch(err => console.error(`Failed to find documents: ${err}`));
+
+	},[])
+
+
   return (
     <div>
       <Layout icon={GjeldSVG} id={7} title="Gjeld" subtitle={Subtitle}>
-      <GjeldLeggTil/>
+		  <GjeldLeggTil eie={eiendeler}/>
       <Button onClick={handleShow} variant="unstyledButton">
           Legg til +
         </Button>
@@ -61,16 +79,15 @@ const Gjeld = () => {
               LanGiverInput: values.LanGiverInput,
               LanTypeInput: values.LanTypeInput,
               SumGjeld: values.SumGjeld
-            
+
           };
-                  
+
     eiendelCollection.insertOne(leggTil)
-      .then(result => console.log(`Successfully inserted item with _id: ${result.insertedId}`))
-      .catch(err => console.error(`Failed to insert item: ${err}`))
-
-
-
-      setSubmitting(false);
+      .then(result => console.log(`Successfully inserted item with _id: ${result.insertedId}`)).then(() => {
+				setEiendeler(oldArray => [...oldArray, leggTil]);
+	}
+		).catch(err => console.error(`Failed to insert item: ${err}`))
+			setSubmitting(false);
                   handleHide(); //Set state to false once form is filled out
                 }, 400);
               }}
@@ -100,7 +117,7 @@ const Gjeld = () => {
             </Formik>
           )}
         </Popup>
-              
+
         </Layout>
       <Videre>
         <Link to="/Estimat2">
