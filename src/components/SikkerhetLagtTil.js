@@ -3,13 +3,9 @@ import { eiendelCollection } from "./MongoDB";
 import { object } from "yup";
 import styled from "styled-components";
 
-//Bruker ikke state, men let, fordi vi skal ha flere komponenter i en liste
-//Problemet nå er å displaye arrayet ut i komponenten
 
 const SikkerhetLagtTil = () => {
-  //let assets = [];
   const [eiendeler, setEiendeler] = useState([]);
-  //const [verdi, setVerdi] = useState();
   eiendelCollection
     .find()
     .toArray()
@@ -17,13 +13,9 @@ const SikkerhetLagtTil = () => {
       if (eiendeler.length == 0) {
         setEiendeler(items);
       }
-      //setAdress([...adress, db.Adresse])
-      //setVerdi(db.EiendomsVerdi);
     })
     .catch(err => console.error(`Failed to find documents: ${err}`));
 
-  // console.log("Dette er", assets)
-  // console.log("Dette er lengden", assets.length)
 
   return (
     <EiendelerListe>

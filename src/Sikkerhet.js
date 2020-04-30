@@ -13,7 +13,6 @@ import BoligVerdiInput from "./components/Form/FormInputs/BoligVerdi/BoligVerdiI
 import { eiendelCollection } from "./components/MongoDB";
 import SikkerhetLagtTil from "./components/SikkerhetLagtTil";
 
-//Det som er feil; Sikkerhetlagttil blir bare kalt på når man trykker på "legg til" - kan være pga handleshow? Burde legge funksjonen inn i documentonlad elns
 
 const Subtitle = () => (
   <>
@@ -69,26 +68,6 @@ const Sikkerhet = () => {
                   eiendelCollection.insertOne(leggTil)
                     .then(result => console.log(`Successfully inserted item with _id: ${result.insertedId}`))
                     .catch(err => console.error(`Failed to insert item: ${err}`))
-
-                  // const options = { returnNewDocument: true };
-                  // laneflytCollection
-                  //   .findOneAndUpdate({ Id: "1" }, leggTil, options)
-                  //   .then(updatedDocument => {
-                  //     if (updatedDocument) {
-                  //       console.log(
-                  //         `Successfully updated document: ${updatedDocument}.`
-                  //       );
-                  //     } else {
-                  //       console.log("No document matches the provided query.");
-                  //       console.log(values);
-                  //     }
-                  //     return updatedDocument;
-                  //   })
-                  //   .catch(err =>
-                  //     console.error(
-                  //       `Failed to find and update document: ${err}`
-                  //     )
-                  //   );
                   setSubmitting(false);
                   handleHide(); //Set state to false once form is filled out
                 }, 400);
@@ -119,18 +98,6 @@ const Sikkerhet = () => {
             </Formik>
           )}
         </Popup>
-
-        {/* <CheckBox id="1ID" group="test">
-        En{" "}
-      </CheckBox>
-      <CheckBox id="2ID" group="test">
-        To{" "}
-      </CheckBox>
-        <Link to ="/SikkerhetLeggtil">
-        <LeggTil>
-          <Button variant="unstyledButton">Legg til > </Button>
-        </LeggTil>
-        </Link> */}
       </Layout>
       <Videre>
         <Link to="/Okonomi">
