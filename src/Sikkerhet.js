@@ -12,6 +12,8 @@ import KjopeVerdiInput from "./components/Form/FormInputs/KjopeVerdi/KjopeVerdiI
 import BoligVerdiInput from "./components/Form/FormInputs/BoligVerdi/BoligVerdiInput";
 import { eiendelCollection } from "./components/MongoDB";
 import SikkerhetLagtTil from "./components/SikkerhetLagtTil";
+import Gma from "./components/GjeldLagtTil"
+
 
 
 const Subtitle = () => (
@@ -26,6 +28,7 @@ const Subtitle = () => (
 
 const Sikkerhet = () => {
   const [PopupState, setPopupState] = useState(false); //Set state for toggle view of popup
+ 
 
 
   const handleShow = () => {
@@ -78,7 +81,9 @@ const Sikkerhet = () => {
                   <PopupStyling>
                     <p>Legg til eiendel</p>
                     <SikkerhetLeggTilSVG />
+                    <button onClick={handleHide}>X</button>
                     <Form>
+                      
                       <AdresseInput />
                       <BoligVerdiInput />
                       <KjopeVerdiInput />
