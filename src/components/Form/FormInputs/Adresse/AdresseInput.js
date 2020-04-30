@@ -8,10 +8,12 @@ const AdresseInput = () => {
   const { setFieldValue } = useFormikContext();
   const [adress, setAdress] = useState(""); //For google autocomplete
 
-  const handleSelect = async value => {};
-  console.log(adress +"hei")
-      
+  const handleSelect = () => {
+	setFieldValue("Adresse" , adress)
+  };
+  //console.log(adress +"hei")
 
+	
   return (
     <div>
       <PlacesAutocomplete
@@ -23,7 +25,8 @@ const AdresseInput = () => {
           <div>
             <StyledInput
               location={"suggestWords"}
-              onChange={e => setFieldValue("Adresse" , e.target.value)}
+			  value={adress}
+              //onChange={() => console.log(adress)}
               label="Adresse"
               {...getInputProps({ placeholder: "Skriv adresse" })}
             />
@@ -37,10 +40,10 @@ const AdresseInput = () => {
 
 				return <div {...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</div>
 			})}
-      
+
 			</div>
-      
-			
+
+
           </div>
         )}
       </PlacesAutocomplete>
