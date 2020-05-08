@@ -160,7 +160,7 @@ const Videre = styled.div`
  flex-direction: row;
  min-width: 300px;
  justify-content: center;
- padding-top: 150px;
+ padding-top: 20px;
  button {
    width: 280px;
  }

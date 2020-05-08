@@ -57,10 +57,12 @@ export const OkonomiForm = ({ next }) => {
             <SamletInntekt />
             <AntallBilerInput />
             <AntallBoligerInput />
+            <div className="navigationButtons">
             <Button className="videreKnapp" type="submit" onClick={handleSubmit}>
               Videre
             </Button>
             {fireRedirect && <Redirect to={next} />}
+            </div>
           </Form>
         );
       }}

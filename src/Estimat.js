@@ -51,7 +51,7 @@ const Estimate = styled.div`
 const Videre = styled.div`
   display: flex;
   flex-direction: row;
-  padding-top: 134px;
+  padding-top: 50px;
   min-width: 300px;
   justify-content: space-around;
   button {
