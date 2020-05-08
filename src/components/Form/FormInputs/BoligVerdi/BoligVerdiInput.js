@@ -9,12 +9,12 @@ const BoligVerdiInput = (name, ...props) => {
   return (
     <div>
       <SliderKeyboardInput
-        label="Boligverdi"
+        label="Prisantydning ny bolig"
         name="BoligVerdi"
-        min={100}
-        max={500}
-        step={50}
-        defaultValue={0}
+        min={25000}
+        max={15000000}
+        step={1250000}
+        defaultValue={5500000}
         onChange={value => (
           setBoligVerdi(boligVerdi), setFieldValue("BoligVerdi", value)
         )}

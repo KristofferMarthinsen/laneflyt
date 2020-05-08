@@ -51,8 +51,8 @@ export const Nedbetaling = ({ next }) => {
               <NedbetalingsPris>
                 <NedbetalingstidInput />
                 <AvdragsFrihetInput />
-                <Input label={"Rente nominell:"} disabled />
-                <Input label={"Rente effektiv:"} disabled />
+                <Input label={"Nominell rente:"} disabled />
+                <Input label={"Effektiv rente:"} disabled />
                 <Input label={"Å betale hver måned:"} disabled />
               </NedbetalingsPris>
             </Form>

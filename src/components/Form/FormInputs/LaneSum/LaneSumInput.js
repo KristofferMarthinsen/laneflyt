@@ -8,11 +8,11 @@ const LaneSumInput = () => {
   return (
     <div>
       <SliderKeyboardInput
-        label="Lånesum"
+        label="Ønsket lånebeløp"
         name="LaneSum"
-        min={100}
-        max={500}
-        step={50}
+        min={15000000}
+        max={25000}
+        step={125000}
         defaultValue={100}
         onChange={value => (
           setLaneSum(LaneSum), setFieldValue("LaneSum", value)
