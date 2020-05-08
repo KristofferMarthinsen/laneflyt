@@ -21,7 +21,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   align-content: space-between;
-  padding-top: 30px;
+  padding-top: 8rem;
   z-index: 0;
 `;
 
@@ -44,7 +44,7 @@ const Tekst = styled.div`
   width: 285px;
 
   h3 {
-    padding-top: 20px;
+    padding-top: 30px;
     font-size: 16px;
     font-weight: normal;
   }

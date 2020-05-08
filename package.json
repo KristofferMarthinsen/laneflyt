@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@staccx/bento": "^10.0.1-alpha.27",
+    "bento": "^0.2.2",
     "formik": "^2.1.4",
     "mongodb": "^3.5.5",
     "mongodb-stitch-browser-sdk": "^4.8.0",

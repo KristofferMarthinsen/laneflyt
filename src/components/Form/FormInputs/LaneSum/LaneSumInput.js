@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SliderKeyboardInput } from "@staccx/bento";
+import { SliderKeyboardInput, formatting } from "@staccx/bento";
 import { useFormikContext } from "formik";
 
 const LaneSumInput = () => {
@@ -8,17 +8,17 @@ const LaneSumInput = () => {
   return (
     <div>
       <SliderKeyboardInput
-        label="Ønsket lånebeløp"
+        label="Ønsket lån"
         name="LaneSum"
-        min={15000000}
-        max={25000}
+        min={25000}
+        max={15000000}
         step={125000}
-        defaultValue={100}
+        defaultValue={4400000}
         onChange={value => (
           setLaneSum(LaneSum), setFieldValue("LaneSum", value)
         )}
        
-      />
+      ></SliderKeyboardInput>
     </div>
   );
 };

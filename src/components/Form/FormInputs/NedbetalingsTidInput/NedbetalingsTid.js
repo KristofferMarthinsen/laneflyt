@@ -8,7 +8,7 @@ const NedbetalingsTid = ({ name, ...props }) => {
 
   return (
     <div>
-	  <SelectSimple
+    <SelectSimple
         label="Nedbetalingstid"
         name="Nedbetalingstid"
         id="Nedbetaling"
@@ -56,3 +56,4 @@ export default NedbetalingsTid;
 const Error = styled.div`
   color: red;
 `;
+

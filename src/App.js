@@ -15,7 +15,7 @@ import background from "./theme/header-background.png";
 import { WebFonts, GlobalStyle } from "@staccx/bento";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import styled from "styled-components";
-import Estimat2 from "./Estimat2";
+import Estimat2 from "./Estimat2"; 
 import { ObjectId } from "mongodb"
 import { laneflytCollection } from "./components/MongoDB";
 // import {

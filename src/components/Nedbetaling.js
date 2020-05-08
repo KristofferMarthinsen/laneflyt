@@ -9,21 +9,21 @@ import NedbetalingstidInput from "./Form/FormInputs/NedbetalingsTidInput/Nedbeta
 import AvdragsFrihetInput from "./Form/FormInputs/AvdragsFrihet/AvdragsFrihetInput";
 import styled from "styled-components";
 import { laneflytCollection } from "./MongoDB";
+import NominellRenteInput from "./Form/FormInputs/NominellRente/NominellRenteInput";
 
 export const Nedbetaling = ({ next }) => {
   const [setNedbetaling] = useState(null);
   const [fireRedirect, setFireRedirect] = useState(false);
-  
+
   return (
     <Formik
       validationSchema={SignupSchema}
       initialValues={{
-        Id:"1",
+        Id: "1",
         BoligVerdi: "",
         LaneSum: "",
         NedbetalingsTid: "",
-        AvdragsFrihet: "",
-    
+        AvdragsFrihet: ""
       }}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
@@ -45,17 +45,24 @@ export const Nedbetaling = ({ next }) => {
         };
         return (
           <div>
-            <Form>
-              <BoligVerdiInput />
-              <LaneSum />
-              <NedbetalingsPris>
-                <NedbetalingstidInput />
-                <AvdragsFrihetInput />
-                <Input label={"Nominell rente:"} disabled />
-                <Input label={"Effektiv rente:"} disabled />
-                <Input label={"Å betale hver måned:"} disabled />
-              </NedbetalingsPris>
-            </Form>
+            <Wrapper>
+              <Form>
+                <BoligVerdiInput />
+                <LaneSum />
+                <NedbetalingsPris>
+                  <NedbetalingstidInput />
+                  <AvdragsFrihetInput />
+                </NedbetalingsPris>
+                <NominellRenteInput />
+                <p>
+                  Å betale hver måned: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 9897,-
+                </p> {
+                  //Ekstremt midlertidig måte å skrive mellomrom på
+                }
+              </Form>
+            </Wrapper>
             <div className="navigationButtons">
               <Button className="nextBtn" type="submit" onClick={handleSubmit}>
                 Videre
@@ -77,13 +84,22 @@ export const Nedbetaling = ({ next }) => {
 
 export default Nedbetaling;
 
+const Wrapper = styled(Form)`
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 430px;
+  }
+`;
+
 const NedbetalingsPris = styled.div`
-  background: #ffffff;
-  box-shadow: 0px 16px 16px rgba(0, 0, 75, 0.02),
-    0px 8px 8px rgba(0, 0, 75, 0.02), 0px 4px 7px rgba(0, 0, 75, 0.021),
-    0px 2px 2px rgba(0, 0, 75, 0.021), 0px 32px 22px rgba(0, 0, 75, 0.021),
-    0px 44px 64px rgba(0, 0, 75, 0.02);
-  border-radius: 2px;
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+  select {
+    width: 140px;
+  }
 `;
 
 const Buttons = styled.div`
