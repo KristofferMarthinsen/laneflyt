@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from "react";
-import { eiendelCollection } from "./components/MongoDB";
+import React from "react";
 import styled from "styled-components";
-
+ 
 const GjeldLeggTil = ({eie}) => {
   //const [verdi, setVerdi] = useState();
 

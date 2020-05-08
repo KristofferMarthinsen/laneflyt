@@ -10,6 +10,7 @@ const Sivilstatus = ({ name, ...props }) => {
 			<SelectSimple
 				label={"SivilStatus"}
 				name={"SivilStatus"}
+				id="Sivilstatus"
 				placeholder="Velg..."
 				{...props}
 				onChange={e => setFieldValue(name, e.target.value)}

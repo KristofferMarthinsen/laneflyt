@@ -30,7 +30,7 @@ const AdresseInput = () => {
               label="Adresse"
               {...getInputProps({ placeholder: "Skriv adresse" })}
             />
-            <div>{loading ? <div>...loading</div> : null}
+            <div>{loading ? <div>...loading</div> : null} 
 
 			{suggestions.map(suggestion => {
 

@@ -1,22 +1,9 @@
-import React, { useState } from "react";
-import { eiendelCollection } from "./MongoDB";
-import { object } from "yup";
+import React from "react";
 import styled from "styled-components";
 
 
-const SikkerhetLagtTil = () => {
-  const [eiendeler, setEiendeler] = useState([]);
-  eiendelCollection
-    .find()
-    .toArray()
-    .then(items => {
-      if (eiendeler.length == 0) {
-        setEiendeler(items);
-      }
-    })
-    .catch(err => console.error(`Failed to find documents: ${err}`));
-
-
+const SikkerhetLagtTil = ({eie}) => {
+  
   return (
     <EiendelerListe>
       <ul>
@@ -27,7 +14,7 @@ const SikkerhetLagtTil = () => {
       </ul>
 
       <ul>
-        {eiendeler.map(adresse => (
+        {eie.map(adresse => (
           <Verdier>
             <>
               <li className="adresse">{adresse.Adresse}</li>

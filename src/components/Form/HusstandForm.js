@@ -97,10 +97,10 @@ export const HusstandForm = ({ next }) => {
                 value={barn}
                 group="barn"
               >
-                <RadioButton value={true} id="1" onChange={() => setBarn(true)}>
+                <RadioButton key="ja" value={true} id="1" onChange={() => setBarn(true)}>
                   Ja
                 </RadioButton>
-                <RadioButton id="2" value={false}>
+                <RadioButton key="nei" id="2" value={false}>
                   Nei
                 </RadioButton>
               </CheckGroup>

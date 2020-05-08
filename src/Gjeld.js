@@ -38,7 +38,7 @@ const Gjeld = () => {
     setPopupState(false);
   };
 
-
+ 
 
   	useEffect(() => {
 	eiendelCollection

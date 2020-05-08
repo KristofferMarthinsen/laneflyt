@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Button } from "@staccx/bento";
 import { Link } from "react-router-dom";
@@ -12,7 +12,6 @@ import KjopeVerdiInput from "./components/Form/FormInputs/KjopeVerdi/KjopeVerdiI
 import BoligVerdiInput from "./components/Form/FormInputs/BoligVerdi/BoligVerdiInput";
 import { eiendelCollection } from "./components/MongoDB";
 import SikkerhetLagtTil from "./components/SikkerhetLagtTil";
-import Gma from "./components/GjeldLagtTil"
 
 
 
@@ -28,7 +27,7 @@ const Subtitle = () => (
 
 const Sikkerhet = () => {
   const [PopupState, setPopupState] = useState(false); //Set state for toggle view of popup
- 
+  const [eiendeler, setEiendeler] = useState([])
 
 
   const handleShow = () => {
@@ -39,12 +38,27 @@ const Sikkerhet = () => {
     setPopupState(false);
   };
 
+  useEffect(() => {
+    eiendelCollection
+      .find()
+      .toArray()
+      .then(items => {
+        if (eiendeler.length === 0) {
+          setEiendeler(items);
+        }
+        //setAdress([...adress, db.Adresse])
+        //setVerdi(db.EiendomsVerdi);
+      })
+      .catch(err => console.error(`Failed to find documents: ${err}`));
+  
+    },[])
+
   
 
   return (
     <div>
       <Layout title="Sikkerhet" id={6} icon={SikkerhetSVG} subtitle={Subtitle}>
-        <SikkerhetLagtTil />
+        <SikkerhetLagtTil eie={eiendeler}/>
         <Button onClick={handleShow} variant="unstyledButton">
           Legg til +
         </Button>
@@ -69,9 +83,11 @@ const Sikkerhet = () => {
 
                   
                   eiendelCollection.insertOne(leggTil)
-                    .then(result => console.log(`Successfully inserted item with _id: ${result.insertedId}`))
-                    .catch(err => console.error(`Failed to insert item: ${err}`))
-                  setSubmitting(false);
+      .then(result => console.log(`Successfully inserted item with _id: ${result.insertedId}`)).then(() => {
+				setEiendeler(oldArray => [...oldArray, leggTil]);
+	}
+		).catch(err => console.error(`Failed to insert item: ${err}`))
+			setSubmitting(false);
                   handleHide(); //Set state to false once form is filled out
                 }, 400);
               }}
