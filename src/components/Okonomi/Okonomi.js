@@ -1,8 +1,8 @@
 import React from "react";
-import { OkonomiSVG } from "./svg/OkonomiSVG";
-import Layout from "./components/Layout";
+import { OkonomiSVG } from "../../svg/OkonomiSVG";
+import Layout from "../Layout";
 import styled from "styled-components";
-import { OkonomiForm } from "./components/Form/Okonomi/OkonomiForm";
+import { OkonomiForm } from "../Form/Okonomi/OkonomiForm";
 
 const Subtitle = () => (
   <>

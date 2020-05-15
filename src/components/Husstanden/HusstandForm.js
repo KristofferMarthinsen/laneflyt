@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { Button, CheckGroup, RadioButton } from "@staccx/bento";
 import { Formik, Form } from "formik";
 import { Redirect, Link } from "react-router-dom";
-import FornavnInput from "./FormInputs/fornavn/FornavnInput";
-import EtternavnInput from "./FormInputs/Etternavn/EtternavnInput";
-import EpostInput from "./FormInputs/Epost/EpostInput";
-import SignupSchema from "./Schema/HusstandForm.schema";
-import SivilStatusInput from "./FormInputs/SivilStatus/SivilStatusInput";
-import AntallBarnInput from "./FormInputs/AntallBarn/AntallBarnInput";
-import TelefonNummerInput from "./FormInputs/Telefon/TelefonNummerInput";
+import FornavnInput from "../Form/FormInputs/fornavn/FornavnInput";
+import EtternavnInput from "../Form/FormInputs/Etternavn/EtternavnInput";
+import EpostInput from "../Form/FormInputs/Epost/EpostInput";
+import SignupSchema from "../../components/Form/Schema/HusstandForm.schema";
+import SivilStatusInput from "../Form/FormInputs/SivilStatus/SivilStatusInput";
+import AntallBarnInput from "../Form/FormInputs/AntallBarn/AntallBarnInput";
+import TelefonNummerInput from "../Form/FormInputs/Telefon/TelefonNummerInput";
 import styled from "styled-components";
-import { laneflytCollection } from "../MongoDB";
+import { laneflytCollection } from "../../MongoDB";
 import { useApp } from "../../context/AppContextProvider";
 import AntallLanetakere from "./AntallLanetakere"
 

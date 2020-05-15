@@ -1,21 +1,21 @@
 import React from "react";
-import Lanedetaljer from "./Lanedetaljer";
-import Lanetakere from "./Lanetakere";
-import Husstanden from "./Husstanden";
-import Legitimering from "./Legitimering";
-import Estimat from "./Estimat";
-import Sikkerhet from "./Sikkerhet";
+import Lanedetaljer from "./components/Lanedetaljer/Lanedetaljer";
+import Lanetakere from "./components/Lanetakere/Lanetakere";
+import Husstanden from "./components/Husstanden/Husstanden";
+import Legitimering from "./components/Legitimering/Legitimering";
+import Estimat from "./components/Estimat/Estimat";
+import Sikkerhet from "./components/Sikkerhet/Sikkerhet";
 import { ThemeProvider } from "styled-components";
-import NedbetalingsPlan from "./components/NedbetalingsPlan";
-import Okonomi from "./Okonomi";
-import Gjeld from "./Gjeld";
-import GjeldLeggTil from "./GjeldLeggTil";
+import NedbetalingsPlan from "./components/Nedbetalingsplan/NedbetalingsPlan";
+import Okonomi from "./components/Okonomi/Okonomi";
+import Gjeld from "./components/Gjeld/Gjeld";
+import GjeldLeggTil from "./components/Gjeld/GjeldLeggTil";
 import theme from "./theme/theme";
 import background from "./theme/header-background.png";
 import { WebFonts, GlobalStyle } from "@staccx/bento";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import styled from "styled-components";
-import Estimat2 from "./Estimat2";
+import Estimat2 from "./components/Estimat/Estimat2";
 import {AppContextProvider} from "./context/AppContextProvider";
 
 function App() {

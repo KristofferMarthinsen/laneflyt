@@ -5,7 +5,7 @@ import { Formik, Form } from "formik";
 import SamletInntekt from "../FormInputs/SamletInntekt/SamletInntekt";
 import AntallBilerInput from "../FormInputs/AntallBiler/AntallBilerInput";
 import AntallBoligerInput from "../FormInputs/AntallBoliger/AntallBoligerInput";
-import { laneflytCollection } from "../../../components/MongoDB"
+import { laneflytCollection } from "../../../MongoDB"
 
 
 export const OkonomiForm = ({ next }) => {

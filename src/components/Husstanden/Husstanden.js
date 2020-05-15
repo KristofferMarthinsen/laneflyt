@@ -1,6 +1,6 @@
 import React from "react";
-import Layout from "./components/Layout";
-import HusstandForm from "./components/Form/HusstandForm";
+import Layout from "../Layout";
+import HusstandForm from "./HusstandForm";
 
 export const Husstanden = () => {
   return (

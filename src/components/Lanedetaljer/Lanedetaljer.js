@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Nedbetaling from "./components/Nedbetaling";
-import Layout from "./components/Layout";
+import Nedbetaling from "./Nedbetaling";
+import Layout from "../Layout";
 
 export const Lanedetaljer = () => {
   return (

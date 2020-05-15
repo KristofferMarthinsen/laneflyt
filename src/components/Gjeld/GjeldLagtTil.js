@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { laneflytCollection } from "./MongoDB"
+import { laneflytCollection } from "../../MongoDB"
 
 const query = { "Id": "1" };
 const options = {

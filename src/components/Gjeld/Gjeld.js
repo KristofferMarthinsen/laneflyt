@@ -1,16 +1,16 @@
 import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
-import { GjeldSVG } from "./svg/Gjeld1";
-import {Gjeld2SVG} from "./svg/Gjeld2"
-import Layout from "./components/Layout";
+import { GjeldSVG } from "../../svg/Gjeld1";
+import {Gjeld2SVG} from "../../svg/Gjeld2"
+import Layout from "../Layout";
 import styled from "styled-components";
 import GjeldLeggTil from "./GjeldLeggTil"
 import { Button } from "@staccx/bento";
-import GjeldFormSchema from "./components/Form/Schema/GjeldForm.schema";
-import LanGiverInput from "./components/Form/FormInputs/Langiver/LanGiverInput";
-import LanTypeInput from "./components/Form/FormInputs/Langiver/LanType";
-import SumGjeld from "./components/Form/FormInputs/Langiver/LanGiverSumGjeld";
-import { eiendelCollection } from "./components/MongoDB";
+import GjeldFormSchema from "../Form/Schema/GjeldForm.schema";
+import LanGiverInput from "../Form/FormInputs/Langiver/LanGiverInput";
+import LanTypeInput from "../Form/FormInputs/Langiver/LanType";
+import SumGjeld from "../Form/FormInputs/Langiver/LanGiverSumGjeld";
+import { eiendelCollection } from "../../MongoDB";
 import { Formik, Form } from "formik";
 
 

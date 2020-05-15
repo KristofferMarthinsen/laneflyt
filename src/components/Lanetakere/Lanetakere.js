@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Button, RadioButton } from "@staccx/bento";
 import { Link } from "react-router-dom";
-import { Gris } from "./svg/Gris";
+import { Gris } from "../../svg/Gris";
 import styled from "styled-components";
-import Layout from "./components/Layout";
-import { useApp } from "./context/AppContextProvider"
+import Layout from "../Layout";
+import { useApp } from "../../context/AppContextProvider"
 
 const Subtitle = () => (
   <>

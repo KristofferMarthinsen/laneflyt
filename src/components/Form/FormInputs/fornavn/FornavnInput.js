@@ -1,5 +1,5 @@
 import React from "react"
-import HusstandInput from "../../HusstandInputs"
+import HusstandInput from "../../../Husstanden/HusstandInputs"
 
 
 

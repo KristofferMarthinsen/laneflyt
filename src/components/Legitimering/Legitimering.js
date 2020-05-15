@@ -2,8 +2,8 @@ import React from "react";
 import { Button} from "@staccx/bento";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { DokApp } from "./svg/DokApp";
-import Layout from "./components/Layout";
+import { DokApp } from "../../svg/DokApp";
+import Layout from "../Layout";
 
 const Subtitle = () => (
   <>

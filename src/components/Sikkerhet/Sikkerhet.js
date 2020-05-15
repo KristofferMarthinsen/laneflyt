@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Button } from "@staccx/bento";
 import { Link } from "react-router-dom";
-import { SikkerhetSVG } from "./svg/SikkerhetSVG";
-import Layout from "./components/Layout";
-import { SikkerhetLeggTilSVG } from "./svg/SikkerhetLeggTilSVG";
+import { SikkerhetSVG } from "../../svg/SikkerhetSVG";
+import Layout from "../Layout";
+import { SikkerhetLeggTilSVG } from "../../svg/SikkerhetLeggTilSVG";
 import { Formik, Form } from "formik";
-import SignupSchema from "./components/Form/Schema/SikkerhetForm.schema";
-import AdresseInput from "./components/Form/FormInputs/Adresse/AdresseInput";
-import KjopeVerdiInput from "./components/Form/FormInputs/KjopeVerdi/KjopeVerdiInput";
-import BoligVerdiInput from "./components/Form/FormInputs/BoligVerdi/BoligVerdiInput";
-import { eiendelCollection } from "./components/MongoDB";
-import SikkerhetLagtTil from "./components/SikkerhetLagtTil";
+import SignupSchema from "../Form/Schema/SikkerhetForm.schema";
+import AdresseInput from "../Form/FormInputs/Adresse/AdresseInput";
+import KjopeVerdiInput from "../Form/FormInputs/KjopeVerdi/KjopeVerdiInput";
+import BoligVerdiInput from "../Form/FormInputs/BoligVerdi/BoligVerdiInput";
+import { eiendelCollection } from "../../MongoDB";
+import SikkerhetLagtTil from "./SikkerhetLagtTil";
 
 
 

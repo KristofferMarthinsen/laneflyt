@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { Redirect, Link } from "react-router-dom";
 import { Input, Button } from "@staccx/bento";
-import LaneSum from "./Form/FormInputs/LaneSum/LaneSumInput";
-import BoligVerdiInput from "./Form/FormInputs/BoligVerdi/BoligVerdiInput";
+import LaneSum from "../Form/FormInputs/LaneSum/LaneSumInput";
+import BoligVerdiInput from "../Form/FormInputs/BoligVerdi/BoligVerdiInput";
 import { Formik, Form } from "formik";
-import SignupSchema from "./Form/Schema/NedbetalingForm.schema";
-import NedbetalingstidInput from "./Form/FormInputs/NedbetalingsTidInput/NedbetalingsTidInput";
-import AvdragsFrihetInput from "./Form/FormInputs/AvdragsFrihet/AvdragsFrihetInput";
+import SignupSchema from "../Form/Schema/NedbetalingForm.schema";
+import NedbetalingstidInput from "../Form/FormInputs/NedbetalingsTidInput/NedbetalingsTidInput";
+import AvdragsFrihetInput from "../Form/FormInputs/AvdragsFrihet/AvdragsFrihetInput";
 import styled from "styled-components";
-import { laneflytCollection } from "./MongoDB";
-import NominellRenteInput from "./Form/FormInputs/NominellRente/NominellRenteInput";
+import { laneflytCollection } from "../../MongoDB";
+import NominellRenteInput from "../Form/FormInputs/NominellRente/NominellRenteInput";
 
 export const Nedbetaling = ({ next }) => {
   const [setNedbetaling] = useState(null);
