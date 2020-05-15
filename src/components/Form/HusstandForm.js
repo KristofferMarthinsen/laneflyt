@@ -11,11 +11,13 @@ import AntallBarnInput from "./FormInputs/AntallBarn/AntallBarnInput";
 import TelefonNummerInput from "./FormInputs/Telefon/TelefonNummerInput";
 import styled from "styled-components";
 import { laneflytCollection } from "../MongoDB";
-
+import { useApp } from "../../context/AppContextProvider";
+import AntallLanetakere from "./AntallLanetakere"
 
 export const HusstandForm = ({ next }) => {
   const [barn, setBarn] = useState(false);
   const [fireRedirect, setFireRedirect] = useState(false);
+  const { medlantaker } = useApp();
 
   return (
     <Formik
@@ -28,39 +30,41 @@ export const HusstandForm = ({ next }) => {
         SivilStatus: null,
         barn: barn,
         BarnAlder: null,
-        antallBarn: null
+        antallBarn: null,
       }}
-
       onSubmit={(values, { setSubmitting }) => {
-
         setTimeout(() => {
-          
           // Set some fields in that document
           const leggTil = {
-            "$set": {
-            Fornavn: values.Fornavn,
-            Etternavn: values.Etternavn,
-            Telefon: values.Telefon,
-            Epost: values.Epost,
-            SivilStatus: values.SivilStatus,
-            barn: values.barn,
-            BarnAlder: values.BarnAlder,
-            AntallBarn: values.AntallBarn
-            }
-            };
+            $set: {
+              Fornavn: values.Fornavn,
+              Etternavn: values.Etternavn,
+              Telefon: values.Telefon,
+              Epost: values.Epost,
+              SivilStatus: values.SivilStatus,
+              barn: values.barn,
+              BarnAlder: values.BarnAlder,
+              AntallBarn: values.AntallBarn,
+            },
+          };
 
           const options = { returnNewDocument: true };
-          
-          laneflytCollection.findOneAndUpdate({"Id": "1"}, leggTil, options)
-            .then(updatedDocument => {
-              if(updatedDocument) {
-                console.log(`Successfully updated document: ${updatedDocument}.`)
+
+          laneflytCollection
+            .findOneAndUpdate({ Id: "1" }, leggTil, options)
+            .then((updatedDocument) => {
+              if (updatedDocument) {
+                console.log(
+                  `Successfully updated document: ${updatedDocument}.`
+                );
               } else {
-                console.log("No document matches the provided query.")
+                console.log("No document matches the provided query.");
               }
-              return updatedDocument
+              return updatedDocument;
             })
-            .catch(err => console.error(`Failed to find and update document: ${err}`))
+            .catch((err) =>
+              console.error(`Failed to find and update document: ${err}`)
+            );
 
           setSubmitting(false);
           setFireRedirect(true);
@@ -68,20 +72,18 @@ export const HusstandForm = ({ next }) => {
       }}
     >
       {({ handleSubmit, setFieldValue }) => {
-        const handleBarn = value => {
+        const handleBarn = (value) => {
           setFieldValue("barn", value);
           setBarn(value === "true" ? true : false);
         };
         return (
           <>
-            <Lanetakere>
-              <Button autoFocus variant="topButton" id="hoved">
-                Hovedlåntaker
-              </Button>
-              <Button variant="topButton" id="med">
-                Medlåntaker
-              </Button>
-            </Lanetakere>
+            {medlantaker && (
+              <Lanetakere>
+              <AntallLanetakere/>
+              </Lanetakere>
+            )}
+
             <Form>
               <FornavnInput />
               <EtternavnInput />
@@ -93,11 +95,16 @@ export const HusstandForm = ({ next }) => {
                 label="Barn"
                 name="barn"
                 type="barn"
-                onChange={value => handleBarn(value)}
+                onChange={(value) => handleBarn(value)}
                 value={barn}
                 group="barn"
               >
-                <RadioButton key="ja" value={true} id="1" onChange={() => setBarn(true)}>
+                <RadioButton
+                  key="ja"
+                  value={true}
+                  id="1"
+                  onChange={() => setBarn(true)}
+                >
                   Ja
                 </RadioButton>
                 <RadioButton key="nei" id="2" value={false}>
@@ -126,6 +133,8 @@ export const HusstandForm = ({ next }) => {
                   </Button>
                 </Link>
               </div>
+                
+               
             </Form>
           </>
         );
@@ -137,26 +146,5 @@ export const HusstandForm = ({ next }) => {
 export default HusstandForm;
 
 const Lanetakere = styled.div`
-  width: 225px;
-  margin-bottom: 45px;
-  button {
-    min-height: 40px;
-    min-width: 112px;
-    padding: 0px;
-    text-align: center;
-    line-height: 10px;
-    font-weight: 500;
-    font-size: 14px;
-    border: 2px solid #146670;
-    box-sizing: border-box;
-  }
-  button:focus {
-    background-color: #146670;
-  }
-  #hoved {
-    border-radius: 4px 0px 0px 4px;
-  }
-  #med {
-    border-radius: 0px 4px 4px 0px;
-  }
+  margin-bottom: 25px;
 `;

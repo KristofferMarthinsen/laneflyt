@@ -15,79 +15,56 @@ import background from "./theme/header-background.png";
 import { WebFonts, GlobalStyle } from "@staccx/bento";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import styled from "styled-components";
-import Estimat2 from "./Estimat2"; 
-import { ObjectId } from "mongodb"
-import { laneflytCollection } from "./components/MongoDB";
-// import {
-// 	Stitch,
-// 	AnonymousCredential,
-// 	RemoteMongoClient
-// } from "mongodb-stitch-browser-sdk";
-//
-//
-// Stitch.initializeDefaultAppClient("laneflyten-bntik");
-// export const client = Stitch.defaultAppClient;
-// export const mongoClient = client.getServiceClient(
-// 	RemoteMongoClient.factory,
-// 	"mongodb-atlas"
-// );
-// client.auth.loginWithCredential(new AnonymousCredential()).then(user => {
-// 	console.log(`logged in anonymously as user ${user.id}`);
-// });
-
-
-// laneflytCollection.find({})
-// 	.asArray().then(docs => {
-// 	docs.map(itm => {
-// 		console.log(itm._id)
-// 	})
-// });
+import Estimat2 from "./Estimat2";
+import {AppContextProvider} from "./context/AppContextProvider";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <WebFonts />
+      <AppContextProvider>
+        <GlobalStyle />
+        <WebFonts />
 
-      <Router>
-        <Laneflyt>
-          <Switch>
-            <Route exact path="/">
-              <Lanedetaljer title={"Lånedetaljer"}/>
-            </Route>
-            <Route path="/Lanetakere">
-              <Lanetakere title="Lånetakere" />
-            </Route>
-            <Route path="/Husstanden">
-              <Husstanden />
-            </Route>
-            <Route path="/Legitimering">
-              <Legitimering />
-            </Route>
-            <Route path="/Estimat">
-              <Estimat />
-            </Route>
-            <Route path="/Sikkerhet">
-              <Sikkerhet />
-            </Route>
-            <Route path="/NedbetalingsPlan">
-              <NedbetalingsPlan />
-            </Route>
-            <Route path="/Okonomi">
-              <Okonomi />
-            </Route>
-            <Route path="/Gjeld">
-              <Gjeld />
-            </Route>
-            <Route path="/GjeldLeggTil">
-              <GjeldLeggTil />
-            </Route>
-            <Route path="/Estimat2">
-              <Estimat2 />
-            </Route>
-          </Switch>
-        </Laneflyt>
-      </Router>
+        <Router>
+          <Laneflyt>
+            <Switch>
+              <Route exact path="/">
+                <Lanedetaljer title={"Lånedetaljer"} />
+              </Route>
+              <Route path="/Lanetakere">
+                <Lanetakere title="Lånetakere" />
+              </Route>
+              <Route path="/Husstanden">
+                <Husstanden />
+              </Route>
+              <Route path="/Legitimering">
+                <Legitimering />
+              </Route>
+              <Route path="/Estimat">
+                <Estimat />
+              </Route>
+              <Route path="/Sikkerhet">
+                <Sikkerhet />
+              </Route>
+              <Route path="/NedbetalingsPlan">
+                <NedbetalingsPlan />
+              </Route>
+              <Route path="/Okonomi">
+                <Okonomi />
+              </Route>
+              <Route path="/Gjeld">
+                <Gjeld />
+              </Route>
+              <Route path="/GjeldLeggTil">
+                <GjeldLeggTil />
+              </Route>
+              <Route path="/Estimat2">
+                <Estimat2 />
+              </Route>
+            </Switch>
+          </Laneflyt>
+        </Router>
+      </AppContextProvider>
     </ThemeProvider>
   );
 }
