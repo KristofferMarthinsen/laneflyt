@@ -6,7 +6,7 @@ import { SikkerhetSVG } from "./svg/SikkerhetSVG";
 import Layout from "./components/Layout";
 import { SikkerhetLeggTilSVG } from "./svg/SikkerhetLeggTilSVG";
 import { Formik, Form } from "formik";
-import SignupSchema from "./components/Form/FormInputs/SikkerhetForm.schema";
+import SignupSchema from "./components/Form/Schema/SikkerhetForm.schema";
 import AdresseInput from "./components/Form/FormInputs/Adresse/AdresseInput";
 import KjopeVerdiInput from "./components/Form/FormInputs/KjopeVerdi/KjopeVerdiInput";
 import BoligVerdiInput from "./components/Form/FormInputs/BoligVerdi/BoligVerdiInput";

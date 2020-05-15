@@ -4,7 +4,7 @@ import { Input, Button } from "@staccx/bento";
 import LaneSum from "./Form/FormInputs/LaneSum/LaneSumInput";
 import BoligVerdiInput from "./Form/FormInputs/BoligVerdi/BoligVerdiInput";
 import { Formik, Form } from "formik";
-import SignupSchema from "./Form/FormInputs/NedbetalingForm.schema";
+import SignupSchema from "./Form/Schema/NedbetalingForm.schema";
 import NedbetalingstidInput from "./Form/FormInputs/NedbetalingsTidInput/NedbetalingsTidInput";
 import AvdragsFrihetInput from "./Form/FormInputs/AvdragsFrihet/AvdragsFrihetInput";
 import styled from "styled-components";

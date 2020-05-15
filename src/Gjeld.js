@@ -6,7 +6,7 @@ import Layout from "./components/Layout";
 import styled from "styled-components";
 import GjeldLeggTil from "./GjeldLeggTil"
 import { Button } from "@staccx/bento";
-import GjeldFormSchema from "./components/Form/FormInputs/GjeldForm.schema";
+import GjeldFormSchema from "./components/Form/Schema/GjeldForm.schema";
 import LanGiverInput from "./components/Form/FormInputs/Langiver/LanGiverInput";
 import LanTypeInput from "./components/Form/FormInputs/Langiver/LanType";
 import SumGjeld from "./components/Form/FormInputs/Langiver/LanGiverSumGjeld";

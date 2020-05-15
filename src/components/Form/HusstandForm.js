@@ -5,7 +5,7 @@ import { Redirect, Link } from "react-router-dom";
 import FornavnInput from "./FormInputs/fornavn/FornavnInput";
 import EtternavnInput from "./FormInputs/Etternavn/EtternavnInput";
 import EpostInput from "./FormInputs/Epost/EpostInput";
-import SignupSchema from "./FormInputs/HusstandForm.schema";
+import SignupSchema from "./Schema/HusstandForm.schema";
 import SivilStatusInput from "./FormInputs/SivilStatus/SivilStatusInput";
 import AntallBarnInput from "./FormInputs/AntallBarn/AntallBarnInput";
 import TelefonNummerInput from "./FormInputs/Telefon/TelefonNummerInput";
