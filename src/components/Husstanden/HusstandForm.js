@@ -9,15 +9,12 @@ import SignupSchema from "../../components/Form/Schema/HusstandForm.schema";
 import SivilStatusInput from "../Form/FormInputs/SivilStatus/SivilStatusInput";
 import AntallBarnInput from "../Form/FormInputs/AntallBarn/AntallBarnInput";
 import TelefonNummerInput from "../Form/FormInputs/Telefon/TelefonNummerInput";
-import styled from "styled-components";
 import { laneflytCollection } from "../../MongoDB";
-import { useApp } from "../../context/AppContextProvider";
-import AntallLanetakere from "./AntallLanetakere"
+
 
 export const HusstandForm = ({ next }) => {
   const [barn, setBarn] = useState(false);
   const [fireRedirect, setFireRedirect] = useState(false);
-  const { medlantaker } = useApp();
 
   return (
     <Formik
@@ -36,6 +33,8 @@ export const HusstandForm = ({ next }) => {
         setTimeout(() => {
           // Set some fields in that document
           const leggTil = {
+
+
             $set: {
               Fornavn: values.Fornavn,
               Etternavn: values.Etternavn,
@@ -78,11 +77,7 @@ export const HusstandForm = ({ next }) => {
         };
         return (
           <>
-            {medlantaker && (
-              <Lanetakere>
-              <AntallLanetakere/>
-              </Lanetakere>
-            )}
+            
 
             <Form>
               <FornavnInput />
@@ -145,6 +140,4 @@ export const HusstandForm = ({ next }) => {
 
 export default HusstandForm;
 
-const Lanetakere = styled.div`
-  margin-bottom: 25px;
-`;
+

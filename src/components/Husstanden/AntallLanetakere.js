@@ -1,6 +1,7 @@
-import React from "react";
+import React, {} from "react";
 import { RadioPillItem, RadioPill } from "@staccx/bento";
 import styled from "styled-components";
+import { useApp } from "../../context/AppContextProvider";
 
 export const antallLanetakere = [
   {
@@ -18,6 +19,7 @@ export const antallLanetakere = [
 ];
 
 const AntallLanetakere = () => {
+  const {current, setCurrent} = useApp();
   return (
     <Group>
       <RadioPill group={"Lanetakere"}>
@@ -27,7 +29,9 @@ const AntallLanetakere = () => {
             value={listItem.value}
             defaultChecked={listItem.defaultChecked}
             id={listItem.myUniqueId}
+            onClick={() => listItem.myUniqueId=="med" ? setCurrent(false) : setCurrent(true)} //setter verdi for hvilken formdata som skal sendes inn
           >
+            {console.log(current)}
             {listItem.label}
           </RadioPillItem>
         ))}
