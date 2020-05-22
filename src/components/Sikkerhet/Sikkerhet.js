@@ -13,8 +13,6 @@ import BoligVerdiInput from "../Form/FormInputs/BoligVerdi/BoligVerdiInput";
 import { eiendelCollection } from "../../MongoDB";
 import SikkerhetLagtTil from "./SikkerhetLagtTil";
 
-
-
 const Subtitle = () => (
   <>
     <h3>Har du en eiendom som kan brukes til sikkerhet for lånet?</h3>
@@ -27,8 +25,7 @@ const Subtitle = () => (
 
 const Sikkerhet = () => {
   const [PopupState, setPopupState] = useState(false); //Set state for toggle view of popup
-  const [eiendeler, setEiendeler] = useState([])
-
+  const [eiendeler, setEiendeler] = useState([]);
 
   const handleShow = () => {
     setPopupState(true);
@@ -42,23 +39,20 @@ const Sikkerhet = () => {
     eiendelCollection
       .find()
       .toArray()
-      .then(items => {
+      .then((items) => {
         if (eiendeler.length === 0) {
           setEiendeler(items);
         }
         //setAdress([...adress, db.Adresse])
         //setVerdi(db.EiendomsVerdi);
       })
-      .catch(err => console.error(`Failed to find documents: ${err}`));
-  
-    },[])
-
-  
+      .catch((err) => console.error(`Failed to find documents: ${err}`));
+  }, []);
 
   return (
     <div>
       <Layout title="Sikkerhet" id={6} icon={SikkerhetSVG} subtitle={Subtitle}>
-        <SikkerhetLagtTil eie={eiendeler}/>
+        <SikkerhetLagtTil eie={eiendeler} />
         <Button onClick={handleShow} variant="unstyledButton">
           Legg til +
         </Button>
@@ -69,25 +63,31 @@ const Sikkerhet = () => {
               initialValues={{
                 Adresse: "",
                 BoligVerdi: "",
-                KjopeVerdi: ""
+                KjopeVerdi: "",
               }}
               onSubmit={(values, { setSubmitting }) => {
                 setTimeout(() => {
                   const leggTil = {
-                      Id: "1",
-                      Adresse: values.Adresse,
-                      EiendomsVerdi: values.BoligVerdi,
-                      KjopeVerdi: values.KjopeVerdi
-                    
+                    Id: "1",
+                    Adresse: values.Adresse,
+                    EiendomsVerdi: values.BoligVerdi,
+                    KjopeVerdi: values.KjopeVerdi,
                   };
 
-                  
-                  eiendelCollection.insertOne(leggTil)
-      .then(result => console.log(`Successfully inserted item with _id: ${result.insertedId}`)).then(() => {
-				setEiendeler(oldArray => [...oldArray, leggTil]);
-	}
-		).catch(err => console.error(`Failed to insert item: ${err}`))
-			setSubmitting(false);
+                  eiendelCollection
+                    .insertOne(leggTil)
+                    .then((result) =>
+                      console.log(
+                        `Successfully inserted item with _id: ${result.insertedId}`
+                      )
+                    )
+                    .then(() => {
+                      setEiendeler((oldArray) => [...oldArray, leggTil]);
+                    })
+                    .catch((err) =>
+                      console.error(`Failed to insert item: ${err}`)
+                    );
+                  setSubmitting(false);
                   handleHide(); //Set state to false once form is filled out
                 }, 400);
               }}
@@ -99,7 +99,6 @@ const Sikkerhet = () => {
                     <SikkerhetLeggTilSVG />
                     <button onClick={handleHide}>X</button>
                     <Form>
-                      
                       <AdresseInput />
                       <BoligVerdiInput />
                       <KjopeVerdiInput />
