@@ -10,6 +10,7 @@ import SivilStatusInput from "../Form/FormInputs/SivilStatus/SivilStatusInput";
 import AntallBarnInput from "../Form/FormInputs/AntallBarn/AntallBarnInput";
 import TelefonNummerInput from "../Form/FormInputs/Telefon/TelefonNummerInput";
 import { laneflytCollection } from "../../MongoDB";
+import styled from "styled-components";
 
 
 export const HusstandForm = ({ next }) => {
@@ -86,6 +87,7 @@ export const HusstandForm = ({ next }) => {
               <EpostInput />
               <SivilStatusInput />
               <p>Har du barn?</p>
+              <JaNei>
               <CheckGroup
                 label="Barn"
                 name="barn"
@@ -106,9 +108,10 @@ export const HusstandForm = ({ next }) => {
                   Nei
                 </RadioButton>
               </CheckGroup>
+              </JaNei>
               {barn && (
                 <>
-                  <p>antall barn </p>
+                  <p>Antall barn </p>
                   <AntallBarnInput />
                 </>
               )}
@@ -139,5 +142,11 @@ export const HusstandForm = ({ next }) => {
 };
 
 export default HusstandForm;
+
+const JaNei = styled.div`
+  display: inline-flex;
+  width: 150px;
+  justify-content: space-between;
+`
 
 

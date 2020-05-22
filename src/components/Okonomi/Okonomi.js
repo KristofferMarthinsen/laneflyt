@@ -25,4 +25,5 @@ export default Okonomi;
 
 const FormLayout = styled.div`
   padding-top: 25px;
+
 `;

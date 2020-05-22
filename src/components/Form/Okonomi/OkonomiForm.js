@@ -6,6 +6,7 @@ import SamletInntekt from "../FormInputs/SamletInntekt/SamletInntekt";
 import AntallBilerInput from "../FormInputs/AntallBiler/AntallBilerInput";
 import AntallBoligerInput from "../FormInputs/AntallBoliger/AntallBoligerInput";
 import { laneflytCollection } from "../../../MongoDB"
+import styled from "styled-components";
 
 
 export const OkonomiForm = ({ next }) => {
@@ -13,6 +14,7 @@ export const OkonomiForm = ({ next }) => {
   
 
   return (
+   
     <Formik
       initialValues={{
         SamletInntekt: "",
@@ -53,17 +55,22 @@ export const OkonomiForm = ({ next }) => {
     >
       {({ handleSubmit }) => {
         return (
+          
           <Form>
+            <Wrapper>
             <SamletInntekt />
             <AntallBilerInput />
             <AntallBoligerInput />
+            </Wrapper>
             <div className="navigationButtons">
             <Button className="videreKnapp" type="submit" onClick={handleSubmit}>
               Videre
             </Button>
             {fireRedirect && <Redirect to={next} />}
             </div>
+            
           </Form>
+          
         );
       }}
     </Formik> 
@@ -71,3 +78,10 @@ export const OkonomiForm = ({ next }) => {
 };
 
 export default OkonomiForm;
+
+const Wrapper = styled.div`
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+`

@@ -96,4 +96,7 @@ const Laneflyt = styled.div`
   .payplanBtn {
     width: 114px;
   }
+  p {
+    font-weight: 700;
+  }
 `;

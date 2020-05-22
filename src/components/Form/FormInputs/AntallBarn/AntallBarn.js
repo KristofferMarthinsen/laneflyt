@@ -104,7 +104,9 @@ const AntallBarn = ({ name, ...props }) => {
     </div>
   );
 };
+
+export default AntallBarn;
+
 const Error = styled.div`
   color: red;
-`;
-export default AntallBarn;
+`
